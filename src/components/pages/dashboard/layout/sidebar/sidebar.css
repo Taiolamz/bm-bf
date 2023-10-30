@@ -4,23 +4,25 @@
   background-color: var(--white-bg-color);
   display: flex;
   flex-direction: column;
+  padding: 1rem 2.5rem;
 }
 .sidebar-wrap .logo {
-  margin-top: 0.5rem;
-  padding: 3rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
 }
 .sidebar-wrap .sidebar-items-wrap {
-  margin-top: 2rem;
+  margin-top: 4.5rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
 }
 .sidebar-wrap .sidebar-items-wrap .sidebar-items-box {
   display: flex;
-  padding: 0 3rem;
   gap: 1.5rem;
   place-items: center;
   cursor: pointer;
+  font-size: 1.5rem;
 }
 .sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover {
   color: var(--blue-color);
@@ -61,7 +63,6 @@
   font-weight: 400;
 }
 .sidebar-wrap .sidebar-items-wrap .more-items-text {
-  padding: 0 2rem;
   padding-bottom: 2rem;
   cursor: pointer;
 }
@@ -88,17 +89,12 @@
   max-height: 20rem;
   transition: max-height 0.5s linear-bezier(0, 1.05, 0, 1);
 }
-.sidebar-wrap .sidebar-items-wrap .horizontal-line-wrap {
-  padding: 0 2rem;
-}
 .sidebar-wrap .sidebar-items-wrap .horizontal-line-wrap :nth-child(1) {
-  padding: 0 1rem;
   border-bottom: 0.1rem solid var(--border-color);
 }
 .sidebar-wrap .sidebar-items-wrap .user-profile-wrap {
   display: flex;
   flex-direction: column;
-  padding: 0 3rem;
   gap: 1rem;
 }
 .sidebar-wrap .sidebar-items-wrap .user-profile-wrap .profile-picture {

@@ -16,7 +16,7 @@
     background-color: var(--white-bg-color);
     border-radius: 0.8rem;
     padding: 2.5rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 60rem;
 
     &::-webkit-scrollbar:horizontal {
@@ -36,13 +36,13 @@
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: var(--blue-color);
+      background: var(--light-blue);;
       border-radius: 30rem;
     }
 
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-      background: var(--blue-color);
+      background: var(--light-blue);;
     }
 
     .right-bar-subscribed-users-wrap {

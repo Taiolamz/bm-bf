@@ -15,7 +15,7 @@
   background-color: var(--white-bg-color);
   border-radius: 0.8rem;
   padding: 2.5rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 60rem;
   /* width */
   /* Track */
@@ -32,11 +32,11 @@
   background-color: transparent !important;
 }
 .right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar-thumb {
-  background: var(--blue-color);
+  background: var(--light-blue);
   border-radius: 30rem;
 }
 .right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar-thumb:hover {
-  background: var(--blue-color);
+  background: var(--light-blue);
 }
 .right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap {
   display: flex;

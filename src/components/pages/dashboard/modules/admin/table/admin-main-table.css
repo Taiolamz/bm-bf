@@ -19,11 +19,11 @@
   background-color: transparent !important;
 }
 .admin-main-table-wrap::-webkit-scrollbar-thumb {
-  background: var(--blue-color);
+  background: var(--light-blue);
   border-radius: 30rem;
 }
 .admin-main-table-wrap::-webkit-scrollbar-thumb:hover {
-  background: var(--blue-color);
+  background: var(--light-blue);
 }
 .admin-main-table-wrap .admin-main-table-top-box {
   display: flex;
