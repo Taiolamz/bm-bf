@@ -1,0 +1,49 @@
+.admin-main-table-wrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 41rem;
+  overflow: scroll;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.admin-main-table-wrap::-webkit-scrollbar:horizontal {
+  display: none;
+}
+.admin-main-table-wrap::-webkit-scrollbar {
+  width: 0.6rem;
+}
+.admin-main-table-wrap::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+.admin-main-table-wrap::-webkit-scrollbar-thumb {
+  background: var(--blue-color);
+  border-radius: 30rem;
+}
+.admin-main-table-wrap::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-color);
+}
+.admin-main-table-wrap .admin-main-table-top-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.admin-main-table-wrap .admin-main-table-top-box .title-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.admin-main-table-wrap .admin-main-table-top-box .title-box .title {
+  color: #252c32;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.admin-main-table-wrap .admin-main-table-top-box .title-box .activity-text {
+  color: var(--blue-color);
+  font-weight: 500;
+  font-size: 1.3rem;
+  cursor: pointer;
+}/*# sourceMappingURL=admin-main-table.css.map */

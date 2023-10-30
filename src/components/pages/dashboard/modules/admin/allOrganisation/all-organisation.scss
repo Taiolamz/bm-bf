@@ -1,0 +1,44 @@
+.all-organization-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .top-org-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .title {
+      font-weight: 600;
+      font-size: 3rem;
+      color: var(--dark-color);
+    }
+  }
+
+  .search-filter-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search-box {
+      display: flex;
+      width: 59.8rem;
+    }
+
+    .select-wrap {
+      display: flex;
+      gap: 3rem;
+
+      .select {
+        width: 13.8rem;
+        border: none; 
+        outline: none;
+
+
+        &::placeholder {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

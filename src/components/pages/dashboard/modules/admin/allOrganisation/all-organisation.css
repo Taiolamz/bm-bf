@@ -1,0 +1,39 @@
+.all-organization-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.all-organization-wrap .top-org-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.all-organization-wrap .top-org-wrap .title {
+  font-weight: 600;
+  font-size: 3rem;
+  color: var(--dark-color);
+}
+.all-organization-wrap .search-filter-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.all-organization-wrap .search-filter-wrap .search-box {
+  display: flex;
+  width: 59.8rem;
+}
+.all-organization-wrap .search-filter-wrap .select-wrap {
+  display: flex;
+  gap: 3rem;
+}
+.all-organization-wrap .search-filter-wrap .select-wrap .select {
+  width: 13.8rem;
+  border: none;
+  outline: none;
+}
+.all-organization-wrap .search-filter-wrap .select-wrap .select::-moz-placeholder {
+  font-size: 1rem;
+}
+.all-organization-wrap .search-filter-wrap .select-wrap .select::placeholder {
+  font-size: 1rem;
+}/*# sourceMappingURL=all-organisation.css.map */

@@ -1,0 +1,76 @@
+.admin-main-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.admin-main-wrap .dashboard-card-top-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  grid-gap: 3rem;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box {
+  background-color: var(--white-bg-color);
+  box-shadow: var(--dark-box-shadow);
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  cursor: pointer;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-title {
+  color: var(--dark-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap {
+  display: flex;
+  gap: 13rem;
+  text-align: center;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .number {
+  font-weight: 500;
+  font-size: 4.8rem;
+  color: var(--gray-scale-color);
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap {
+  display: flex;
+  gap: 2rem;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-title-box :nth-child(1) {
+  color: var(--green-color);
+  font-weight: 500;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-title-box :nth-child(2) {
+  color: var(--thick-red-color);
+  font-weight: 500;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-num-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-num-wrap :nth-child(1) {
+  color: var(--green-color);
+  font-weight: 500;
+}
+.admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-num-wrap :nth-child(2) {
+  color: var(--thick-red-color);
+  font-weight: 500;
+}
+.admin-main-wrap .border-line {
+  padding-top: 2rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+.admin-main-wrap .mid-layer-wrap {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-gap: 3rem;
+}/*# sourceMappingURL=admin.css.map */

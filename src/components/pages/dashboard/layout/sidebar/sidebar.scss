@@ -1,0 +1,169 @@
+
+.sidebar-wrap {
+  width: 21.1rem;
+  min-height: 100vh;
+  background-color: var(--white-bg-color);
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    margin-top: 0.5rem;
+    padding: 3rem;
+  }
+
+  .sidebar-items-wrap {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    .sidebar-items-box {
+      display: flex;
+      padding: 0 3rem;
+      gap: 1.5rem;
+      place-items: center;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--blue-color);
+        font-weight: 400;
+
+        .dashboard-icon {
+          transition: all 0.3s;
+
+          .admin-main-icon path {
+            fill: var(--blue-color);
+          }
+
+          .subscription-icon path {
+            fill: var(--blue-color);
+          }
+
+          .billing-icon path {
+            stroke: var(--blue-color);
+          }
+
+          .offers-icon path {
+            fill: var(--blue-color);
+          }
+
+          .report-icon path {
+            fill: var(--blue-color);
+          }
+
+          .userlog-icon path {
+            stroke: var(--blue-color);
+          }
+
+          .roles-icon path {
+            stroke: var(--blue-color);
+          }
+
+          .support-icon path {
+            fill: var(--blue-color);
+          }
+
+          .settings-icon path {
+            fill: var(--blue-color);
+          }
+        }
+      }
+    }
+
+    .sidebar-items-box-active {
+      color: var(--blue-color);
+      font-weight: 400;
+    }
+
+    .more-items-text {
+      padding: 0 2rem;
+      padding-bottom: 2rem;
+      cursor: pointer;
+
+      :nth-child(1) {
+        border-top: 0.1rem solid var(--border-color);
+        padding: 0 1rem;
+        padding-top: 3rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+    }
+
+    .more-item-box {
+      max-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      gap: 1.5rem;
+      transition: max-height 0.5s linear-bezier(0, 1.05, 0, 1);
+      -webkit-transition: max-height 0.5s;
+      -moz-transition: max-height 0.5s;
+      width: 100%;
+    }
+
+    .more-item-box-show {
+      max-height: 20rem;
+      transition: max-height 0.5s linear-bezier(0, 1.05, 0, 1);
+    }
+
+    .horizontal-line-wrap {
+      padding: 0 2rem;
+
+      :nth-child(1) {
+        padding: 0 1rem;
+        border-bottom: 0.1rem solid var(--border-color);
+      }
+    }
+
+    .user-profile-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 0 3rem;
+      gap: 1rem;
+
+      .profile-picture {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+      }
+
+      .user-profile-box {
+        display: flex;
+        gap: 1rem;
+
+        .user-details-box {
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
+
+          :nth-child(1) {
+            text-transform: capitalize;
+            font-weight: 500;
+            color: var(--dark-color);
+          }
+
+          :nth-child(2) {
+            font-size: 1.1rem;
+          }
+        }
+
+        .exit-wrap {
+          cursor: pointer;
+
+          &:hover .exit-icon {
+            :nth-child(2),
+            :nth-child(3) {
+              transform: translateX(0.2rem);
+            }
+            .exit-icon,
+            :nth-child(2),
+            :nth-child(3) {
+              transition: all 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

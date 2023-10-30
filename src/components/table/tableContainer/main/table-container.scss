@@ -1,0 +1,104 @@
+.table-container-wrap {
+  width: 100%;
+  //   overflow-x: auto;
+  font-weight: normal;
+  position: relative;
+
+  .table-box {
+    width: 100%;
+    border-collapse: collapse;
+    .table-head {
+      background-color: var(--white-bg-color);
+      th {
+        padding: 0.8rem;
+        text-align: left;
+        font-weight: normal;
+        font-size: 1.2rem;
+      }
+    }
+    tbody {
+      background-color: var(--light-grey-color);
+      text-align: left;
+
+      tr {
+        position: relative;
+        overflow-x: auto;
+
+        td {
+          color: var(--dark-color);
+          padding: 1rem 0.8rem;
+        }
+        .row-icon-wrap {
+          display: flex;
+          gap: 0.5rem;
+        }
+        .status {
+          background-color: var(--light-green-color);
+          color: var(--green-color);
+          padding: 0.5rem;
+          margin-top: 0.9rem;
+          border-radius: 0.4rem;
+          display: inline-block;
+          width: 8rem;
+          text-transform: capitalize;
+        }
+
+        .pending-status {
+          color: var(--yellow-color);
+          background-color: var(--light-yellow-color);
+        }
+        .cancel-status {
+          color: var(--thick-red-color);
+          background-color: var(--light-red-color);
+        }
+
+        .free-trial-status {
+          background-color: var(--border-color);
+          color: var(--dark-color);
+        }
+
+        .action {
+          cursor: pointer;
+        }
+
+        .drop-down-box {
+          width: 23.2rem;
+          display: flex;
+          flex-direction: column;
+          background-color: var(--white-color);
+          padding: 2rem;
+          border-radius: 0.8rem;
+          gap: 2rem;
+          position: absolute;
+          top: 3rem;
+          right: 9rem;
+          z-index: 3;
+          cursor: pointer;
+        }
+      }
+
+      .drop-down-show-box {
+        animation: dropDownAnime 0.3s ease-in-out;
+      }
+
+      .view-box {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+  .pagination-wrap {
+    margin-top: 3rem;
+  }
+}
+
+@keyframes dropDownAnime {
+  0% {
+    opacity: 0.7;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

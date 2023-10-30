@@ -1,0 +1,102 @@
+.right-bar-subscription-wrap {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  margin-top: 8rem;
+  padding: 2.5rem;
+  position: relative;
+
+  .right-bar-subscribe-title {
+    color: #252c32;
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+
+  .right-bar-subscription-box {
+    background-color: var(--white-bg-color);
+    border-radius: 0.8rem;
+    padding: 2.5rem;
+    overflow-y: scroll;
+    max-height: 60rem;
+
+    &::-webkit-scrollbar:horizontal {
+      display: none;
+    }
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 0.6rem;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      // -webkit-box-shadow: none !important;
+      background-color: transparent !important;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--blue-color);
+      border-radius: 30rem;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--blue-color);
+    }
+
+    .right-bar-subscribed-users-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      & > *:not(:last-child) {
+        border-bottom: 0.1rem solid var(--border-color);
+        padding-bottom: 2rem;
+      }
+
+      .right-bar-subscribed-users-box {
+        display: flex;
+        justify-content: space-between;
+
+        .right-bar-sub-name-date-wrap {
+          display: flex;
+          gap: 1rem;
+
+          .right-bar-sub-user-img {
+            width: 3.5rem;
+            border-radius: 50%;
+          }
+          .name-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .name {
+              font-weight: 500;
+              color: var(--dark-color);
+            }
+
+            .date {
+              font-size: 1.2rem;
+            }
+          }
+        }
+        .right-bar-sub-amount-duration-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          .amount {
+            font-weight: 700;
+            color: var(--dark-color);
+          }
+
+          .duration {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

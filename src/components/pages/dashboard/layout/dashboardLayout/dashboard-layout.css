@@ -1,0 +1,105 @@
+.dashboard-layout-wrap {
+  background-color: var(--light-blue-bg-color);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  transition: width 1s;
+}
+.dashboard-layout-wrap .right-admin-main-side-bar {
+  position: fixed;
+  background-color: var(--right-sidebar-color);
+  min-height: 100vw;
+  width: 30.2rem;
+  right: 0;
+  display: inline-block;
+  z-index: 5;
+  border-top-left-radius: 2.4rem;
+  overflow: hidden;
+  animation: slideLeftBar 1s ease;
+  transition: width 1s;
+}
+.dashboard-layout-wrap .sidebar-wrap {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.dashboard-layout-wrap .navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 21.3rem);
+  height: 8.2rem;
+  background-color: var(--white-bg-color);
+  z-index: 3;
+}
+.dashboard-layout-wrap .body-wrap {
+  position: absolute;
+  top: 8.3rem;
+  right: 0;
+  width: calc(100% - 21.1rem);
+  background-color: var(--light-blue-bg-color);
+  height: calc(100vh - 10rem);
+  overflow-y: scroll;
+  z-index: 1;
+  padding: 2rem 4rem;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.dashboard-layout-wrap .body-wrap::-webkit-scrollbar:horizontal {
+  display: none;
+}
+.dashboard-layout-wrap .body-wrap::-webkit-scrollbar {
+  width: 0.6rem;
+}
+.dashboard-layout-wrap .body-wrap::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+.dashboard-layout-wrap .body-wrap::-webkit-scrollbar-thumb {
+  background: var(--blue-color);
+  border-radius: 30rem;
+}
+.dashboard-layout-wrap .body-wrap::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-color);
+}
+.dashboard-layout-wrap .navbar-dashboard-home-main-layout-wrap {
+  left: 21.3rem;
+  width: calc(100% - 50.2rem);
+  transition: width 1s;
+  animation: slideLeft 1s ease;
+}
+
+.dashboard-home-main-layout-wrap {
+  width: calc(100% - 30.2rem);
+  transition: width 1s;
+  animation: slideLeftBody 1s ease;
+}
+
+@keyframes slideLeft {
+  from {
+    width: calc(100% - 21.3rem);
+  }
+  to {
+    width: calc(100% - 50.2rem);
+  }
+}
+@keyframes slideLeftBody {
+  from {
+    width: 100%;
+  }
+  to {
+    width: calc(100% - 30.2rem);
+  }
+}
+@keyframes slideLeftBar {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}/*# sourceMappingURL=dashboard-layout.css.map */

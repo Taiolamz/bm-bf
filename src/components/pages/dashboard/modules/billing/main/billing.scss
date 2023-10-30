@@ -1,0 +1,64 @@
+.billing-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .top-billing-wrap {
+    display: flex;
+    gap: 2rem;
+
+    .title {
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: #2c2c2e;
+    }
+    .amount {
+      font-size: 1.8rem;
+    }
+  }
+
+  .chart-bar-wrap {
+    background-color: var(--white-bg-color);
+    padding: 3rem 5rem;
+    border-radius: 1.2rem;
+
+    .top-chart-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #596080;
+      }
+    }
+  }
+  .bottom-chart-label {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    .label-wrap {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      .label-inflow {
+        background-color: var(--green-color);
+        height: 1rem;
+        width: 1rem;
+        border-radius: 0.2rem;
+      }
+      .label-outflow {
+        @extend .label-inflow;
+        background-color: #f76659;
+      }
+      .label {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

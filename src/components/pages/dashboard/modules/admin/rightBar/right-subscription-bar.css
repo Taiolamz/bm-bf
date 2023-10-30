@@ -1,0 +1,85 @@
+.right-bar-subscription-wrap {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  margin-top: 8rem;
+  padding: 2.5rem;
+  position: relative;
+}
+.right-bar-subscription-wrap .right-bar-subscribe-title {
+  color: #252c32;
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box {
+  background-color: var(--white-bg-color);
+  border-radius: 0.8rem;
+  padding: 2.5rem;
+  overflow-y: scroll;
+  max-height: 60rem;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar:horizontal {
+  display: none;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar {
+  width: 0.6rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar-thumb {
+  background: var(--blue-color);
+  border-radius: 30rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-color);
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap > *:not(:last-child) {
+  border-bottom: 0.1rem solid var(--border-color);
+  padding-bottom: 2rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box {
+  display: flex;
+  justify-content: space-between;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-name-date-wrap {
+  display: flex;
+  gap: 1rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-name-date-wrap .right-bar-sub-user-img {
+  width: 3.5rem;
+  border-radius: 50%;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-name-date-wrap .name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-name-date-wrap .name-wrap .name {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-name-date-wrap .name-wrap .date {
+  font-size: 1.2rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-amount-duration-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-amount-duration-wrap .amount {
+  font-weight: 700;
+  color: var(--dark-color);
+}
+.right-bar-subscription-wrap .right-bar-subscription-box .right-bar-subscribed-users-wrap .right-bar-subscribed-users-box .right-bar-sub-amount-duration-wrap .duration {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=right-subscription-bar.css.map */

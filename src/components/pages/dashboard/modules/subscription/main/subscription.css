@@ -1,0 +1,28 @@
+.subscription-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+  gap: 2rem;
+}
+.subscription-wrap .top-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: var(--white-bg-color);
+  border-radius: 0.8rem;
+  color: var(--blue-color);
+  align-items: center;
+}
+.subscription-wrap .top-wrap .subscription-text {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+.subscription-wrap .top-wrap .generate-report-wrap {
+  display: flex;
+  gap: 1rem;
+  border: 0.1rem solid var(--blue-color);
+  padding: 1rem 3rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}/*# sourceMappingURL=subscription.css.map */

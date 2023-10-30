@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Mulish:wght@200;300;400;500;600;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --blue-color: #004bff;
+  --grey-color: #5b6871;
+  --bg-color: #b0babf;
+  --dark-color: #1d1d18;
+  --dark-blue-color: #162082;
+  --black-color: #000000;
+  --light-blue-bg-color: #f2f4f7;
+  --white-bg-color: #ffffff;
+  --border-color: #dde2e4;
+  --light-blue: #2b8cf7;
+  --white-color: #ffffff;
+  --blue-color: #004bff;
+  --disable-color: #eceded;
+  --disable-mid-color: #c3c7ce;
+  --disable-icon: #757d8a;
+  --green-color: #119c2b;
+  --red-color: #ff0b06;
+  --thick-red-color: #cc0905;
+  --light-red-color: #f2e0e1;
+  --dark-border-color: #6e7c87;
+  --light-grey-color: #f6f8f9;
+  --light-green-color: #dfefe4;
+  --light-yellow-color: #fff8f0;
+  --yellow-color: #fca549;
+  --right-sidebar-color: #eff2fc;
+  --dark-box-shadow: 0px 32px 64px rgba(88, 89, 103, 0.15);
+  --gray-scale-color: #596080;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: "Mulish", sans-serif;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overscroll-behavior: none;
+  color: var(--grey-color);
+  overflow-x: hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 30px var(--white-bg-color) inset !important;
+  -webkit-box-shadow: 0 0 0 30px var(--white-bg-color) inset !important;
+  font-family: "Mulish", sans-serif;
+
+  &::placeholder {
+    font-family: "Mulish", sans-serif;
+  }
+}

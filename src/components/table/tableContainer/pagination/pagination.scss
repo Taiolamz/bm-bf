@@ -1,0 +1,67 @@
+.pagination-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+
+    .text-wrap {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .next-prev-box {
+      margin-left: 1rem;
+      margin-bottom: 0rem;
+      align-items: center;
+      display: flex;
+      gap: 0.8rem;
+
+      .icon {
+        color: var(--white-color);
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: var(--bg-color);
+        border-radius: 0.5rem;
+        display: grid;
+        place-items: center;
+        padding: 0.5rem;
+        transition: all 0.3s;
+        cursor: not-allowed;
+      }
+
+      .icon-active {
+        background-color: var(--bg-color);
+        cursor: pointer;
+        color: var(--white-color);
+
+        &:hover {
+          transform: scale(1.03) translateX(0.1rem);
+          background-color: var(--blue-color);
+        }
+
+        & > *:first-child {
+          &:hover {
+            transform: scale(1.03) translateX(-0.1rem);
+          }
+        }
+      }
+
+      .current {
+        background-color: var(--bg-color);
+        cursor: default;
+
+        &:hover {
+          transform: unset;
+          background-color: var(--bg-color);
+        }
+      }
+
+      .current-chi {
+        background-color: var(--blue-color);
+
+        &:hover {
+          background-color: var(--blue-color);
+        }
+      }
+    }
+  }

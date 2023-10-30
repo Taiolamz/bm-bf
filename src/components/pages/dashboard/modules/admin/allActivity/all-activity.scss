@@ -1,0 +1,26 @@
+.all-activity-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .top-wrap {
+    display: flex;
+    align-items: center;
+    place-content: center;
+    justify-content: space-between;
+
+    .title {
+      font-weight: 700;
+      border-bottom: 0.2rem solid var(--blue-color);
+      padding-bottom: 1rem;
+    }
+  }
+  .search-input {
+    width: 37.5rem;
+  }
+  .table-wrap {
+    :nth-child(1) {
+      position: relative;
+    }
+  }
+}

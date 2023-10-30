@@ -1,0 +1,59 @@
+.admin-main-table-wrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 41rem;
+  overflow: scroll;
+
+  &::-webkit-scrollbar:horizontal {
+    display: none;
+  }
+
+  /* width */
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    // -webkit-box-shadow: none !important;
+    background-color: transparent !important;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--blue-color);
+    border-radius: 30rem;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-color);
+  }
+
+  .admin-main-table-top-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .title-box {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      .title {
+        color: #252c32;
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
+
+      .activity-text {
+        color: var(--blue-color);
+        font-weight: 500;
+        font-size: 1.3rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

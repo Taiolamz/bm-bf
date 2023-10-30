@@ -1,0 +1,137 @@
+.sidebar-wrap {
+  width: 21.1rem;
+  min-height: 100vh;
+  background-color: var(--white-bg-color);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-wrap .logo {
+  margin-top: 0.5rem;
+  padding: 3rem;
+}
+.sidebar-wrap .sidebar-items-wrap {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box {
+  display: flex;
+  padding: 0 3rem;
+  gap: 1.5rem;
+  place-items: center;
+  cursor: pointer;
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover {
+  color: var(--blue-color);
+  font-weight: 400;
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon {
+  transition: all 0.3s;
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .admin-main-icon path {
+  fill: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .subscription-icon path {
+  fill: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .billing-icon path {
+  stroke: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .offers-icon path {
+  fill: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .report-icon path {
+  fill: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .userlog-icon path {
+  stroke: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .roles-icon path {
+  stroke: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .support-icon path {
+  fill: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box:hover .dashboard-icon .settings-icon path {
+  fill: var(--blue-color);
+}
+.sidebar-wrap .sidebar-items-wrap .sidebar-items-box-active {
+  color: var(--blue-color);
+  font-weight: 400;
+}
+.sidebar-wrap .sidebar-items-wrap .more-items-text {
+  padding: 0 2rem;
+  padding-bottom: 2rem;
+  cursor: pointer;
+}
+.sidebar-wrap .sidebar-items-wrap .more-items-text :nth-child(1) {
+  border-top: 0.1rem solid var(--border-color);
+  padding: 0 1rem;
+  padding-top: 3rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.sidebar-wrap .sidebar-items-wrap .more-item-box {
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  gap: 1.5rem;
+  transition: max-height 0.5s linear-bezier(0, 1.05, 0, 1);
+  -webkit-transition: max-height 0.5s;
+  -moz-transition: max-height 0.5s;
+  width: 100%;
+}
+.sidebar-wrap .sidebar-items-wrap .more-item-box-show {
+  max-height: 20rem;
+  transition: max-height 0.5s linear-bezier(0, 1.05, 0, 1);
+}
+.sidebar-wrap .sidebar-items-wrap .horizontal-line-wrap {
+  padding: 0 2rem;
+}
+.sidebar-wrap .sidebar-items-wrap .horizontal-line-wrap :nth-child(1) {
+  padding: 0 1rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  gap: 1rem;
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .profile-picture {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box {
+  display: flex;
+  gap: 1rem;
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .user-details-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .user-details-box :nth-child(1) {
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--dark-color);
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .user-details-box :nth-child(2) {
+  font-size: 1.1rem;
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .exit-wrap {
+  cursor: pointer;
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .exit-wrap:hover .exit-icon :nth-child(2),
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .exit-wrap:hover .exit-icon :nth-child(3) {
+  transform: translateX(0.2rem);
+}
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .exit-wrap:hover .exit-icon .exit-icon,
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .exit-wrap:hover .exit-icon :nth-child(2),
+.sidebar-wrap .sidebar-items-wrap .user-profile-wrap .user-profile-box .exit-wrap:hover .exit-icon :nth-child(3) {
+  transition: all 0.3s;
+}/*# sourceMappingURL=sidebar.css.map */

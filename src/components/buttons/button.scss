@@ -1,0 +1,13 @@
+.revvex-btn-wrap {
+  border: none;
+  background-color: var(--blue-color);
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  color: var(--white-color);
+  height: 4rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}

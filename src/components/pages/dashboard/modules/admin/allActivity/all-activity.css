@@ -1,0 +1,22 @@
+.all-activity-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.all-activity-wrap .top-wrap {
+  display: flex;
+  align-items: center;
+  place-content: center;
+  justify-content: space-between;
+}
+.all-activity-wrap .top-wrap .title {
+  font-weight: 700;
+  border-bottom: 0.2rem solid var(--blue-color);
+  padding-bottom: 1rem;
+}
+.all-activity-wrap .search-input {
+  width: 37.5rem;
+}
+.all-activity-wrap .table-wrap :nth-child(1) {
+  position: relative;
+}/*# sourceMappingURL=all-activity.css.map */

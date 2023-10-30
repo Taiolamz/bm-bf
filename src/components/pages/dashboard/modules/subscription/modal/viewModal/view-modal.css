@@ -1,0 +1,80 @@
+.view-modal-wrap {
+  width: 90rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding-bottom: 8rem;
+}
+.view-modal-wrap .title-wrap {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+.view-modal-wrap .title-wrap .arrow-icon {
+  margin-top: 0.4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.view-modal-wrap .title-wrap .arrow-icon:hover {
+  transform: translateX(-0.5rem);
+}
+.view-modal-wrap .view-modal-body-wrap {
+  display: flex;
+  gap: 15rem;
+  position: relative;
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap {
+  display: flex;
+  gap: 5rem;
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .left-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .view-hr-line {
+  border: 0.1rem solid var(--light-grey-color);
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .view-status {
+  color: var(--thick-red-color);
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .pending-status {
+  color: var(--yellow-color);
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .active-status {
+  color: var(--green-color);
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .city-wrap {
+  display: flex;
+  gap: 1rem;
+}
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .city-wrap .logo-icon {
+  margin-top: 0.2rem;
+}
+.view-modal-wrap .view-modal-body-wrap .status-text {
+  border: 0.1rem solid var(--thick-red-color);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  color: var(--thick-red-color);
+  position: absolute;
+  right: 10rem;
+  top: -1rem;
+  cursor: pointer;
+}
+.view-modal-wrap .view-modal-body-wrap .active-status {
+  color: var(--green-color);
+  border: 0.1rem solid var(--green-color);
+}
+.view-modal-wrap .view-modal-body-wrap .pending-status {
+  color: var(--yellow-color);
+  border: 0.1rem solid var(--yellow-color);
+}/*# sourceMappingURL=view-modal.css.map */

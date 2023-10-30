@@ -1,0 +1,87 @@
+.report-generate-modal-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3rem;
+  width: 60rem;
+}
+.report-generate-modal-wrap .top-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.report-generate-modal-wrap .top-wrap .title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--dark-color);
+}
+.report-generate-modal-wrap .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+.report-generate-modal-wrap .form-group .date-input {
+  border: 0.1rem solid var(--border-color);
+  background-color: var(--light-grey-color);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+}
+.report-generate-modal-wrap .form-group .date-input-active {
+  border: 0.1rem solid var(--blue-color);
+  color: var(white-color);
+}
+.report-generate-modal-wrap .form-group .icon {
+  position: absolute;
+  right: 2rem;
+  top: 3.9rem;
+  display: flex;
+  place-content: center;
+}
+.report-generate-modal-wrap .select-file-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap {
+  display: flex;
+  gap: 1.5rem;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group {
+  display: flex;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-input {
+  display: none;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-input:checked ~ .check-label .check-circle {
+  background-color: #4d4d4d;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-input:checked ~ .check-label .check-circle .icon {
+  color: var(--white-color);
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-label span {
+  display: inline-block;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-label .check-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.2rem solid #4d4d4d;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  display: grid;
+  place-items: center;
+}
+.report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-label .check-circle .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--white-color);
+}
+.report-generate-modal-wrap .select-file-wrap .btn {
+  margin-top: 2rem;
+  font-weight: 500;
+}/*# sourceMappingURL=report-generate-modal.css.map */

@@ -1,0 +1,94 @@
+.view-modal-wrap {
+  width: 90rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding-bottom: 8rem;
+
+  .title-wrap {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    color: var(--dark-color);
+    font-weight: 500;
+
+    .arrow-icon {
+      margin-top: 0.4rem;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: translateX(-0.5rem);
+      }
+    }
+  }
+
+  .view-modal-body-wrap {
+    display: flex;
+    gap: 15rem;
+    position: relative;
+
+    .left-modal-body-wrap {
+      display: flex;
+      gap: 5rem;
+
+      .left-box {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+
+      .view-hr-line {
+        border: 0.1rem solid var(--light-grey-color);
+      }
+
+      .right-box {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        // status color set to red at default
+        .view-status {
+          color: var(--thick-red-color);
+        }
+        .pending-status {
+          color: var(--yellow-color);
+        }
+        .active-status {
+          color: var(--green-color);
+        }
+      }
+
+      .city-wrap {
+        display: flex;
+        gap: 1rem;
+
+        .logo-icon {
+          margin-top: 0.2rem;
+        }
+      }
+    }
+
+    // status color set to red at default
+    .status-text {
+      border: 0.1rem solid var(--thick-red-color);
+      padding: 1rem;
+      border-radius: 0.4rem;
+      color: var(--thick-red-color);
+      position: absolute;
+      right: 10rem;
+      top: -1rem;
+      cursor: pointer;
+    }
+    .active-status {
+      color: var(--green-color);
+      border: 0.1rem solid var(--green-color);
+    }
+    .pending-status {
+      color: var(--yellow-color);
+      border: 0.1rem solid var(--yellow-color);
+    }
+  }
+}

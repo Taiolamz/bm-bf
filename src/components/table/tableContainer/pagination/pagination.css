@@ -1,0 +1,54 @@
+.pagination-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.pagination-box .text-wrap {
+  display: flex;
+  gap: 0.5rem;
+}
+.pagination-box .next-prev-box {
+  margin-left: 1rem;
+  margin-bottom: 0rem;
+  align-items: center;
+  display: flex;
+  gap: 0.8rem;
+}
+.pagination-box .next-prev-box .icon {
+  color: var(--white-color);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--bg-color);
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  transition: all 0.3s;
+  cursor: not-allowed;
+}
+.pagination-box .next-prev-box .icon-active {
+  background-color: var(--bg-color);
+  cursor: pointer;
+  color: var(--white-color);
+}
+.pagination-box .next-prev-box .icon-active:hover {
+  transform: scale(1.03) translateX(0.1rem);
+  background-color: var(--blue-color);
+}
+.pagination-box .next-prev-box .icon-active > *:first-child:hover {
+  transform: scale(1.03) translateX(-0.1rem);
+}
+.pagination-box .next-prev-box .current {
+  background-color: var(--bg-color);
+  cursor: default;
+}
+.pagination-box .next-prev-box .current:hover {
+  transform: unset;
+  background-color: var(--bg-color);
+}
+.pagination-box .next-prev-box .current-chi {
+  background-color: var(--blue-color);
+}
+.pagination-box .next-prev-box .current-chi:hover {
+  background-color: var(--blue-color);
+}/*# sourceMappingURL=pagination.css.map */
