@@ -1,1 +1,18 @@
-/*# sourceMappingURL=billing-table.css.map */
+.billing-table-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.billing-table-wrap .table-top-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.billing-table-wrap .search-input {
+  width: 42.5rem;
+}
+.billing-table-wrap .filter-export-wrap {
+  display: flex;
+  gap: 2rem;
+}/*# sourceMappingURL=billing-table.css.map */

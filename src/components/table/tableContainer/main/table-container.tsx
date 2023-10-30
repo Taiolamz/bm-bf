@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import "./table-container.css";
-import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import { Pagination } from "../pagination/pagination";
+import { FaCheck } from "react-icons/fa";
 
 interface TableContainerProps {
   children?: ReactNode;
@@ -19,6 +19,10 @@ interface TableContainerProps {
   nextPage?: boolean;
   onNextPage?: () => void;
   perpageVal?: string;
+  checkId?: string;
+  checkValue?: any;
+  onMassCheck?: (e: any) => void;
+  massCheck?: boolean;
 }
 
 const TableContainer = ({
@@ -37,13 +41,40 @@ const TableContainer = ({
   nextPage,
   onNextPage,
   perpageVal,
+  checkId,
+  checkValue,
+  onMassCheck,
+  massCheck,
 }: TableContainerProps) => {
   return (
     <div className="table-container-wrap">
       <table className="table-box">
         {/* table header box start */}
         <thead className="table-head">
-          <tr className="table-row-head">
+          <tr>
+            {massCheck && (
+              <th>
+                <input
+                  type="checkbox"
+                  name={`table-check-${checkId}`}
+                  id={`table-check-${checkId}`}
+                  className="table-check-input-row"
+                  value={checkValue}
+                  onChange={(e: any) => {
+                    if (onMassCheck) {
+                      onMassCheck(e);
+                    }
+                  }}
+                  checked={checkValue}
+                />
+                <label
+                  className="table-check-label-input-row"
+                  htmlFor={`table-check-${checkId}`}
+                >
+                  <FaCheck className="icon" />
+                </label>
+              </th>
+            )}
             <th>S/N</th>
             {tableHeadItems.map((chi, index) => (
               <th key={index}>{chi}</th>

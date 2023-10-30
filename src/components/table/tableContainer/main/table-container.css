@@ -16,9 +16,38 @@
   font-weight: normal;
   font-size: 1.2rem;
 }
+.table-container-wrap .table-box .table-check-input-row {
+  display: none;
+}
+.table-container-wrap .table-box .table-check-input-row:checked ~ .table-check-label-input-row {
+  background-color: var(--light-blue);
+  border: 0.1rem solid var(--light-blue);
+}
+.table-container-wrap .table-box .table-check-input-row:checked ~ .table-check-label-input-row .icon {
+  visibility: visible;
+}
+.table-container-wrap .table-box .table-check-label-input-row {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background-color: #f6f8f9;
+  border-radius: 0.3rem;
+  border: 0.1rem solid var(--border-color);
+}
+.table-container-wrap .table-box .table-check-label-input-row .icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: #ffffff;
+  visibility: hidden;
+}
 .table-container-wrap .table-box tbody {
   background-color: var(--light-grey-color);
   text-align: left;
+}
+.table-container-wrap .table-box tbody:nth-child(even) {
+  background-color: #E5E9EB;
 }
 .table-container-wrap .table-box tbody tr {
   position: relative;
@@ -30,7 +59,6 @@
 }
 .table-container-wrap .table-box tbody tr .row-icon-wrap {
   display: flex;
-  gap: 0.5rem;
 }
 .table-container-wrap .table-box tbody tr .status {
   background-color: var(--light-green-color);

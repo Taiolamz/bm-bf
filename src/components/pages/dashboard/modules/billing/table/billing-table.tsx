@@ -5,6 +5,7 @@ import Select from "react-select";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
 import BankIcon from "../../../../../../assets/bank-icon.svg";
 import TableBody from "../../../../../table/tableBody/table-body";
+import { capitalizeFirstWord } from "../../../../../helpers/helpers";
 
 const BillingTable = () => {
   const tableHeadList = [
@@ -69,13 +70,15 @@ const BillingTable = () => {
         {/* search wrap end */}
 
         {/* filter export wrap start */}
-        <p>Advanced Filter</p>
-        <Select placeholder="Filter" />
+        <div className="filter-export-wrap">
+          <Select placeholder=" Advanced Filter" />
+          <Select placeholder="Filter" />
+        </div>
         {/* filter export wrap end */}
       </div>
 
       {/* bottom-table-wrap start */}
-      <TableContainer tableHeadItems={tableHeadList}>
+      <TableContainer tableHeadItems={tableHeadList} massCheck>
         {tableBodyList.map((chi, idx) => {
           const {
             company_name,
@@ -87,12 +90,13 @@ const BillingTable = () => {
           } = chi;
           return (
             <TableBody
-              key={idx}
+              checkBox
               num={idx}
+              key={idx}
               one={company_name}
               payment={payment_method.name}
               paymentIcon={payment_method.icon}
-              two={email}
+              two={capitalizeFirstWord(email)}
               three={plan_type}
               four={plan_start_date}
               five={plan_end_date}
