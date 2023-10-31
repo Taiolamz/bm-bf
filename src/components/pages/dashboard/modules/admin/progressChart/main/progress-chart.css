@@ -26,8 +26,8 @@
   margin-top: 0.6rem;
 }
 .progress-chart-wrap .progress-bar-wrap {
+  display: flex;
   margin-top: 4rem;
-  position: relative;
   display: flex;
   justify-content: space-between;
 }/*# sourceMappingURL=progress-chart.css.map */

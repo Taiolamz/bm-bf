@@ -13,7 +13,7 @@ export const loginUser = createAsyncThunk(
   async (payload: LoginPayload, thunkAPI) => {
     try {
       const data = await axios.post("/back-office/auth/login", payload);
-    console.log(data);
+    // console.log(data);
 	
       if (data?.data?.status === "fail") {
         if (typeof data.data === "string") {

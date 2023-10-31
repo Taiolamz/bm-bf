@@ -60,7 +60,7 @@ const Admin = () => {
                 onClick={() => navigate(link)}
               >
                 <p className="card-title">{title}</p>
-                <div className="card-body-wrap">
+                <div className="card-body-wrap" style={{ width: "100%" }}>
                   <p className="number">{number}</p>
                   <div className="status-title-wrap">
                     <div className="status-title-box">

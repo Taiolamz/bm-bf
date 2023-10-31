@@ -117,7 +117,7 @@ const Login = () => {
       //   navigate("/dashboard-home");
       // }, 2000);
       const data = await dispatch(loginUser(details) as any);
-      console.log(data);
+      // console.log(data);
       if (data?.payload?.response?.status === 422) {
         // console.log(data?.payload?.response?.data.message);
         const msgEmail = data?.payload?.response?.data.message;

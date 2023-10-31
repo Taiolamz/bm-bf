@@ -5,14 +5,14 @@
 }
 .admin-main-wrap .dashboard-card-top-wrap {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   grid-gap: 3rem;
+  grid-column-gap: 2rem;
 }
 .admin-main-wrap .dashboard-card-top-wrap .card-box {
+  padding: 1.2rem 2rem;
   background-color: var(--white-bg-color);
   box-shadow: var(--dark-box-shadow);
-  padding: 1.2rem 2rem;
   border-radius: 0.8rem;
   text-transform: capitalize;
   display: flex;
@@ -27,8 +27,7 @@
 }
 .admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap {
   display: flex;
-  gap: 13rem;
-  text-align: center;
+  justify-content: space-between;
 }
 .admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .number {
   font-weight: 500;
@@ -36,8 +35,9 @@
   color: var(--gray-scale-color);
 }
 .admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 2rem;
 }
 .admin-main-wrap .dashboard-card-top-wrap .card-box .card-body-wrap .status-title-wrap .status-title-box {
   display: flex;

@@ -22,13 +22,13 @@
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: var(--blue-color);
+    background: var(--light-blue);
     border-radius: 30rem;
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background: var(--blue-color);
+    background: var(--light-blue);
   }
 
   .admin-main-table-top-box {
