@@ -2,7 +2,7 @@ import Billing from "../../../../components/pages/dashboard/modules/billing/main
 
 export const Billing_route_group = [
   {
-    element: <Billing />,
+    element: Billing ,
     path: "/dashboard-billing",
   },
 ];

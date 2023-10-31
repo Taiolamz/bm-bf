@@ -5,14 +5,14 @@ import NewPassword from "../../components/pages/auth/newPassword/new-password";
 export const Auth_rouite_group = [
   {
     path: "/login",
-    element: <Login />,
+    element: Login ,
   },
   {
     path: "/forgot-password",
-    element: <ForgotPassword />,
+    element: ForgotPassword ,
   },
   {
     path: "/new-password",
-    element: <NewPassword />,
+    element: NewPassword ,
   },
 ];

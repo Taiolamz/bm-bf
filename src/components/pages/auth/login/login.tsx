@@ -5,6 +5,7 @@ import LockOpenIcon from "../../../../assets/lock-open-icon.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { LiaTimesSolid } from "react-icons/lia";
 import { GiCheckMark } from "react-icons/gi";
+import { Dna } from "react-loader-spinner";
 import {
   validateEmail,
   validatePasswordLowercase,
@@ -17,6 +18,9 @@ import { RevvexButton } from "../../../buttons/button";
 import { LoadingState } from "../../loadingPage/loading";
 import { EventChange } from "../../../types/types";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../redux/types";
+import { loginUser } from "../../../../redux/userAuth";
 
 interface LoginDetails {
   email: string;
@@ -25,9 +29,11 @@ interface LoginDetails {
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.auth);
   const [showPassword, setShowPassword] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [emailError, setEmailError] = useState(false);
   const [details, setDetails] = useState<LoginDetails>({
     email: "",
     password: "",
@@ -48,7 +54,7 @@ const Login = () => {
     return btnActive;
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     //  validations start ----------------
     if (!validateEmail(details?.email)) {
@@ -105,11 +111,21 @@ const Login = () => {
 
     // remove on integration
     if (activeBtn()) {
-      setLoader(true);
-      setTimeout(() => {
-        setLoader(false);
-        navigate("/dashboard-home");
-      }, 2000);
+      // setLoader(true);
+      // setTimeout(() => {
+      //   setLoader(false);
+      //   navigate("/dashboard-home");
+      // }, 2000);
+      const data = await dispatch(loginUser(details) as any);
+      console.log(data);
+      if (data?.payload?.response?.status === 422) {
+        // console.log(data?.payload?.response?.data.message);
+        const msgEmail = data?.payload?.response?.data.message;
+        if (msgEmail === "The selected email is invalid.") {
+          // console.log("kjgf");
+          setEmailError(true);
+        }
+      }
     }
   };
 
@@ -127,13 +143,14 @@ const Login = () => {
               />
             </label>
             <input
-              className={`auth-input ${details.email && "auth-input-active"}`}
+              className={`auth-input ${details.email && "auth-input-active"} ${emailError && "auth-input-error"}`}
               type="text"
               placeholder="Email"
               name="email"
               id="email"
               value={details.email}
               onChange={handleChange}
+              // style=
             />
 
             {/* email check icon start */}
@@ -210,20 +227,35 @@ const Login = () => {
           {/* form group end */}
 
           {/* revvex button wrap start */}
-          <RevvexButton
-            label={"Login"}
-            btnClassName="auth-btn"
-            bgColor={activeBtn() ? "var(--blue-color)" : "var(--disable-color)"}
-            style={{
-              color: activeBtn()
-                ? "var(--white-color)"
-                : "var(--disable-mid-color)",
-              cursor: activeBtn() ? "pointer" : "not-allowed",
-            }}
-            btnType="submit"
-            onClick={() => activeBtn() && handleSubmit}
-            btnDisable={!activeBtn()}
-          />
+          {loading ? (
+            <div style={{ alignSelf: "center" }}>
+              <Dna
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="dna-loading"
+                // wrapperStyle={{color: "red", backgroundColor : "red"}}
+                wrapperClass="dna-wrapper"
+              />
+            </div>
+          ) : (
+            <RevvexButton
+              label={"Login"}
+              btnClassName="auth-btn"
+              bgColor={
+                activeBtn() ? "var(--blue-color)" : "var(--disable-color)"
+              }
+              style={{
+                color: activeBtn()
+                  ? "var(--white-color)"
+                  : "var(--disable-mid-color)",
+                cursor: activeBtn() ? "pointer" : "not-allowed",
+              }}
+              btnType="submit"
+              onClick={() => activeBtn() && handleSubmit}
+              btnDisable={!activeBtn()}
+            />
+          )}
           {/* revvex button wrap stop */}
         </AuthLayout>
       ) : (

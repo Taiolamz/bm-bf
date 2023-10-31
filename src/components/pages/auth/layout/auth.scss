@@ -97,6 +97,10 @@
           border: 0.1rem solid var(--blue-color);
           transition: 0.2s;
         }
+
+        .auth-input-error{
+          border: .1rem solid red !important;
+        }
       }
 
       .password-forget-text {

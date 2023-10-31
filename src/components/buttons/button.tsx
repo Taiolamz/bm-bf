@@ -1,7 +1,7 @@
 import "./button.css";
 
 interface BtnProps {
-  label: string;
+  label: string ;
   onClick?: () => void;
   btnClassName?: string;
   bgColor?: string;

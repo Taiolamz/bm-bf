@@ -111,3 +111,9 @@ export function numberFormatChart({ num, digits }: any) {
     ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol
     : "0";
 }
+
+
+
+export const customErrorId = "jgsvbjbx"
+export const customSuccessId = "jgsvbjiuysbx"
+export const customInfoId = "jgsvdfbnbjbx"

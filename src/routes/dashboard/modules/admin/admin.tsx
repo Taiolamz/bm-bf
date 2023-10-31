@@ -5,16 +5,16 @@ import Admin from "../../../../components/pages/dashboard/modules/admin/main/adm
 export const Admin_route_group = [
   {
     path: "/dashboard-home",
-    element: <Admin />,
+    element: Admin ,
   },
 
   {
     path: "/dashboard-home-all-organisation",
-    element: <AllOrganisation />,
+    element: AllOrganisation ,
   },
 
   {
     path: "/dashboard-home-active-subscribers",
-    element: <AllActivity />,
+    element: AllActivity ,
   },
 ];
