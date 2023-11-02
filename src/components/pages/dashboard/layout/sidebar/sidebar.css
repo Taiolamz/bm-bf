@@ -74,15 +74,9 @@
   text-transform: uppercase;
 }
 .sidebar-wrap .sidebar-items-wrap .more-item-box {
-  max-height: 0;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  gap: 1.5rem;
-  transition: max-height 0.5s linear-bezier(0, 1.05, 0, 1);
-  -webkit-transition: max-height 0.5s;
-  -moz-transition: max-height 0.5s;
+  gap: 2rem;
   width: 100%;
 }
 .sidebar-wrap .sidebar-items-wrap .more-item-box-show {

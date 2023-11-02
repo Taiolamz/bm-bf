@@ -23,6 +23,8 @@ interface TableContainerProps {
   checkValue?: any;
   onMassCheck?: (e: any) => void;
   massCheck?: boolean;
+  dontShowserialNo?: boolean;
+  className?: string;
 }
 
 const TableContainer = ({
@@ -45,9 +47,11 @@ const TableContainer = ({
   checkValue,
   onMassCheck,
   massCheck,
+  dontShowserialNo,
+  className,
 }: TableContainerProps) => {
   return (
-    <div className="table-container-wrap">
+    <div className={`table-container-wrap ${className}`}>
       <table className="table-box">
         {/* table header box start */}
         <thead className="table-head">
@@ -75,7 +79,7 @@ const TableContainer = ({
                 </label>
               </th>
             )}
-            <th>S/N</th>
+            {!dontShowserialNo && <th>S/N</th>}
             {tableHeadItems.map((chi, index) => (
               <th key={index}>{chi}</th>
             ))}

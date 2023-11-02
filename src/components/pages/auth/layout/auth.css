@@ -89,8 +89,11 @@
   cursor: pointer;
 }
 .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-active {
-  border: 0.1rem solid var(--blue-color);
+  border: 0.1rem solid var(--light-blue);
   transition: 0.2s;
+}
+.auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-error {
+  border: 0.1rem solid red !important;
 }
 .auth-wrap .auth-form-wrap .auth-form-box .password-forget-text {
   color: var(--light-blue);

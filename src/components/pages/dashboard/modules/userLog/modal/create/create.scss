@@ -1,0 +1,148 @@
+.new-admin-wrap {
+  display: flex;
+  flex-direction: column;
+
+  .title-wrap {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid var(--border-color);
+
+    .title {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--dark-color);
+    }
+
+    .cancel-wrap {
+      background-color: #ffefeb;
+      padding: 0.7rem;
+      border-radius: 100%;
+      cursor: pointer;
+
+      .cancel-icon {
+        display: flex;
+        justify-content: center;
+        color: #f76659;
+      }
+    }
+  }
+
+  .form-wrap {
+    padding: 3rem;
+    padding-right: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #f7f7f7;
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .input {
+        width: 40rem;
+        padding: 1rem;
+      }
+      .input-active {
+        border-color: var(--blue-color);
+      }
+    }
+
+    .check-box-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 40rem;
+
+      .check-box-group {
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.6rem;
+        border: 0.1rem solid var(--border-color);
+        background-color: var(--white-bg-color);
+
+        .sub-text {
+          padding: 1rem 1rem;
+          border-bottom: 0.1rem solid var(--border-color);
+          background-color: #f7f7f7;
+          font-size: 1.2rem;
+        }
+
+        .checkbox-box {
+          display: flex;
+          gap: 2rem;
+          padding: 1rem 1rem;
+
+          .check-input {
+            display: none;
+
+            &:checked ~ .check-label .check-circle {
+              background-color: var(--blue-color);
+
+              .icon {
+                color: var(--white-color);
+              }
+            }
+          }
+
+          &:not(:last-child) {
+            border-bottom: 0.1rem solid var(--border-color);
+          }
+        }
+
+        .check-label {
+          display: flex;
+          gap: 2rem;
+          cursor: pointer;
+          align-items: center;
+
+          .check-circle {
+            border: 0.1rem solid var(--border-color);
+            border-radius: 100%;
+            padding: 0.3rem;
+
+            .icon {
+              display: flex;
+              justify-content: center;
+              color: var(--border-color);
+            }
+          }
+          .check-text-wrap {
+            display: flex;
+            gap: 1rem;
+
+            .check-text {
+              font-weight: 500;
+              color: var(--dark-color);
+              font-size: 1.2rem;
+              flex: 1 1;
+            }
+            .sub-check-text {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+
+    .btn-wrap {
+      padding-top: 9rem;
+      display: flex;
+      gap: 2rem;
+
+      .cancel-btn {
+        @extend .invite-btn;
+        background-color: var(--white-bg-color);
+        color: var(--blue-color);
+        border: 0.1rem solid var(--blue-color);
+      }
+
+      .invite-btn {
+        padding: 0 3rem;
+      }
+    }
+  }
+}

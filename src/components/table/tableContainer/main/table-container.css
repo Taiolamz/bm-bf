@@ -11,7 +11,7 @@
   background-color: var(--white-bg-color);
 }
 .table-container-wrap .table-box .table-head th {
-  padding: 0.8rem;
+  padding: 1rem 0 1rem 0.8rem;
   text-align: left;
   font-weight: normal;
   font-size: 1.2rem;
@@ -46,16 +46,13 @@
   background-color: var(--light-grey-color);
   text-align: left;
 }
-.table-container-wrap .table-box tbody:nth-child(even) {
-  background-color: #E5E9EB;
-}
 .table-container-wrap .table-box tbody tr {
   position: relative;
   overflow-x: auto;
 }
 .table-container-wrap .table-box tbody tr td {
   color: var(--dark-color);
-  padding: 1rem 0.8rem;
+  padding: 1rem 0 1rem 0.8rem;
 }
 .table-container-wrap .table-box tbody tr .row-icon-wrap {
   display: flex;
@@ -85,6 +82,15 @@
 .table-container-wrap .table-box tbody tr .action {
   cursor: pointer;
 }
+.table-container-wrap .table-box tbody tr .edit-delete-wrap {
+  display: flex;
+  gap: 3rem;
+  padding: 1rem 0.8rem;
+}
+.table-container-wrap .table-box tbody tr .edit-delete-wrap :nth-child(1),
+.table-container-wrap .table-box tbody tr .edit-delete-wrap :nth-child(2) {
+  cursor: pointer;
+}
 .table-container-wrap .table-box tbody tr .drop-down-box {
   width: 23.2rem;
   display: flex;
@@ -105,6 +111,12 @@
 .table-container-wrap .table-box tbody .view-box {
   display: flex;
   gap: 1rem;
+}
+.table-container-wrap .table-box .table-odd-even-body:nth-child(odd) {
+  background-color: var(--white-bg-color);
+}
+.table-container-wrap .table-box .table-odd-even-body:nth-child(even) {
+  background-color: #f6f8f9;
 }
 .table-container-wrap .pagination-wrap {
   margin-top: 3rem;

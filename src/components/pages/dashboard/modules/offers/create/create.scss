@@ -1,0 +1,119 @@
+.create-offer-wrap {
+  display: grid;
+  grid-gap: 4rem;
+  //   width: calc(100% - 40rem);
+
+  .form-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .title {
+      color: var(--grey-color);
+      font-weight: 700;
+      font-size: 1.7rem;
+    }
+
+    .form-group {
+      display: grid;
+      grid-template-columns: repeat(2, 38.9rem);
+      grid-gap: 3rem;
+      // justify-content: space-between;
+      grid-row-gap: 2rem;
+
+      .form-box {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+
+      .form-input {
+        border-radius: 0.6rem;
+        // width: 38.9rem;
+        border: 0.1rem solid var(--border-color);
+        padding: 1.2rem 2rem;
+        outline: none;
+
+        &:focus {
+          border: 0.1rem solid var(--blue-color);
+        }
+      }
+      .active-form-input {
+        border: 0.1rem solid var(--blue-color);
+      }
+
+      .select-input {
+        width: 38.9rem;
+        outline: none;
+        border: 0.1rem solid var(--border-color);
+        border-radius: 0.6rem;
+      }
+
+      .discount-select-input {
+        width: 18.5rem;
+      }
+
+      .privilege-select-input {
+        width: 64.6rem;
+      }
+
+      .active-select-input {
+        border: 0.1rem solid var(--blue-color);
+      }
+
+      
+    }
+
+    .feature-form-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .feature-form-box {
+        // display: grid;
+        display: flex;
+        align-items: center;
+        gap: 7rem;
+        width: 35rem;
+
+        .form-checkbox {
+          display: none;
+        }
+        .form-check-label {
+          display: flex;
+          flex: 1;
+          gap: 1.5rem;
+          align-items: center;
+          cursor: pointer;
+
+          .check-circle {
+            border-radius: 100%;
+            background-color: var(--white-bg-color);
+            padding: 0.5rem;
+
+            .check-icon {
+              display: flex;
+              justify-content: center;
+            }
+          }
+        }
+
+        .feature-select-input {
+          width: 14.6rem;
+        }
+      }
+
+      .feature-btn {
+        background-color: var(--bg-white-color);
+        color: var(--blue-color);
+        border: 0.1rem solid var(--blue-color);
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        font-weight: 500;
+        width: 13.5rem;
+        align-items: center;
+      }
+    }
+  }
+}

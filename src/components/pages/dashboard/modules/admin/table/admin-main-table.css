@@ -42,7 +42,7 @@
   font-weight: 700;
 }
 .admin-main-table-wrap .admin-main-table-top-box .title-box .activity-text {
-  color: var(--blue-color);
+  color: var(--light-blue);
   font-weight: 500;
   font-size: 1.3rem;
   cursor: pointer;

@@ -101,7 +101,7 @@ const ForgotPassword = () => {
           <RevvexButton
             label={"Request new password"}
             btnClassName="auth-btn"
-            bgColor={activeBtn() ? "var(--blue-color)" : "var(--disable-color)"}
+            bgColor={activeBtn() ? "var(--light-blue)" : "var(--disable-color)"}
             style={{
               color: activeBtn()
                 ? "var(--white-color)"

@@ -1,0 +1,44 @@
+.user-log-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+  gap: 2rem;
+}
+.user-log-wrap .top-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: var(--white-bg-color);
+  border-radius: 0.8rem;
+  color: var(--blue-color);
+  align-items: center;
+}
+.user-log-wrap .top-wrap .text {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+.user-log-wrap .top-wrap .btn-wrap {
+  display: flex;
+  gap: 2rem;
+}
+.user-log-wrap .top-wrap .btn-wrap .generate-btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  place-items: center;
+  background-color: var(--white-bg-color);
+  color: var(--blue-color);
+  padding: 0 2rem;
+  border: 0.1rem solid var(--blue-color);
+}
+.user-log-wrap .top-wrap .btn-wrap .add-btn {
+  padding: 0 2rem;
+  color: var(--white-bg-color);
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+.user-log-wrap .search-input {
+  width: 30.3rem;
+}/*# sourceMappingURL=user-log.css.map */

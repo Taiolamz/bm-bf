@@ -33,7 +33,7 @@
 }
 .pagination-box .next-prev-box .icon-active:hover {
   transform: scale(1.03) translateX(0.1rem);
-  background-color: var(--blue-color);
+  background-color: var(--light-blue);
 }
 .pagination-box .next-prev-box .icon-active > *:first-child:hover {
   transform: scale(1.03) translateX(-0.1rem);
@@ -47,8 +47,8 @@
   background-color: var(--bg-color);
 }
 .pagination-box .next-prev-box .current-chi {
-  background-color: var(--blue-color);
+  background-color: var(--light-blue);
 }
 .pagination-box .next-prev-box .current-chi:hover {
-  background-color: var(--blue-color);
+  background-color: var(--light-blue);
 }/*# sourceMappingURL=pagination.css.map */

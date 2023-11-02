@@ -136,7 +136,7 @@ const NewPassword = () => {
           <RevvexButton
             label={"Confirm"}
             btnClassName="auth-btn"
-            bgColor={activeBtn() ? "var(--blue-color)" : "var(--disable-color)"}
+            bgColor={activeBtn() ? "var(--light-blue)" : "var(--disable-color)"}
             style={{
               color: activeBtn()
                 ? "var(--white-color)"

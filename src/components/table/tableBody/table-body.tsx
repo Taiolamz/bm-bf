@@ -2,6 +2,8 @@ import { useState } from "react";
 import {
   ActionIcon,
   CancelIcon,
+  DeleteIcon,
+  EditIcon,
   EyeIcon,
   ReminderIcon,
 } from "../../../assets/icons/icons";
@@ -31,6 +33,13 @@ interface TableBodyProps {
   checkId?: string;
   checkValue?: any;
   onCheck?: (e: any) => void;
+  dontShowserialNo?: boolean;
+  editDeleteAction?: boolean;
+  onEdit?: () => void;
+  onDelete?: () => void;
+  showOddEvenBody?: boolean;
+  statusNoBg?: boolean;
+  deactivateUserText?: boolean;
 }
 
 const TableBody = ({
@@ -57,11 +66,18 @@ const TableBody = ({
   checkId,
   checkValue,
   onCheck,
+  dontShowserialNo,
+  editDeleteAction,
+  onEdit,
+  onDelete,
+  showOddEvenBody,
+  statusNoBg,
+  deactivateUserText,
 }: TableBodyProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <tbody>
+    <tbody className={showOddEvenBody ? "table-odd-even-body" : ""}>
       {/* table body box start */}
       <tr>
         {checkBox && (
@@ -87,7 +103,8 @@ const TableBody = ({
             </label>
           </td>
         )}
-        {<td>{num + 1 < 10 ? `0${num + 1}` : num + 1}</td>}
+
+        {!dontShowserialNo && <td>{num + 1 < 10 ? `0${num + 1}` : num + 1}</td>}
         {one && <td>{one}</td>}
         {two && <td>{two}</td>}
         {/* icon show */}
@@ -108,6 +125,7 @@ const TableBody = ({
         co-relate endpoint  : )*/}
         {status && (
           <td
+            style={{ backgroundColor: statusNoBg ? "transparent" : "" }}
             className={`status ${
               status.toLowerCase() === "pending"
                 ? "pending-status"
@@ -135,6 +153,12 @@ const TableBody = ({
             {ActionIcon}
           </td>
         )}
+        {editDeleteAction && (
+          <div className="edit-delete-wrap">
+            <figure onClick={onEdit}>{EditIcon}</figure>
+            <figure onClick={onDelete}>{DeleteIcon}</figure>
+          </div>
+        )}
         {/* action dropdown wrap start */}
         {showDropdown && indexNo === num && (
           <div
@@ -158,6 +182,12 @@ const TableBody = ({
               <p className="view-box" onClick={onCancelSub}>
                 <figure>{CancelIcon}</figure>
                 {cancelSubText}
+              </p>
+            )}
+            {deactivateUserText && (
+              <p>
+                <figure></figure>
+                {deactivateUserText}
               </p>
             )}
           </div>

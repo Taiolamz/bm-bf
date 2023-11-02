@@ -1,0 +1,31 @@
+.offers-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.offers-wrap .offer-top-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.offers-wrap .offer-top-wrap .title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.offers-wrap .offer-top-wrap .title {
+  font-weight: 600;
+  font-size: 3rem;
+}
+.offers-wrap .offer-top-wrap .offers-create-btn {
+  padding: 1rem;
+}
+.offers-wrap .offers-table-wrap .table-box .table-head th {
+  padding: 2rem 0 2rem 1rem;
+}
+.offers-wrap .offers-table-wrap .table-box tbody tr td {
+  padding: 2rem 0 2rem 1rem;
+}
+.offers-wrap .offers-table-wrap .table-box .edit-delete-wrap {
+  padding: 2rem 0 2rem 1rem;
+}/*# sourceMappingURL=offers.css.map */

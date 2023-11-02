@@ -2,22 +2,61 @@
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
+
   .tab-box {
     display: flex;
-    gap: 4rem;
-    color: var(--dark-color);
-  }
+    justify-content: space-between;
+    // gap: 4rem;
+    // align-items: center;
 
-  .tab-items {
-    padding-bottom: 2.5rem;
-    cursor: pointer;
-    text-align: center;
-  }
+    .left-box {
+      display: flex;
+      color: var(--dark-color);
+      font-weight: 500;
+    //   gap: 8rpem;
+      justify-content: left;
+      position: relative;
 
-  .active-tab {
-    font-weight: 600;
-    border-bottom: 0.4rem solid var(--blue-color);
-    color: var(--blue-color);
+      .tab-items {
+        padding-bottom: 2.5rem;
+        // padding-left: 3rem;
+        cursor: pointer;
+        text-align: center;
+        text-transform: capitalize;
+        width: 20rem;
+      }
+
+      //   .active-line {
+      //     position: absolute;
+      //     width: 15rem;
+      //     background-color: var(--blue-color);
+      //     height: 0.5rem;
+      //     bottom: 0;
+      //   }
+
+      .active-tab {
+        font-weight: 600;
+        border-bottom: 0.4rem solid var(--blue-color);
+        color: var(--blue-color);
+      }
+
+      .active-check-tab {
+        color: var(--green-color);
+        font-weight: 600;
+        border-bottom: 0.4rem solid var(--green-color);
+      }
+
+      .inactive-tab {
+        color: var(--yellow-color);
+        font-weight: 600;
+        border-bottom: 0.4rem solid var(--yellow-color);
+      }
+    }
+
+    .right-box {
+      display: flex;
+      gap: 2rem;
+    }
   }
 
   .horizontal-line {

@@ -11,20 +11,8 @@
   font-family: "Mulish", sans-serif;
   height: 4rem;
 }
-.search-container .search-wrap .search-input::-moz-placeholder {
-  color: #7e7e96;
-  font-family: "Mulish", sans-serif;
-  font-weight: 300;
-}
-.search-container .search-wrap .search-input::placeholder {
-  color: #7e7e96;
-  font-family: "Mulish", sans-serif;
-  font-weight: 300;
-}
 .search-container .search-wrap .label {
-  display: grid;
   position: absolute;
-  right: 2.5rem;
-  top: 1rem;
-  place-items: center;
+  right: 1.5rem;
+  top: 0.8rem;
 }/*# sourceMappingURL=search.css.map */

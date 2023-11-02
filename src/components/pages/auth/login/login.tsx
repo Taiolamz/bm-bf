@@ -243,7 +243,7 @@ const Login = () => {
               label={"Login"}
               btnClassName="auth-btn"
               bgColor={
-                activeBtn() ? "var(--blue-color)" : "var(--disable-color)"
+                activeBtn() ? "var(--light-blue)" : "var(--disable-color)"
               }
               style={{
                 color: activeBtn()

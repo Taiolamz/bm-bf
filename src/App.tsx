@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Auth_rouite_group } from "./routes/auth/auth";
 import { Dashboard_route_group } from "./routes/dashboard/routeGroup/route-group";
-import { Provider } from "react-redux"; 
+import { Provider} from "react-redux"; 
 import PrivateRouteDashboard from "./routes/privateRoutes/private-route";
 import store from "./redux/store";
 

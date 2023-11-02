@@ -5,18 +5,40 @@
 }
 .tab-wrap .tab-box {
   display: flex;
-  gap: 4rem;
-  color: var(--dark-color);
+  justify-content: space-between;
 }
-.tab-wrap .tab-items {
+.tab-wrap .tab-box .left-box {
+  display: flex;
+  color: var(--dark-color);
+  font-weight: 500;
+  justify-content: left;
+  position: relative;
+}
+.tab-wrap .tab-box .left-box .tab-items {
   padding-bottom: 2.5rem;
   cursor: pointer;
   text-align: center;
+  text-transform: capitalize;
+  width: 20rem;
 }
-.tab-wrap .active-tab {
+.tab-wrap .tab-box .left-box .active-tab {
   font-weight: 600;
   border-bottom: 0.4rem solid var(--blue-color);
   color: var(--blue-color);
+}
+.tab-wrap .tab-box .left-box .active-check-tab {
+  color: var(--green-color);
+  font-weight: 600;
+  border-bottom: 0.4rem solid var(--green-color);
+}
+.tab-wrap .tab-box .left-box .inactive-tab {
+  color: var(--yellow-color);
+  font-weight: 600;
+  border-bottom: 0.4rem solid var(--yellow-color);
+}
+.tab-wrap .tab-box .right-box {
+  display: flex;
+  gap: 2rem;
 }
 .tab-wrap .horizontal-line {
   border-top: 0.1rem solid var(--border-color);

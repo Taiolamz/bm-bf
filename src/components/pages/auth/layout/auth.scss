@@ -94,7 +94,7 @@
 
         .auth-input-active {
           @extend .auth-input;
-          border: 0.1rem solid var(--blue-color);
+          border: 0.1rem solid var(--light-blue);
           transition: 0.2s;
         }
 

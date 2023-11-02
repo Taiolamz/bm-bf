@@ -7,7 +7,7 @@ import Select from "react-select";
 import "./all-organisation.css";
 import { reactSelectStyle } from "../../../../../helpers/select-style";
 
-interface SelectOptions {
+interface SelectOption {
   label: string;
   value: string;
 }
@@ -69,7 +69,7 @@ const AllOrganisation = () => {
   const [filterBy, setFilterBy] = useState<any>("");
   const [exportBy, setExportBy] = useState<any>("");
 
-  const filterOptions: SelectOptions[] = [
+  const filterOptions: SelectOption[] = [
     {
       label: "Organization",
       value: "organization",
@@ -92,7 +92,7 @@ const AllOrganisation = () => {
     },
   ];
 
-  const exportOptions: SelectOptions[] = [
+  const exportOptions: SelectOption[] = [
     {
       label: "PDF",
       value: "pdf",
@@ -131,8 +131,8 @@ const AllOrganisation = () => {
               className="select"
               placeholder="Filter table by"
               value={filterBy}
-              getOptionLabel={(label: SelectOptions) => label.label}
-              getOptionValue={(value: SelectOptions) => value.value}
+              getOptionLabel={(label: SelectOption) => label.label}
+              getOptionValue={(value: SelectOption) => value.value}
               onChange={(e: any) => {
                 setFilterBy(e);
               }}
@@ -143,8 +143,8 @@ const AllOrganisation = () => {
               className="select"
               placeholder="Export"
               value={exportBy}
-              getOptionLabel={(label: SelectOptions) => label.label}
-              getOptionValue={(value: SelectOptions) => value.value}
+              getOptionLabel={(label: SelectOption) => label.label}
+              getOptionValue={(value: SelectOption) => value.value}
               onChange={(e: any) => {
                 setExportBy(e);
               }}

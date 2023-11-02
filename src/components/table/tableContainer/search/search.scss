@@ -12,19 +12,17 @@
       font-family: "Mulish", sans-serif;
       height: 4rem;
 
-      &::placeholder {
-        color: #7e7e96;
-        font-family: "Mulish", sans-serif;
-        font-weight: 300;
-      }
+      //   &::placeholder {
+      //     color: #7e7e96;
+      //     font-family: "Mulish", sans-serif;
+      //     font-weight: 300;
+      //   }
     }
 
     .label {
-      display: grid;
       position: absolute;
-      right: 2.5rem;
-      top: 1rem;
-      place-items: center;
+      right:1.5rem;
+      top: .8rem;
     }
   }
 }
