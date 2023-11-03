@@ -2,7 +2,7 @@ import "./button.css";
 
 interface BtnProps {
   label: string ;
-  onClick?: () => void;
+  onClick?: (param?: any) => void;
   btnClassName?: string;
   bgColor?: string;
   style?: React.CSSProperties;

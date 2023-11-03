@@ -11,10 +11,20 @@ export interface AuthState {
     // response: any;
 }
 
+export interface BillingState {
+	loading: boolean;
+	billing?: {
+		billing: {} | any
+	};
+	// logging_out?: boolean;
+    // response: any;
+}
+
+
 
 type RootState = {
 	auth: AuthState;
-
+    billing: BillingState;
 	// Add other reducer states here if you have more reducers
 };
 

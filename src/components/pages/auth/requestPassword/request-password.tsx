@@ -5,13 +5,36 @@ import AuthLayout from "../layout/auth";
 import "./request-password.css";
 import { useState } from "react";
 import ReactPinField from "react-pin-field";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../redux/types";
+import { submitOtpForgetPassword } from "../../../../redux/userAuth";
+import { Dna } from "react-loader-spinner";
 
-const RequestPassword = () => {
+interface myComponentPrps {
+  email?: string;
+}
+
+const RequestPassword: React.FC<myComponentPrps> = ({ email }) => {
   const navigate = useNavigate();
+  const { loading } = useSelector((state: RootState) => state.auth);
+  // const [showRequestPassword, setShowRequestPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const [showActive, setShowActive] = useState(false);
   const [token, setToken] = useState("");
   const [error, setError] = useState("");
+
+  const handleSubmit = async () => {
+    const obj = {
+      otp: token,
+    };
+    // console.log(obj);
+    // return
+    const data = await dispatch(submitOtpForgetPassword(obj) as any);
+    if (data?.payload?.data?.success) {
+      navigate("/new-password");
+    }
+  };
 
   return (
     <AuthLayout>
@@ -21,14 +44,15 @@ const RequestPassword = () => {
         <img className="request-check-icon" src={CheckImg} alt="check_image" />
         {/* image wrap end */}
 
-        {/* label/title start */}  
+        {/* label/title start */}
         <p className="request-title">Request sent</p>
         {/* label/title end */}
 
         {/* text start */}
         <p>
-          A One-Time Password (OTP) has been dispatched to your email. Please
-          enter the OTP to continue.
+          A One-Time Password (OTP) has been dispatched to your email (
+          <span style={{ fontWeight: "700", color: "black" }}> {email} </span> )
+          . Please enter the OTP to continue.
         </p>
         {/* text end */}
       </div>
@@ -47,7 +71,6 @@ const RequestPassword = () => {
             setShowActive(true);
             // handleSubmitDirect(num);
           }}
-          // disabled={completed}
           validate="0123456789"
           autoFocus
           // ref={ref}
@@ -56,11 +79,29 @@ const RequestPassword = () => {
       {/* otp-wrap end */}
 
       {/* revvex button start */}
-      <RevvexButton
-        label="Proceed"
-        btnType="button"
-        onClick={() => navigate("/new-password")}
-      />
+      {loading ? (
+        <div style={{ alignSelf: "center" }}>
+          <Dna
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="dna-loading"
+            // wrapperStyle={{color: "red", backgroundColor : "red"}}
+            wrapperClass="dna-wrapper"
+          />
+        </div>
+      ) : (
+        <RevvexButton
+          label="Proceed"
+          btnType="button"
+          btnDisable={!showActive}
+          bgColor={!showActive && ("#cccccc" as any)}
+          onClick={() => {
+            showActive && handleSubmit();
+            // navigate("/new-password");
+          }}
+        />
+      )}
       {/* revvex button end */}
     </AuthLayout>
   );

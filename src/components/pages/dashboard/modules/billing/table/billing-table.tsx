@@ -5,8 +5,12 @@ import Select from "react-select";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
 import BankIcon from "../../../../../../assets/bank-icon.svg";
 import TableBody from "../../../../../table/tableBody/table-body";
+import { useSelector } from "react-redux";
+import RootState from "../../../../../../redux/types";
+import moment from "moment";
 
 const BillingTable = () => {
+  const { loading, billing } = useSelector((state: RootState) => state.billing);
   const tableHeadList = [
     "Company Name",
     "Email",
@@ -17,41 +21,6 @@ const BillingTable = () => {
     "Action",
   ];
 
-  const tableBodyList = [
-    {
-      company_name: "Microsoft",
-      email: "microsoft@gmail.com",
-      payment_method: {
-        icon: BankIcon,
-        name: "Bank Transfer",
-      },
-      plan_type: "SME",
-      plan_start_date: "25-12-2022",
-      plan_end_date: "25-12-2023",
-    },
-    {
-      company_name: "Microsoft",
-      email: "microsoft@gmail.com",
-      payment_method: {
-        icon: BankIcon,
-        name: "Bank Transfer",
-      },
-      plan_type: "SME",
-      plan_start_date: "25-12-2022",
-      plan_end_date: "25-12-2023",
-    },
-    {
-      company_name: "Microsoft",
-      email: "microsoft@gmail.com",
-      payment_method: {
-        icon: BankIcon,
-        name: "Bank Transfer",
-      },
-      plan_type: "SME",
-      plan_start_date: "25-12-2022",
-      plan_end_date: "25-12-2023",
-    },
-  ];
   const [search, setSearch] = useState("");
   return (
     <div className="billing-table-wrap">
@@ -76,26 +45,26 @@ const BillingTable = () => {
 
       {/* bottom-table-wrap start */}
       <TableContainer tableHeadItems={tableHeadList}>
-        {tableBodyList.map((chi, idx) => {
+        {billing?.billing?.data?.map((chi: any, idx: any) => {
           const {
-            company_name,
             email,
             payment_method,
             plan_type,
             plan_start_date,
             plan_end_date,
-          } = chi;
+            attributes,
+          } = chi || {};
           return (
             <TableBody
               key={idx}
               num={idx}
-              one={company_name}
-              payment={payment_method.name}
-              paymentIcon={payment_method.icon}
-              two={email}
-              three={plan_type}
-              four={plan_start_date}
-              five={plan_end_date}
+              one={attributes?.organization?.company_name || "---"}
+              payment={payment_method || "---"}
+              paymentIcon={payment_method?.icon || BankIcon}
+              two={attributes?.email || "---"}
+              three={attributes?.plan_type || "---"}
+              four={moment(attributes?.start_date).format("YYYY - MM - DD")}
+              five={moment(attributes?.end_date).format("YYYY - MM - DD")}
               action
             />
           );

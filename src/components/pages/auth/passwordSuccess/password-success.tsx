@@ -31,7 +31,10 @@ const PasswordSuccess = () => {
       <RevvexButton
         label="Proceed to Login"
         btnType="button"
-        onClick={() => navigate("/login")}
+        onClick={() => {
+          localStorage.removeItem("bayuoa")
+          navigate("/login");
+        }}
       />
       {/* revvex button end */}
     </AuthLayout>

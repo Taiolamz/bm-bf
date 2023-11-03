@@ -55,6 +55,146 @@ export const loginUser = createAsyncThunk(
 );
 
 
+export const requestOtpForgetPassword = createAsyncThunk(
+  "web/request-otp-password",
+  async (payload: LoginPayload, thunkAPI) => {
+    try {
+      const data = await axios.post("/admin/confirm-email", payload);
+    // console.log(data);
+	
+      if (data?.data?.status === "fail") {
+        if (typeof data.data === "string") {
+          toast.error(data.data);
+        } else
+          toast.error(data?.data?.message, {
+            position: "top-right",
+          });
+        return thunkAPI.rejectWithValue(data);
+      }
+      if (data?.data?.success) {
+        toast.success(data?.data?.message, {
+          position: "top-right",
+          theme: "colored",
+        });
+
+        // SET_TOKEN(data.data.data.token);
+        // localStorage.setItem('token', data.data.data.token);
+        return data;
+      }
+	  return data
+    } catch (error: any) {
+		console.log(error);
+		
+      if (error.message === "Network Error") {
+        toast.error(error.message, {
+          position: "top-right",
+        });
+      }
+      if (
+        error.response?.data?.status === "fail" &&
+        error.response?.status !== 401
+      ) {
+        return thunkAPI.rejectWithValue(error);
+      }
+	  return error
+    }
+  }
+);
+
+export const changePassword = createAsyncThunk(
+  "web/change-password",
+  async (payload: LoginPayload, thunkAPI) => {
+    try {
+      const data = await axios.post("/admin/reset-password", payload);
+    // console.log(data);
+	
+      if (data?.data?.status === "fail") {
+        if (typeof data.data === "string") {
+          toast.error(data.data);
+        } else
+          toast.error(data?.data?.message, {
+            position: "top-right",
+          });
+        return thunkAPI.rejectWithValue(data);
+      }
+      if (data?.data?.success) {
+        toast.success(data?.data?.message, {
+          position: "top-right",
+          theme: "colored",
+        });
+
+        // SET_TOKEN(data.data.data.token);
+        // localStorage.setItem('token', data.data.data.token);
+        return data;
+      }
+	  return data
+    } catch (error: any) {
+		console.log(error);
+		
+      if (error.message === "Network Error") {
+        toast.error(error.message, {
+          position: "top-right",
+        });
+      }
+      if (
+        error.response?.data?.status === "fail" &&
+        error.response?.status !== 401
+      ) {
+        return thunkAPI.rejectWithValue(error);
+      }
+	  return error
+    }
+  }
+);
+
+
+export const submitOtpForgetPassword = createAsyncThunk(
+  "web/submit-otp-password",
+  async (payload: LoginPayload, thunkAPI) => {
+    try {
+      const data = await axios.post("/admin/verify-password-otp", payload);
+    // console.log(data);
+	
+      if (data?.data?.status === "fail") {
+        if (typeof data.data === "string") {
+          toast.error(data.data);
+        } else
+          toast.error(data?.data?.message, {
+            position: "top-right",
+          });
+        return thunkAPI.rejectWithValue(data);
+      }
+      if (data?.data?.success) {
+        toast.success(data?.data?.message, {
+          position: "top-right",
+          theme: "colored",
+        });
+
+        // SET_TOKEN(data.data.data.token);
+        // localStorage.setItem('token', data.data.data.token);
+        return data;
+      }
+	  return data
+    } catch (error: any) {
+		console.log(error);
+		
+      if (error.message === "Network Error") {
+        toast.error(error.message, {
+          position: "top-right",
+        });
+      }
+      if (
+        error.response?.data?.status === "fail" &&
+        error.response?.status !== 401
+      ) {
+        return thunkAPI.rejectWithValue(error);
+      }
+	  return error
+    }
+  }
+);
+
+
 const initialState: AuthState = {
   loading: false,
   isAuth: false,
@@ -87,15 +227,41 @@ export const authSlice = createSlice({
     builder.addCase(loginUser.pending, (state) => {
       state.loading = true;
     });
-
-    //fullfilled state changes
-
     builder.addCase(loginUser.fulfilled, (state) => {
       state.loading = false;
     });
-
-    //rejected state changes
-    builder.addCase(loginUser.rejected, () => {
+    builder.addCase(loginUser.rejected, (state) => {
+      state.loading = false;
+      return initialState;
+    });
+    builder.addCase(requestOtpForgetPassword.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(requestOtpForgetPassword.fulfilled, (state) => {
+      state.loading = false;
+    });
+    builder.addCase(requestOtpForgetPassword.rejected, (state) => {
+      state.loading = false;
+      return initialState;
+    });
+    builder.addCase(submitOtpForgetPassword.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(submitOtpForgetPassword.fulfilled, (state) => {
+      state.loading = false;
+    });
+    builder.addCase(submitOtpForgetPassword.rejected, (state) => {
+      state.loading = false;
+      return initialState;
+    });
+    builder.addCase(changePassword.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(changePassword.fulfilled, (state) => {
+      state.loading = false;
+    });
+    builder.addCase(changePassword.rejected, (state) => {
+      state.loading = false;
       return initialState;
     });
   },

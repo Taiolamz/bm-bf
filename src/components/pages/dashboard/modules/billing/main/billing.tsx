@@ -3,11 +3,42 @@ import DashboardLayout from "../../../layout/dashboardLayout/dashboard-layout";
 import { BillingChart } from "../chart/chart";
 import "./billing.css";
 import BillingTable from "../table/billing-table";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../../../redux/types";
+import { getBillings } from "../../../../../../redux/Billing";
+import { useEffect } from "react";
 
 const Billing = () => {
+  const dispatch = useDispatch();
+  const perPage = 20;
+  const { loading, billing } = useSelector((state: RootState) => state.billing);
+
+  useEffect(() => {
+    getAllBillingsFunc();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getAllBillingsFunc = async (obj?: any) => {
+    const objVal = {
+      year: "",
+      search: "",
+      month: "",
+      status: "",
+      payment_method: "",
+      per_page: perPage,
+    };
+    dispatch(getBillings(obj || objVal) as any);
+    //  console.log(data);
+  };
+
   return (
     <DashboardLayout pageTitle="Billings" goBack>
-      <div className="billing-wrap">
+      <div
+        onClick={() => {
+          console.log(billing);
+        }}
+        className="billing-wrap"
+      >
         <div className="top-billing-wrap">
           <p className="title">Total Transaction</p>
           <p className="amount">900K</p>
@@ -32,7 +63,7 @@ const Billing = () => {
         </div>
 
         {/* table-wrap start */}
-        <BillingTable />
+        <BillingTable  />
         {/* table-wrap end */}
 
         {/* chart-wrap end */}

@@ -5,6 +5,7 @@ import { Dashboard_route_group } from "./routes/dashboard/routeGroup/route-group
 import { Provider } from "react-redux"; 
 import PrivateRouteDashboard from "./routes/privateRoutes/private-route";
 import store from "./redux/store";
+import setAuthToken from "./redux/setAuthToken";
 
 function App() {
   type RouteProp = {
@@ -12,6 +13,8 @@ function App() {
     element: () => any;
     // location:
   };
+  setAuthToken();
+  
   return (
     <Fragment>
       <Provider store={store}>

@@ -1,18 +1,23 @@
 import { useState } from "react";
 import AuthLayout from "../layout/auth";
 import EmailIcon from "../../../../assets/email-icon.svg";
-import { validateEmail } from "../../../helpers/helpers";
+import { encryptTokenFunc, validateEmail } from "../../../helpers/helpers";
 import { GiCheckMark } from "react-icons/gi";
 import { EventChange } from "../../../types/types";
 import { LiaTimesSolid } from "react-icons/lia";
 import { RevvexButton } from "../../../buttons/button";
 import { toast } from "react-toastify";
 import RequestPassword from "../requestPassword/request-password";
+import { Dna } from "react-loader-spinner";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../redux/types";
+import { requestOtpForgetPassword } from "../../../../redux/userAuth";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const { loading } = useSelector((state: RootState) => state.auth);
   const [showRequestPassword, setShowRequestPassword] = useState(false);
-
+  const dispatch = useDispatch()
   const handleChange = (e: EventChange) => {
     setEmail(e.target.value);
   };
@@ -26,7 +31,7 @@ const ForgotPassword = () => {
     return btnActive;
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async(e: any) => {
     e.preventDefault();
     //  validations start ----------------
     if (!validateEmail(email)) {
@@ -39,14 +44,20 @@ const ForgotPassword = () => {
     // validations end -----------------
 
     if (activeBtn()) {
-      setShowRequestPassword(true);
- 
+      const obj = {
+        email: email
+      }
+      const data = await dispatch(requestOtpForgetPassword(obj) as any);
+      if(data?.payload?.data?.success){
+        localStorage.setItem("bayuoa", encryptTokenFunc(email))
+        setShowRequestPassword(true)
+      }
     }
   };
   return (
     <>
       {showRequestPassword ? (
-        <RequestPassword />
+        <RequestPassword email={email} />
       ) : (
         <AuthLayout
           Title="Reset Password"
@@ -98,20 +109,35 @@ const ForgotPassword = () => {
           {/* form group end */}
 
           {/* revvex button wrap start */}
-          <RevvexButton
-            label={"Request new password"}
-            btnClassName="auth-btn"
-            bgColor={activeBtn() ? "var(--blue-color)" : "var(--disable-color)"}
-            style={{
-              color: activeBtn()
-                ? "var(--white-color)"
-                : "var(--disable-mid-color)",
-              cursor: activeBtn() ? "pointer" : "not-allowed",
-            }}
-            btnType="submit"
-            onClick={() => activeBtn() && handleSubmit}
-            btnDisable={!activeBtn()}
-          />
+          {loading ? (
+            <div style={{ alignSelf: "center" }}>
+              <Dna
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="dna-loading"
+                // wrapperStyle={{color: "red", backgroundColor : "red"}}
+                wrapperClass="dna-wrapper"
+              />
+            </div>
+          ) : (
+            <RevvexButton
+              label={"Request new password"}
+              btnClassName="auth-btn"
+              bgColor={
+                activeBtn() ? "var(--blue-color)" : "var(--disable-color)"
+              }
+              style={{
+                color: activeBtn()
+                  ? "var(--white-color)"
+                  : "var(--disable-mid-color)",
+                cursor: activeBtn() ? "pointer" : "not-allowed",
+              }}
+              btnType="submit"
+              onClick={() => activeBtn() && handleSubmit}
+              btnDisable={!activeBtn()}
+            />
+          )}
           {/* revvex button wrap stop */}
         </AuthLayout>
       )}
