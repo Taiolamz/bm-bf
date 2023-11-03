@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";   
+
 export function validateEmail(email: string) {
   var filter =
     /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -24,7 +26,7 @@ export const validatePasswordUpperCase = (password: string) => {
     return false;
   }
 };
-
+  
 export const validatePasswordSpecialCharacter = (password: string) => {
   if (password.match(/[!@#$.%^&*_=+-]/g)) {
     return true;
@@ -89,7 +91,6 @@ export function HandlepaginationHelper(c: any, m: any) {
   return rangeWithDots;
 }
 
-
 export function numberFormatChart({ num, digits }: any) {
   const lookup = [
     { value: 1, symbol: "" },
@@ -112,8 +113,30 @@ export function numberFormatChart({ num, digits }: any) {
     : "0";
 }
 
+export const customErrorId = "jgsvbjbx";
+export const customSuccessId = "jgsvbjiuysbx";
+export const customInfoId = "jgsvdfbnbjbx";
 
+export const decryptTokenFunc = (tok: any) => {
+  const encryptedToken = tok;
+  const secretKey =
+    "ygb0728hnw7eyhidh7t762y2bdxr6abxjbaxr6wuetyehjwu73ehuyst7gduu";
 
-export const customErrorId = "jgsvbjbx"
-export const customSuccessId = "jgsvbjiuysbx"
-export const customInfoId = "jgsvdfbnbjbx"
+  // Encrypt the token
+  const bytes = CryptoJS.AES.decrypt(encryptedToken, secretKey);
+  const decryptedToken = bytes.toString(CryptoJS.enc.Utf8);
+  // console.log(tok);
+  // console.log(decryptedToken);
+  return decryptedToken;
+};
+
+export const encryptTokenFunc = (tok: any) => {
+  const token = tok;
+  const secretKey =
+    "ygb0728hnw7eyhidh7t762y2bdxr6abxjbaxr6wuetyehjwu73ehuyst7gduu";
+
+  // Encrypt the token
+  const encryptedToken = CryptoJS.AES.encrypt(token, secretKey).toString();
+  return encryptedToken;
+};
+   

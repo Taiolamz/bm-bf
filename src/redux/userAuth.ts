@@ -24,12 +24,13 @@ export const loginUser = createAsyncThunk(
           });
         return thunkAPI.rejectWithValue(data);
       }
-      if (data?.data?.status === "success") {
+      if (data?.data?.success) {
         toast.success(data?.data?.message, {
           position: "top-right",
+          theme: "colored",
         });
 
-        SET_TOKEN(data.data.data.token);
+        // SET_TOKEN(data.data.data.token);
         // localStorage.setItem('token', data.data.data.token);
         return data;
       }

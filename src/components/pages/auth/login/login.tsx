@@ -7,6 +7,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { GiCheckMark } from "react-icons/gi";
 import { Dna } from "react-loader-spinner";
 import {
+  encryptTokenFunc,
   validateEmail,
   validatePasswordLowercase,
   validatePasswordNumber,
@@ -117,7 +118,7 @@ const Login = () => {
       //   navigate("/dashboard-home");
       // }, 2000);
       const data = await dispatch(loginUser(details) as any);
-      // console.log(data);
+      console.log(data);
       if (data?.payload?.response?.status === 422) {
         // console.log(data?.payload?.response?.data.message);
         const msgEmail = data?.payload?.response?.data.message;
@@ -125,6 +126,11 @@ const Login = () => {
           // console.log("kjgf");
           setEmailError(true);
         }
+      }
+      if(data?.payload?.data?.success){
+        const token = data?.payload?.data?.data?.token
+        localStorage.setItem("token", encryptTokenFunc(token))
+        
       }
     }
   };
