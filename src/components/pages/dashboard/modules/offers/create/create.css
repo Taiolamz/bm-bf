@@ -1,0 +1,96 @@
+.create-offer-wrap {
+  display: grid;
+  grid-gap: 4rem;
+}
+.create-offer-wrap .form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.create-offer-wrap .form-wrap .title {
+  color: var(--grey-color);
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+.create-offer-wrap .form-wrap .form-group {
+  display: grid;
+  grid-template-columns: repeat(2, 38.9rem);
+  grid-gap: 3rem;
+  grid-row-gap: 2rem;
+}
+.create-offer-wrap .form-wrap .form-group .form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.create-offer-wrap .form-wrap .form-group .form-input {
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--border-color);
+  padding: 1.2rem 2rem;
+  outline: none;
+}
+.create-offer-wrap .form-wrap .form-group .form-input:focus {
+  border: 0.1rem solid var(--blue-color);
+}
+.create-offer-wrap .form-wrap .form-group .active-form-input {
+  border: 0.1rem solid var(--blue-color);
+}
+.create-offer-wrap .form-wrap .form-group .select-input {
+  width: 38.9rem;
+  outline: none;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.6rem;
+}
+.create-offer-wrap .form-wrap .form-group .discount-select-input {
+  width: 18.5rem;
+}
+.create-offer-wrap .form-wrap .form-group .privilege-select-input {
+  width: 64.6rem;
+}
+.create-offer-wrap .form-wrap .form-group .active-select-input {
+  border: 0.1rem solid var(--blue-color);
+}
+.create-offer-wrap .form-wrap .feature-form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box {
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+  width: 35rem;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box .form-checkbox {
+  display: none;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box .form-check-label {
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+  align-items: center;
+  cursor: pointer;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box .form-check-label .check-circle {
+  border-radius: 100%;
+  background-color: var(--white-bg-color);
+  padding: 0.5rem;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box .form-check-label .check-circle .check-icon {
+  display: flex;
+  justify-content: center;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box .feature-select-input {
+  width: 14.6rem;
+}
+.create-offer-wrap .form-wrap .feature-form-wrap .feature-btn {
+  background-color: var(--bg-white-color);
+  color: var(--blue-color);
+  border: 0.1rem solid var(--blue-color);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-weight: 500;
+  width: 13.5rem;
+  align-items: center;
+}/*# sourceMappingURL=create.css.map */

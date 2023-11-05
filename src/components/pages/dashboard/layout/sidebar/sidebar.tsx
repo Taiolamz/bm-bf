@@ -184,19 +184,20 @@ const Sidebar = () => {
 
         {/* more-items-wrap start */}
         <div
-          onMouseEnter={() =>
-            actionCtx.moreSideItemsFunc(!actionCtx.moreSideItems)
-          }
-          onMouseLeave={() => actionCtx.moreSideItemsFunc(false)}
+        //   onMouseEnter={() =>
+        //     actionCtx.moreSideItemsFunc(!actionCtx.moreSideItems)
+        //   }
+        //   onMouseLeave={() => actionCtx.moreSideItemsFunc(false)}
         >
           <div className="more-items-text">
             <p>More</p>
           </div>
 
           <div
-            className={`more-item-box ${
-              actionCtx.moreSideItems && "more-item-box-show"
-            }`}
+            className="more-item-box"
+            // className={`more-item-box ${
+            //   actionCtx.moreSideItems && "more-item-box-show"
+            // }`}
           >
             {moreItems.map((chi, idx) => {
               const { icon, label, path } = chi;

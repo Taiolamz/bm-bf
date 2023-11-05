@@ -1,13 +1,16 @@
+import { PlusIcon } from "../../assets/icons/icons";
 import "./button.css";
-
+ 
 interface BtnProps {
-  label: string ;
+  label: string;
   onClick?: (param?: any) => void;
   btnClassName?: string;
   bgColor?: string;
   style?: React.CSSProperties;
-  btnType?: "submit" | "reset" | "button";
+  btnType?: "submit" | "reset" | "button";  
   btnDisable?: boolean;
+  plusIcon?: boolean;
+  icon?: any;  
 }
 
 export function RevvexButton({
@@ -18,16 +21,21 @@ export function RevvexButton({
   bgColor,
   btnType,
   btnDisable,
+  plusIcon,
+  icon,
 }: BtnProps) {
   return (
     <button
       disabled={btnDisable}
-      type={btnType}
+      type={btnType}   
       className={`revvex-btn-wrap ${btnClassName}`}
       style={{ backgroundColor: bgColor ? bgColor : "", ...style }}
       onClick={onClick}
     >
       {label}
+      {(icon || plusIcon) && (
+        <figure className={icon && 'icon' }>{icon || PlusIcon}</figure>
+      )}
     </button>
   );
 }

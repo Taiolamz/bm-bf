@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEvent, useEffect, useRef, useState } from "react";
 import "./report-generate-modal.css";
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/airbnb.css";
@@ -6,6 +6,7 @@ import moment from "moment";
 import { CalenderIcon } from "../../../../../../../assets/icons/icons";
 import { RevvexButton } from "../../../../../../buttons/button";
 import { FaCheck } from "react-icons/fa";
+import useClickOutside from "../../../../../../helpers/click-event";
 
 interface DateType {
   start_date: string;
@@ -14,11 +15,7 @@ interface DateType {
   check_csv: boolean;
 }
 
-interface ReportGenerateModalProps {
-  setModal: () => void;
-}
-
-const ReportGenerateModal = ({ setModal }: ReportGenerateModalProps) => {
+const ReportGenerateModal = () => {
   const [details, setDetails] = useState<DateType>({
     start_date: "",
     end_date: "",
@@ -26,9 +23,6 @@ const ReportGenerateModal = ({ setModal }: ReportGenerateModalProps) => {
     check_csv: false,
   });
 
-  const handleSubmitReport = () => {
-    setModal();
-  };
   return (
     <div className="report-generate-modal-wrap">
       {/* top-wrap start */}
@@ -139,7 +133,6 @@ const ReportGenerateModal = ({ setModal }: ReportGenerateModalProps) => {
         {/* button-wrap start */}
         <RevvexButton
           label="Generate Report"
-          onClick={handleSubmitReport}
           btnType="button"
           btnClassName="btn"
         />

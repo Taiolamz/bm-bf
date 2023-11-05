@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { NoteIcon } from "../../../../../../assets/icons/icons";
 import Tabs from "../../../../../tab/tab";
 import DashboardLayout from "../../../layout/dashboardLayout/dashboard-layout";
@@ -9,13 +9,9 @@ import Modal from "react-awesome-modal";
 import ReportGenerateModal from "../modal/reportGenerateModal/report-generate-modal";
 import ViewModal from "../modal/viewModal/view-modal";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
+import ActionContext from "../../../../../context/actionContext";
 
 const Subscription = () => {
-  const [tabSelect, setTabSelect] = useState<string>("Active Subscription");
-  const [indexNo, setIndexNo] = useState<any>("");
-  const [showModal, setShowModal] = useState(false);
-  const [showViewModal, setShowViewModal] = useState(false);
-
   const tabItems = [
     "Active Subscription",
     "Inactive Subscription",
@@ -75,10 +71,39 @@ const Subscription = () => {
       status: "Active",
     },
   ];
+  const [tabSelect, setTabSelect] = useState<string>("Active Subscription");
+  const [indexNo, setIndexNo] = useState<any>("");
+  const [showModal, setShowModal] = useState(false);
+  const [showViewModal, setShowViewModal] = useState(false);
+  const actionCtx = useContext(ActionContext);
+
+  const handleShowModalOpen = () => {
+    setShowModal(true);
+    actionCtx.setIsModalOut(true);
+    setIndexNo(false);
+  };
+
+  const handleShowModalClose = () => {
+    setShowModal(false);
+    actionCtx.setIsModalOut(false);
+  };
+
+  const handleOpenViewModal = () => {
+    setShowViewModal(true);
+    actionCtx.setIsModalOut(true);
+    setIndexNo(false);
+  };
+
+  const handleCloseViewModal = () => {
+    setShowViewModal(false);
+    setIndexNo(false);
+    actionCtx.setIsModalOut(false);
+  };
 
   const handleTabSelect = (tab: string) => {
     setTabSelect(tab);
   };
+
   return (
     <DashboardLayout pageTitle="Subscriptions" goBack>
       {/* subscription-wrap start */}
@@ -88,10 +113,7 @@ const Subscription = () => {
           <p className="subscription-text">Subscription Management</p>
 
           {/* generate report wrap start */}
-          <div
-            className="generate-report-wrap"
-            onClick={() => setShowModal(true)}
-          >
+          <div className="generate-report-wrap" onClick={handleShowModalOpen}>
             <p>Generate Report</p>
             <figure>{NoteIcon}</figure>
           </div>
@@ -133,10 +155,7 @@ const Subscription = () => {
                 setIndexNo={() => setIndexNo(idx)}
                 action
                 viewText={"View"}
-                onView={() => {
-                  setShowViewModal(true);
-                  setIndexNo(false);
-                }}
+                onView={handleOpenViewModal}
                 cancelSubText={
                   status.toLowerCase() === "active"
                     ? "Cancel Subscription"
@@ -152,15 +171,24 @@ const Subscription = () => {
         {/* table-wrap end */}
         {/*  bottom subscription wrap end*/}
       </div>
+
       {/* report generate modal starts */}
-      <Modal visible={showModal} effect="fadeInLeft">
-        <ReportGenerateModal setModal={() => setShowModal(false)} />
+      <Modal
+        visible={showModal}
+        effect="fadeInLeft"
+        onClickAway={handleShowModalClose}
+      >
+        <ReportGenerateModal />
       </Modal>
       {/* report generate modal end */}
 
       {/* view modal start */}
-      <Modal visible={showViewModal} effect="fadeInLeft">
-        <ViewModal onClose={() => setShowViewModal(false)} />
+      <Modal
+        visible={showViewModal}
+        effect="fadeInLeft"
+        onClickAway={handleCloseViewModal}
+      >
+        <ViewModal onClose={handleCloseViewModal} />
       </Modal>
       {/* view modal end */}
       {/* subscription-wrap end */}

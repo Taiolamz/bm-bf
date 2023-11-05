@@ -1,3 +1,5 @@
+import { SVGProps } from "react";
+
 export const RevvexBigLogo: any = (
   <svg
     width="773"
@@ -426,7 +428,7 @@ export const BillingIcon: any = ({
       stroke={activeColor || "#84919A"}
       stroke-width="1.5"
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -516,7 +518,7 @@ export const UsersLogIcon: any = ({
       stroke={activeColor || "#84919A"}
       stroke-width="1.5"
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -540,7 +542,7 @@ export const RolesIcon: any = ({
       stroke={activeColor || "#84919A"}
       stroke-width="1.5"
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -683,7 +685,7 @@ export const NofiticationIcon = (
       d="M5.70132 2.20117H4.14057C2.75887 2.20117 1.82249 3.49421 2.15649 4.83493C2.48494 6.15339 2.46768 7.14039 1.58008 9.03104C1.58008 9.03104 3.29601 8.82792 4.40096 8.80117L4.43607 8.80032C4.88288 8.78949 5.14452 8.78314 5.60096 8.80117C6.42532 8.83374 6.88484 8.91035 7.70096 9.03104C7.98947 9.0737 8.43819 9.15014 8.43819 9.15014C7.59146 7.77306 7.52689 6.43877 7.80858 4.9884C8.08107 3.58539 7.13054 2.20117 5.70132 2.20117Z"
       stroke="#1D1D18"
       stroke-width="0.9"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <ellipse
       cx="5.00078"
@@ -698,8 +700,8 @@ export const NofiticationIcon = (
       d="M6.20078 12.4014C6.20078 12.4014 6.00078 13.0014 5.00078 13.0014C4.00078 13.0014 3.80078 12.4014 3.80078 12.4014"
       stroke="#1D1D18"
       stroke-width="0.84"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -772,22 +774,22 @@ export const ActionIcon = (
       d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
       stroke="black"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M19 13C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11C18.4477 11 18 11.4477 18 12C18 12.5523 18.4477 13 19 13Z"
       stroke="black"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M5 13C5.55228 13 6 12.5523 6 12C6 11.4477 5.55228 11 5 11C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13Z"
       stroke="black"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -806,15 +808,15 @@ export const EyeIcon = (
         d="M0.833008 9.99967C0.833008 9.99967 4.16634 3.33301 9.99967 3.33301C15.833 3.33301 19.1663 9.99967 19.1663 9.99967C19.1663 9.99967 15.833 16.6663 9.99967 16.6663C4.16634 16.6663 0.833008 9.99967 0.833008 9.99967Z"
         stroke="#5B6871"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
         stroke="#5B6871"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>
@@ -840,22 +842,22 @@ export const CancelIcon = (
         d="M10.0003 18.3337C14.6027 18.3337 18.3337 14.6027 18.3337 10.0003C18.3337 5.39795 14.6027 1.66699 10.0003 1.66699C5.39795 1.66699 1.66699 5.39795 1.66699 10.0003C1.66699 14.6027 5.39795 18.3337 10.0003 18.3337Z"
         stroke="#5B6871"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M12.5 7.5L7.5 12.5"
         stroke="#5B6871"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M7.5 7.5L12.5 12.5"
         stroke="#5B6871"
         stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>
@@ -914,15 +916,15 @@ export const SmallArrowBack = (
       d="M19 12H5"
       stroke="#1D1D18"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M12 19L5 12L12 5"
       stroke="#1D1D18"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -1016,18 +1018,156 @@ export const SearchIcon = (
       d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
       stroke="#7E7E96"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M21.0004 21.0004L16.6504 16.6504"
       stroke="#7E7E96"
       stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+// <--------search-icon-end-------->
+
+// <-------edit icon start------->
+// interface EditIconType {
+//   style: SVGProps<SVGMaskElement>;
+// }
+export const EditIcon = (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="24" height="24" rx="12" fill="#D7EDFF" />
+    <mask
+      id="mask0_3522_29794"
+      // style="mask-type:alpha"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="24"
+      height="24"
+    >
+      <rect width="24" height="24" fill="#004BFF" />
+    </mask>
+    <g mask="#004BFF">
+      <path
+        d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6V19ZM19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3042 2.75 17.8625 2.75C18.4208 2.75 18.8917 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.57083 21.275 6.1125C21.2917 6.65417 21.1083 7.11667 20.725 7.5L19.3 8.925ZM17.85 10.4L7.25 21H3V16.75L13.6 6.15L17.85 10.4Z"
+        fill="#004BFF"
+      />
+    </g>
+  </svg>
+);
+
+// <-------edit icon end------->
+
+// <--------delete icon start---------->
+export const DeleteIcon = (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <mask
+      id="mask0_3522_29804"
+      // style="mask-type:alpha"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="24"
+      height="24"
+    >
+      <rect width="24" height="24" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_3522_29804)">
+      <path
+        d="M12 18C13.6667 18 15.0833 17.4167 16.25 16.25C17.4167 15.0833 18 13.6667 18 12C18 10.3333 17.4167 8.91667 16.25 7.75C15.0833 6.58333 13.6667 6 12 6C10.3333 6 8.91667 6.58333 7.75 7.75C6.58333 8.91667 6 10.3333 6 12C6 13.6667 6.58333 15.0833 7.75 16.25C8.91667 17.4167 10.3333 18 12 18ZM9 13V11H15V13H9ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM12 20C14.2333 20 16.125 19.225 17.675 17.675C19.225 16.125 20 14.2333 20 12C20 9.76667 19.225 7.875 17.675 6.325C16.125 4.775 14.2333 4 12 4C9.76667 4 7.875 4.775 6.325 6.325C4.775 7.875 4 9.76667 4 12C4 14.2333 4.775 16.125 6.325 17.675C7.875 19.225 9.76667 20 12 20Z"
+        fill="#CC0905"
+      />
+    </g>
+  </svg>
+);
+// <--------delete icon end---------->
+
+// <-------------------plus icon start--------->
+export const PlusIcon = (
+  <svg
+    width="17"
+    height="18"
+    viewBox="0 0 17 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M9.48548 8.00015L9.48548 1.92893C9.48548 1.37598 9.03859 0.929084 8.48563 0.929084C7.93268 0.929083 7.48579 1.37597 7.48579 1.92893L7.48579 8.00015L1.41457 8.00015C0.86161 8.00015 0.414718 8.44704 0.414718 9C0.414718 9.55296 0.86161 9.99985 1.41457 9.99985L7.48579 9.99985L7.48579 16.0711C7.48579 16.624 7.93268 17.0709 8.48563 17.0709C8.76141 17.0709 9.01172 16.9592 9.19274 16.7782C9.37376 16.5972 9.48548 16.3468 9.48548 16.0711L9.48548 9.99985L15.5567 9.99985C15.8325 9.99985 16.0828 9.88813 16.2638 9.70711C16.4448 9.52609 16.5566 9.27577 16.5566 9C16.5566 8.44704 16.1097 8.00015 15.5567 8.00015L9.48548 8.00015Z"
+      fill="#004BFF"
+    />
+  </svg>
+);
+
+// <-------------------plus icon end--------->
+
+// <------------------check-icon start---------->
+interface CheckIconProp {
+  disableColor?: boolean;
+}
+export const CheckIcon = ({ disableColor }: CheckIconProp) => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.33301 8.00033L6.66634 11.3337L13.333 4.66699"
+      stroke={disableColor ? "#c3c7ce" : "#004BFF"}
+      stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
   </svg>
 );
-// <--------search-icon-end-------->
+// <------------------check-icon end---------->
+
+// <-----------set icon wrap start----------->
+export const SetIcon = (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <mask
+      id="mask0_4339_20631"
+      // style="mask-type:alpha"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="18"
+      height="18"
+    >
+      <rect width="18" height="18" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_4339_20631)">
+      <path
+        d="M13.3105 15.1875C12.523 15.1875 11.8574 14.9156 11.3137 14.3719C10.7699 13.8281 10.498 13.1625 10.498 12.375C10.498 11.5875 10.7699 10.9219 11.3137 10.3781C11.8574 9.83438 12.523 9.5625 13.3105 9.5625C14.098 9.5625 14.7637 9.83438 15.3074 10.3781C15.8512 10.9219 16.123 11.5875 16.123 12.375C16.123 13.1625 15.8512 13.8281 15.3074 14.3719C14.7637 14.9156 14.098 15.1875 13.3105 15.1875ZM13.3105 13.6875C13.673 13.6875 13.9824 13.5594 14.2387 13.3031C14.4949 13.0469 14.623 12.7375 14.623 12.375C14.623 12.0125 14.4949 11.7031 14.2387 11.4469C13.9824 11.1906 13.673 11.0625 13.3105 11.0625C12.948 11.0625 12.6387 11.1906 12.3824 11.4469C12.1262 11.7031 11.998 12.0125 11.998 12.375C11.998 12.7375 12.1262 13.0469 12.3824 13.3031C12.6387 13.5594 12.948 13.6875 13.3105 13.6875ZM2.99805 13.125V11.625H8.99805V13.125H2.99805ZM4.68555 8.4375C3.89805 8.4375 3.23242 8.16563 2.68867 7.62187C2.14492 7.07812 1.87305 6.4125 1.87305 5.625C1.87305 4.8375 2.14492 4.17188 2.68867 3.62812C3.23242 3.08437 3.89805 2.8125 4.68555 2.8125C5.47305 2.8125 6.13867 3.08437 6.68242 3.62812C7.22617 4.17188 7.49805 4.8375 7.49805 5.625C7.49805 6.4125 7.22617 7.07812 6.68242 7.62187C6.13867 8.16563 5.47305 8.4375 4.68555 8.4375ZM4.68555 6.9375C5.04805 6.9375 5.35742 6.80938 5.61367 6.55313C5.86992 6.29688 5.99805 5.9875 5.99805 5.625C5.99805 5.2625 5.86992 4.95312 5.61367 4.69688C5.35742 4.44063 5.04805 4.3125 4.68555 4.3125C4.32305 4.3125 4.01367 4.44063 3.75742 4.69688C3.50117 4.95312 3.37305 5.2625 3.37305 5.625C3.37305 5.9875 3.50117 6.29688 3.75742 6.55313C4.01367 6.80938 4.32305 6.9375 4.68555 6.9375ZM8.99805 6.375V4.875H14.998V6.375H8.99805Z"
+        fill="#004BFF"
+      />
+    </g>
+  </svg>
+);
+// <-----------set icon wrap end----------->
 
 // <------dashboard icons end----------->

@@ -10,7 +10,8 @@
   align-items: center;
   height: 90vh;
   gap: 8rem;
-  animation: slideUpAnime 0.8s ease-in-out forwards;
+  -webkit-animation: slideUpAnime 0.8s ease-in-out forwards;
+          animation: slideUpAnime 0.8s ease-in-out forwards;
 }
 .auth-wrap .auth-form-wrap .auth-form-box {
   display: flex;
@@ -65,6 +66,9 @@
 .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input:focus::-moz-placeholder, .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-active:focus::-moz-placeholder {
   visibility: hidden;
 }
+.auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input:focus:-ms-input-placeholder, .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-active:focus:-ms-input-placeholder {
+  visibility: hidden;
+}
 .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input:focus::placeholder, .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-active:focus::placeholder {
   visibility: hidden;
 }
@@ -89,8 +93,11 @@
   cursor: pointer;
 }
 .auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-active {
-  border: 0.1rem solid var(--blue-color);
+  border: 0.1rem solid var(--light-blue);
   transition: 0.2s;
+}
+.auth-wrap .auth-form-wrap .auth-form-box .auth-form-group .auth-input-error {
+  border: 0.1rem solid red !important;
 }
 .auth-wrap .auth-form-wrap .auth-form-box .password-forget-text {
   color: var(--light-blue);
@@ -101,6 +108,17 @@
 }
 .auth-wrap .auth-form-wrap .auth-form-box .auth-btn {
   margin-top: 2rem;
+}
+
+@-webkit-keyframes slideUpAnime {
+  0% {
+    transform: translateY(7%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100;
+  }
 }
 
 @keyframes slideUpAnime {

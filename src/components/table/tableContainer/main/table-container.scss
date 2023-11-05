@@ -7,18 +7,61 @@
   .table-box {
     width: 100%;
     border-collapse: collapse;
+
     .table-head {
       background-color: var(--white-bg-color);
+
       th {
-        padding: 0.8rem;
+        // padding: 0.8rem;
+        padding: 1rem 0 1rem 0.8rem;
         text-align: left;
         font-weight: normal;
         font-size: 1.2rem;
       }
     }
+    .table-check-input-row {
+      display: none;
+
+      &:checked ~ .table-check-label-input-row {
+        background-color: var(--light-blue);
+        border: 0.1rem solid var(--light-blue);
+      }
+
+      &:checked ~ .table-check-label-input-row .icon {
+        visibility: visible;
+      }
+    }
+
+    .table-check-label-input-row {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      // transform: translateY(rem);
+      background-color: #f6f8f9;
+      border-radius: 0.3rem;
+      border: 0.1rem solid var(--border-color);
+
+      .icon {
+        width: 0.75rem;
+        height: 0.75rem;
+        fill: #ffffff;
+        visibility: hidden;
+      }
+    }
+
     tbody {
       background-color: var(--light-grey-color);
       text-align: left;
+
+      // &:nth-child(odd) {
+      //   background-color: var(--white-bg-color);
+      // }
+
+      // &:nth-child(even) {
+      //   background-color: #f6f8f9;
+      // }
 
       tr {
         position: relative;
@@ -26,11 +69,12 @@
 
         td {
           color: var(--dark-color);
-          padding: 1rem 0.8rem;
+          padding: 1rem 0 1rem 0.8rem;
         }
+
         .row-icon-wrap {
           display: flex;
-          gap: 0.5rem;
+          // gap: 0.2rem;
         }
         .status {
           background-color: var(--light-green-color);
@@ -61,6 +105,17 @@
           cursor: pointer;
         }
 
+        .edit-delete-wrap {
+          display: flex;
+          gap: 3rem;
+          padding: 1rem 0.8rem;
+
+          :nth-child(1),
+          :nth-child(2) {
+            cursor: pointer;
+          }
+        }
+
         .drop-down-box {
           width: 23.2rem;
           display: flex;
@@ -86,7 +141,18 @@
         gap: 1rem;
       }
     }
+
+    .table-odd-even-body {
+      &:nth-child(odd) {
+        background-color: var(--white-bg-color);
+      }
+
+      &:nth-child(even) {
+        background-color: #f6f8f9;
+      }
+    }
   }
+
   .pagination-wrap {
     margin-top: 3rem;
   }

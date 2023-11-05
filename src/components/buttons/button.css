@@ -10,4 +10,7 @@
   font-weight: 600;
   transition: 0.3s;
   cursor: pointer;
+}
+.revvex-btn-wrap .icon {
+  margin-top: 0.3rem;
 }/*# sourceMappingURL=button.css.map */

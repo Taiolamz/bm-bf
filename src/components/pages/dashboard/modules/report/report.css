@@ -1,0 +1,123 @@
+.report-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.report-wrap .top-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: var(--white-bg-color);
+  border-radius: 0.8rem;
+  align-items: center;
+  position: relative;
+}
+.report-wrap .top-wrap .title-wrap {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.report-wrap .top-wrap .title-wrap .report-title {
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: var(--blue-color);
+  text-transform: capitalize;
+}
+.report-wrap .top-wrap .title-wrap .drop-icon {
+  color: var(--blue-color);
+  transition: all 0.3s ease-in-out;
+}
+.report-wrap .top-wrap .title-wrap .icon-up {
+  transform: rotate(180deg);
+}
+.report-wrap .top-wrap .report-drop {
+  background-color: var(--white-bg-color);
+  border-radius: 0.6rem;
+  position: absolute;
+  top: 6.5rem;
+  width: 36.9rem;
+  box-shadow: var(--dark-box-shadow);
+  z-index: 1;
+  padding: 1rem 0 1rem 0;
+  -webkit-animation: slideDown 0.3s ease-in-out;
+          animation: slideDown 0.3s ease-in-out;
+}
+.report-wrap .top-wrap .report-drop .reports-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.1s;
+  color: var(--dark-color);
+  font-weight: 400;
+}
+.report-wrap .top-wrap .report-drop .reports-box:hover {
+  background-color: var(--light-blue-bg-color);
+  border-radius: 0.5rem;
+  color: var(--blue-color);
+  font-weight: 700;
+}
+.report-wrap .top-wrap .report-drop .reports-box .icon {
+  color: var(--blue-color);
+  font-weight: 800;
+}
+.report-wrap .top-wrap .report-drop .report-active {
+  background-color: var(--light-blue-bg-color);
+  border-radius: 0.5rem;
+  color: var(--blue-color);
+  font-weight: 700;
+}
+.report-wrap .top-wrap .report-btn-wrap {
+  display: flex;
+  gap: 2rem;
+}
+.report-wrap .top-wrap .report-btn-wrap .set-date-btn {
+  background-color: var(--white-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--blue-color);
+  border: 0.1rem solid var(--blue-color);
+  padding: 0rem 2rem;
+  gap: 1rem;
+}
+.report-wrap .top-wrap .report-btn-wrap .generate-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  place-items: center;
+  padding: 0rem 2rem;
+  gap: 1rem;
+}
+.report-wrap .report-calender {
+  position: absolute;
+  top: 7rem;
+  right: 30rem;
+  z-index: 1;
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    opacity: 0.7;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0.7;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}/*# sourceMappingURL=report.css.map */

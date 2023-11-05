@@ -1,0 +1,21 @@
+.billing-table-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .table-top-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .search-input {
+    width: 42.5rem;
+  }
+
+  .filter-export-wrap {
+    display: flex;
+    gap: 2rem;
+  }
+}

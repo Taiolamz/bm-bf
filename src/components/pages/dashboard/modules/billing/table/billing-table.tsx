@@ -5,6 +5,7 @@ import Select from "react-select";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
 import BankIcon from "../../../../../../assets/bank-icon.svg";
 import TableBody from "../../../../../table/tableBody/table-body";
+import { capitalizeFirstWord } from "../../../../../helpers/helpers";
 import { useSelector } from "react-redux";
 import RootState from "../../../../../../redux/types";
 import moment from "moment";
@@ -38,8 +39,10 @@ const BillingTable = () => {
         {/* search wrap end */}
 
         {/* filter export wrap start */}
-        <p>Advanced Filter</p>
-        <Select placeholder="Filter" />
+        <div className="filter-export-wrap">
+          <Select placeholder=" Advanced Filter" />
+          <Select placeholder="Filter" />
+        </div>
         {/* filter export wrap end */}
       </div>
 

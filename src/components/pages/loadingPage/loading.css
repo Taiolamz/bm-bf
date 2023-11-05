@@ -14,19 +14,33 @@
   height: 2.4rem;
   background-color: var(--disable-mid-color);
   border-radius: 50%;
-  animation: dotLoader 1s infinite;
+  -webkit-animation: dotLoader 1s infinite;
+          animation: dotLoader 1s infinite;
 }
 .big-loader-wrap .dots-wrap .dots-loader:nth-child(1) {
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 .big-loader-wrap .dots-wrap .dots-loader:nth-child(2) {
-  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
 .big-loader-wrap .dots-wrap .dots-loader:nth-child(3) {
-  animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
 }
 .big-loader-wrap .dots-wrap .dots-loader:nth-child(4) {
-  animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+@-webkit-keyframes dotLoader {
+  0% {
+    background-color: var(--white-color);
+  }
+  100% {
+    background-color: var(--disable-mid-color);
+  }
 }
 
 @keyframes dotLoader {
