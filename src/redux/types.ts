@@ -21,10 +21,21 @@ export interface BillingState {
 }
 
 
+export interface SubscriptionState {
+	loading: boolean;
+	subscriptions?: {
+		subscriptions: {} | any
+	};
+	// logging_out?: boolean;
+    // response: any;  
+}
+
+
 
 type RootState = {
 	auth: AuthState;
     billing: BillingState;
+	subscriptions:  SubscriptionState,
 	// Add other reducer states here if you have more reducers
 };
 

@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { NoteIcon } from "../../../../../../assets/icons/icons";
 import Tabs from "../../../../../tab/tab";
 import DashboardLayout from "../../../layout/dashboardLayout/dashboard-layout";
@@ -10,8 +10,15 @@ import ReportGenerateModal from "../modal/reportGenerateModal/report-generate-mo
 import ViewModal from "../modal/viewModal/view-modal";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
 import ActionContext from "../../../../../context/actionContext";
+import { useDispatch, useSelector } from "react-redux";
+import { getSubscriptions } from "../../../../../../redux/Subscription";
+import RootState from "../../../../../../redux/types";
 
 const Subscription = () => {
+  const dispatch = useDispatch();
+  const { loading, subscriptions } = useSelector(  
+    (state: RootState) => state.subscriptions
+  );
   const tabItems = [
     "Active Subscription",
     "Inactive Subscription",
@@ -71,7 +78,7 @@ const Subscription = () => {
       status: "Active",
     },
   ];
-  const [tabSelect, setTabSelect] = useState<string>("Active Subscription");
+  const [tabSelect, setTabSelect] = useState<string>("active");
   const [indexNo, setIndexNo] = useState<any>("");
   const [showModal, setShowModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -79,35 +86,53 @@ const Subscription = () => {
 
   const handleShowModalOpen = () => {
     setShowModal(true);
-    actionCtx.setIsModalOut(true);
+    // actionCtx.setIsModalOut(true);
     setIndexNo(false);
   };
 
   const handleShowModalClose = () => {
     setShowModal(false);
-    actionCtx.setIsModalOut(false);
+    // actionCtx.setIsModalOut(false);
   };
 
   const handleOpenViewModal = () => {
     setShowViewModal(true);
-    actionCtx.setIsModalOut(true);
+    // actionCtx.setIsModalOut(true);
     setIndexNo(false);
   };
 
   const handleCloseViewModal = () => {
     setShowViewModal(false);
     setIndexNo(false);
-    actionCtx.setIsModalOut(false);
+    // actionCtx.setIsModalOut(false);
   };
 
   const handleTabSelect = (tab: string) => {
     setTabSelect(tab);
   };
 
+  useEffect(() => {
+    const objVal = {
+      year: "",
+      search: "",
+      month: "",
+      status: "",
+      payment_method: "",
+      per_page: 10,
+    };
+    dispatch(getSubscriptions(objVal as any) as any);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <DashboardLayout pageTitle="Subscriptions" goBack>
       {/* subscription-wrap start */}
-      <div className="subscription-wrap">
+      <div
+        onClick={() => {
+          console.log(subscriptions);
+        }}   
+        className="subscription-wrap"
+      >
         {/* top subscription wrap start */}
         <div className="top-wrap">
           <p className="subscription-text">Subscription Management</p>

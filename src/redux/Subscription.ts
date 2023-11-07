@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import axios from "../utils/axios";
 // import { toast } from '@ravenpay/raven-bank-ui';
-import { BillingState } from "./types";
+import {  SubscriptionState } from "./types";
 
-interface billingPayload {
+interface subscriptionPayload {
   // Add appropriate types for the payload
   year: string;
   search: string;
@@ -15,12 +15,12 @@ interface billingPayload {
   url: string;
 }
 
-export const getBillings = createAsyncThunk(
-  "web/get-billings",
-  async (payload: billingPayload, thunkAPI) => {
+export const getSubscriptions = createAsyncThunk(
+  "web/get-subscriptions",
+  async (payload: subscriptionPayload, thunkAPI) => {
     try {
       const data = await axios.get(
-        `/back-office/billing?year=${payload?.year || ""}&search=${
+        `/back-office/subscription-management?type=${payload?.status || "active"}&year=${payload?.year || ""}&search=${
           payload?.search || ""
         }&month=${payload?.month || ""}&status=${
           payload?.status || ""
@@ -28,7 +28,7 @@ export const getBillings = createAsyncThunk(
           payload?.per_page || 10
         }`
       );
-      //   console.log(data);
+        // console.log(data.data.data, "-------------------------");
 
       if (data?.data?.status === "fail") {
         if (typeof data.data === "string") {
@@ -42,8 +42,8 @@ export const getBillings = createAsyncThunk(
       if (data?.data?.success) {
         //    console.log(data?.data?.data);
 
-        // SET_BILLING(data?.data?.data)
-        thunkAPI.dispatch(SET_BILLING(data?.data?.data));
+        // SET_SUBSCRIPTION(data?.data?.data)
+        thunkAPI.dispatch(SET_SUBSCRIPTION(data?.data?.data));
         return data;
       }
       return data;
@@ -66,9 +66,9 @@ export const getBillings = createAsyncThunk(
   }
 );
 
-export const getBillingsPagination = createAsyncThunk(
+export const getSubscriptionsPagination = createAsyncThunk(
   "web/get-billings",
-  async (payload: billingPayload, thunkAPI) => {
+  async (payload: subscriptionPayload, thunkAPI) => {
     try {
       const data = await axios.get(`${payload?.url}&per_page=${
         payload?.per_page || 10
@@ -87,8 +87,8 @@ export const getBillingsPagination = createAsyncThunk(
       if (data?.data?.success) {
         //    console.log(data?.data?.data);
 
-        // SET_BILLING(data?.data?.data)
-        thunkAPI.dispatch(SET_BILLING(data?.data?.data));
+        // SET_SUBSCRIPTION(data?.data?.data)
+        thunkAPI.dispatch(SET_SUBSCRIPTION(data?.data?.data));
         return data;
       }
       return data;
@@ -111,34 +111,34 @@ export const getBillingsPagination = createAsyncThunk(
   }
 );
 
-const initialState: BillingState = {
+const initialState: SubscriptionState = {
   loading: false,
-  billing: {
-    billing: {},
+  subscriptions: {
+    subscriptions: {},
   },
   // initialize other state properties
 };
 
-export const billingSlice = createSlice({
-  name: "billing",
+export const subscriptionSlice = createSlice({
+  name: "subscription",
   initialState,
 
   reducers: {
-    SET_BILLING: (state, action) => {
-      state.billing = action.payload;
+    SET_SUBSCRIPTION: (state, action) => {
+      state.subscriptions = action.payload;
     },
   },
 
   extraReducers: (builder) => {
     // pending state changes
 
-    builder.addCase(getBillings.pending, (state) => {
+    builder.addCase(getSubscriptions.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(getBillings.fulfilled, (state) => {
+    builder.addCase(getSubscriptions.fulfilled, (state) => {
       state.loading = false;
     });
-    builder.addCase(getBillings.rejected, (state) => {
+    builder.addCase(getSubscriptions.rejected, (state) => {
       state.loading = false;
       return initialState;
     });
@@ -146,6 +146,6 @@ export const billingSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { SET_BILLING } = billingSlice.actions;
+export const { SET_SUBSCRIPTION } = subscriptionSlice.actions;
 
-export default billingSlice.reducer;
+export default subscriptionSlice.reducer;

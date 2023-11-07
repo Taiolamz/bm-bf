@@ -6,11 +6,13 @@ import TableContainer from "../../../../../table/tableContainer/main/table-conta
 import BankIcon from "../../../../../../assets/bank-icon.svg";
 import TableBody from "../../../../../table/tableBody/table-body";
 import { capitalizeFirstWord } from "../../../../../helpers/helpers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import RootState from "../../../../../../redux/types";
 import moment from "moment";
+import { getBillingsPagination } from "../../../../../../redux/Billing";
 
 const BillingTable = () => {
+  const dispatch = useDispatch();
   const { loading, billing } = useSelector((state: RootState) => state.billing);
   const tableHeadList = [
     "Company Name",
@@ -21,6 +23,25 @@ const BillingTable = () => {
     "Plan End Date",
     "Action",
   ];
+
+  const handlePagination = async (param: any) => {
+    // console.log(param);
+    const splitLink = param.split("/api");
+    const linkTwo = splitLink[1];
+    const objVal = {
+      year: "",
+      search: "",
+      month: "",
+      status: "",
+      payment_method: "",
+      per_page: 10,
+      url: linkTwo,
+    };
+    // console.log(objVal);
+    // return;
+
+    dispatch(getBillingsPagination(objVal as any) as any);
+  };
 
   const [search, setSearch] = useState("");
   return (
@@ -47,14 +68,24 @@ const BillingTable = () => {
       </div>
 
       {/* bottom-table-wrap start */}
-      <TableContainer tableHeadItems={tableHeadList}>
+      <TableContainer
+        fromPage={billing?.billing?.from || 1}
+        toPage={billing?.billing?.to || billing?.billing?.data?.length}
+        totalPage={billing?.billing?.total || billing?.billing?.data?.length}
+        nextPage={billing?.billing?.next_page_url}
+        prevPage={billing?.billing?.prev_page_url}
+        onNextPage={() => handlePagination(billing?.billing?.next_page_url)}
+        onPrevPage={() => handlePagination(billing?.billing?.prev_page_url)}
+        showPagination
+        tableHeadItems={tableHeadList}
+      >
         {billing?.billing?.data?.map((chi: any, idx: any) => {
           const {
-            email,
+            // email,
             payment_method,
-            plan_type,
-            plan_start_date,
-            plan_end_date,
+            // plan_type,
+            // plan_start_date,
+            // plan_end_date,
             attributes,
           } = chi || {};
           return (

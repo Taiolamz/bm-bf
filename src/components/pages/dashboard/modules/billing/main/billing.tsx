@@ -10,8 +10,8 @@ import { useEffect } from "react";
 
 const Billing = () => {
   const dispatch = useDispatch();
-  const perPage = 20;
-  const { loading, billing } = useSelector((state: RootState) => state.billing);
+  const perPage = 10;
+  const {  billing } = useSelector((state: RootState) => state.billing);
 
   useEffect(() => {
     getAllBillingsFunc();

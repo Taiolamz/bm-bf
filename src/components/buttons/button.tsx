@@ -1,6 +1,6 @@
-import { PlusIcon } from "../../assets/icons/icons";
+
 import "./button.css";
- 
+// import { PlusIcon } from "../../assets/icons/icons";
 interface BtnProps {
   label: string;
   onClick?: (param?: any) => void;
@@ -34,7 +34,7 @@ export function RevvexButton({
     >
       {label}
       {(icon || plusIcon) && (
-        <figure className={icon && 'icon' }>{icon || PlusIcon}</figure>
+        <figure className={icon && 'icon' }>{icon }</figure>
       )}
     </button>
   );
