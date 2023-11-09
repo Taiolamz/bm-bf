@@ -11,14 +11,16 @@
 
     .title {
       font-weight: 700;
-      border-bottom: 0.2rem solid var(--light-blue);
+      border-bottom: 0.2rem solid var(--blue-color);
       padding-bottom: 1rem;
+      color: var(--dark-color);
     }
   }
   .search-input {
     width: 37.5rem;
   }
   .table-wrap {
+    font-size: 1.4rem;
     :nth-child(1) {
       position: relative;
     }

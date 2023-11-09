@@ -81,9 +81,10 @@
 
             &:checked ~ .check-label .check-circle {
               background-color: var(--blue-color);
+              border: 0.1rem solid var(--blue-color);
 
               .icon {
-                color: var(--white-color);
+                color: var(--white-bg-color);
               }
             }
           }

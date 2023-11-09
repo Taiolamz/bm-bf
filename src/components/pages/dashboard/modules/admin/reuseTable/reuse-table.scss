@@ -1,7 +1,9 @@
 .main-table-wrap-start {
   width: 100%;
   margin-top: 2rem;
-  display: table;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
 
   .main-table-header {
     justify-content: space-between;
@@ -9,35 +11,46 @@
     color: var(--dark-color);
     width: 100%;
     border-collapse: collapse;
-    display: table-row;
+    display: flex;
     position: sticky;
     top: 0;
     background-color: var(--light-blue-bg-color);
+    border-bottom: 0.1rem solid #e5e9eb;
+    border-radius: 0.6rem 0.6rem 0 0;
 
     .main-table-header-cell {
-      display: table-cell;
-      border-bottom: 0.1rem solid #e5e9eb;
+      flex: 1;
       padding-bottom: 1rem;
       padding: 0.5rem;
+      width: 100%;
+      margin: 1rem;
     }
   }
 
   .main-table-header-scroll {
     background-color: var(--white-bg-color);
     transition: background-color 0.3s;
-
   }
-  
 
   .main-table-body-box {
-    display: table-row;
+    display: flex;
     font-weight: 500;
+    border-bottom: 0.1rem solid #e5e9eb;
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     .main-table-cell {
-      display: table-cell;
+      // display: table-cell;
+      flex: 1;
       padding: 0.5rem;
-      border-bottom: 0.1rem solid #e5e9eb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      place-items: center;
       padding-bottom: 1rem;
+      margin: 1rem;
     }
 
     .user-wrap {
@@ -51,23 +64,29 @@
       }
     }
     .org-wrap {
+      flex: 2;
       display: flex;
       gap: 0.5rem;
       align-items: center;
-      margin-top: 0.3rem;
 
       .icon {
         width: 1.92rem;
+        margin-top: 0.2rem;
+      }
+      .org-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
     .status {
       background-color: var(--light-green-color);
       color: var(--green-color);
       padding: 0.5rem;
-      margin-top: 0.9rem;
+      height: 3rem;
+      justify-content: center;
+      margin-top: 1rem;
       border-radius: 0.4rem;
-      display: inline-block;
-      width: 8rem;
       text-transform: capitalize;
       text-align: center;
     }

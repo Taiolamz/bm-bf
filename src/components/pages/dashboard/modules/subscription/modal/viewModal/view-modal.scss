@@ -50,13 +50,13 @@
         gap: 3rem;
 
         // status color set to red at default
-        .view-status {
+        .view-status-text {
           color: var(--thick-red-color);
         }
-        .pending-status {
+        .pending-status-text {
           color: var(--yellow-color);
         }
-        .active-status {
+        .active-status-text {
           color: var(--green-color);
         }
       }

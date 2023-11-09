@@ -62,14 +62,14 @@ export function BillingChart() {
       borderColor: "rgba(0,0,0,0)",
       borderWidth: 5,
     },
-    {
-      label: "Outflow",
-      data: [40, 69, 22, 44, 23, 54, 50, 10, 20, 30, 55, 56],
-      backgroundColor: "#F76659",
-      barThickness: 30,
-      borderWidth: 5,
-      borderColor: "rgba(0,0,0,0)",
-    },
+    // {
+    //   label: "Outflow",
+    //   data: [40, 69, 22, 44, 23, 54, 50, 10, 20, 30, 55, 56],
+    //   backgroundColor: "#F76659",
+    //   barThickness: 30,
+    //   borderWidth: 5,
+    //   borderColor: "rgba(0,0,0,0)",
+    // },
   ];
 
   const data: DataVal = {
@@ -77,9 +77,10 @@ export function BillingChart() {
     datasets: dataSets,
   };
 
-  const options = {
+  const options: any = {
     responsive: true,
     gap: 3,
+
     plugins: {
       legend: {
         position: "bottom" as const,
@@ -89,7 +90,14 @@ export function BillingChart() {
         display: false,
         text: "Chart.js Bar Chart",
       },
-    
+      tooltip: {
+        bodyFont: {
+          family: "Mulish, sans-serif",
+        },
+        titleFont: {
+          family: "Mulish, sans-serif",
+        },
+      },
     },
     scales: {
       x: {
@@ -103,6 +111,11 @@ export function BillingChart() {
           max: 20,
         },
         padding: 2,
+        ticks: {
+          font: {
+            family: "Mulish, sans-serif",
+          },
+        },
       },
 
       y: {
@@ -118,6 +131,9 @@ export function BillingChart() {
           padding: 10,
           suggestedMin: 0,
           suggestedMax: -4,
+          font: {
+            family: "Mulish, sans-serif",
+          },
         },
       },
     },
@@ -125,14 +141,7 @@ export function BillingChart() {
 
   return (
     <>
-      <Bar
-        redraw={false}
-        // width={50}
-        height={100}
-        // className="chart-wrap"
-        options={options}
-        data={data}
-      />
+      <Bar redraw={false} height={100} options={options} data={data} />
     </>
   );
 }

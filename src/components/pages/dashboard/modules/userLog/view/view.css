@@ -1,0 +1,28 @@
+.view-user-log-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.view-user-log-container .view-user-log-wrap {
+  background-color: var(--white-bg-color);
+  border-radius: 0.6rem;
+  width: 100%;
+}
+.view-user-log-container .view-user-log-wrap .title {
+  font-size: 1.8rem;
+}
+.view-user-log-container .bottom-title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+.view-user-log-container .bottom-title-wrap .title {
+  color: var(--blue-color);
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.view-user-log-container .bottom-title-wrap .search-input {
+  width: 30.3rem;
+}/*# sourceMappingURL=view.css.map */

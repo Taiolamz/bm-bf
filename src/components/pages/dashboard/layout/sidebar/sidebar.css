@@ -64,7 +64,6 @@
 }
 .sidebar-wrap .sidebar-items-wrap .more-items-text {
   padding-bottom: 2rem;
-  cursor: pointer;
 }
 .sidebar-wrap .sidebar-items-wrap .more-items-text :nth-child(1) {
   border-top: 0.1rem solid var(--border-color);

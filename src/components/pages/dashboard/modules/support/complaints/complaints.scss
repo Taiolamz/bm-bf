@@ -1,0 +1,19 @@
+.complaints-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 3rem;
+  .text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .title {
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .sub-text {
+      font-size: 1.2rem;
+    }
+  }
+}

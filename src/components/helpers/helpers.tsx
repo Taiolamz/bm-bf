@@ -113,9 +113,6 @@ export function numberFormatChart({ num, digits }: any) {
     : "0";
 }
 
-export const customErrorId = "jgsvbjbx";
-export const customSuccessId = "jgsvbjiuysbx";
-export const customInfoId = "jgsvdfbnbjbx";
 
 export const decryptTokenFunc = (tok: any) => {
   if (tok) {
@@ -141,3 +138,14 @@ export const encryptTokenFunc = (tok: any) => {
   const encryptedToken = CryptoJS.AES.encrypt(token, secretKey).toString();
   return encryptedToken;
 };
+export function GetInitials(text: string) {
+  const fullName = text;
+  const splitName = fullName.split(" ");
+  const initials = splitName.map((name) => name.charAt(0));
+  const initialToString = initials.join("");
+  return initialToString;
+}
+
+export const customErrorId = "jgsvbjbx";
+export const customSuccessId = "jgsvbjiuysbx";
+export const customInfoId = "jgsvdfbnbjbx";

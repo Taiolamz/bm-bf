@@ -44,6 +44,38 @@ const Offers = () => {
       organisation: "No Organization",
       users: "1-5 Users",
     },
+    {
+      plans: "SME",
+      pricing: "50,000",
+      subsidiary: "1 subsidiary",
+      branches: "No Branches",
+      organisation: "No Organization",
+      users: "1-5 Users",
+    },
+    {
+      plans: "SME",
+      pricing: "50,000",
+      subsidiary: "1 subsidiary",
+      branches: "No Branches",
+      organisation: "No Organization",
+      users: "1-5 Users",
+    },
+    {
+      plans: "SME",
+      pricing: "50,000",
+      subsidiary: "1 subsidiary",
+      branches: "No Branches",
+      organisation: "No Organization",
+      users: "1-5 Users",
+    },
+    {
+      plans: "SME",
+      pricing: "50,000",
+      subsidiary: "1 subsidiary",
+      branches: "No Branches",
+      organisation: "No Organization",
+      users: "1-5 Users",
+    },
   ];
 
   return (

@@ -67,6 +67,9 @@
   width: 8rem;
   text-transform: capitalize;
 }
+.table-container-wrap .table-box tbody tr .action-icon {
+  cursor: pointer;
+}
 .table-container-wrap .table-box tbody tr .pending-status {
   color: var(--yellow-color);
   background-color: var(--light-yellow-color);
@@ -79,9 +82,6 @@
   background-color: var(--border-color);
   color: var(--dark-color);
 }
-.table-container-wrap .table-box tbody tr .action {
-  cursor: pointer;
-}
 .table-container-wrap .table-box tbody tr .edit-delete-wrap {
   display: flex;
   gap: 3rem;
@@ -92,7 +92,7 @@
   cursor: pointer;
 }
 .table-container-wrap .table-box tbody tr .drop-down-box {
-  width: 23.2rem;
+  width: 25.2rem;
   display: flex;
   flex-direction: column;
   background-color: var(--white-color);
@@ -101,9 +101,9 @@
   gap: 2rem;
   position: absolute;
   top: 3rem;
-  right: 9rem;
+  right: 8rem;
   z-index: 3;
-  cursor: pointer;
+  box-shadow: var(--dark-box-shadow);
 }
 .table-container-wrap .table-box tbody .drop-down-show-box {
   -webkit-animation: dropDownAnime 0.3s ease-in-out;
@@ -112,6 +112,23 @@
 .table-container-wrap .table-box tbody .view-box {
   display: flex;
   gap: 1rem;
+  cursor: pointer;
+}
+.table-container-wrap .table-box tbody .user-activate-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-container-wrap .table-box tbody .user-activate-wrap .user-text-wrap {
+  display: flex;
+  gap: 1rem;
+}
+.table-container-wrap .table-box tbody .user-activate-wrap .user-text-wrap label {
+  cursor: pointer;
+}
+.table-container-wrap .table-box tbody .user-activate-wrap .user-switch {
+  margin-bottom: 0.4rem;
+  cursor: pointer;
 }
 .table-container-wrap .table-box .table-odd-even-body:nth-child(odd) {
   background-color: var(--white-bg-color);

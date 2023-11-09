@@ -62,7 +62,7 @@ const DashboardHomeReuseTable = ({
                   alt="organization"
                   className="icon"
                 />
-                <p>{organization.name}</p>
+                <p className="org-name">{organization.name}</p>
               </div>
             </div>
             {/* organization end */}

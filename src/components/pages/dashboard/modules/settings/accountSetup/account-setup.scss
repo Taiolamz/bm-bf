@@ -1,0 +1,30 @@
+.account-setup-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 70%;
+  margin-top: 3rem;
+
+  .account-detail-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white-bg-color);
+    padding: 2rem;
+    border-radius: 0.6rem;
+
+    .account-detail-box {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      p:nth-child(1) {
+        color: var(--dark-color);
+        font-weight: 500;
+      }
+      p:nth-child(2) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

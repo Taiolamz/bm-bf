@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { EventChange } from "../../../../../../types/types";
 import "./create.css";
-import { CancelIcon } from "../../../../../../../assets/icons/icons";
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { BsCheck2 } from "react-icons/bs";
+import { LiaTimesSolid } from "react-icons/lia";
 import { RevvexButton } from "../../../../../../buttons/button";
 
-interface FormData {
+interface UserDetails {
   first_name: string;
   last_name: string;
   email: string;
@@ -16,10 +16,14 @@ interface FormData {
 
 interface NewAdminProp {
   onClose?: () => void;
+  onCancel?: () => void;
+  onSubmit?: () => void;
 }
 
-const NewAdmin = ({ onClose }: NewAdminProp) => {
-  const [details, setDetails] = useState<FormData>({
+
+
+const NewAdmin = ({ onClose, onCancel, onSubmit }: NewAdminProp) => {
+  const [details, setDetails] = useState<UserDetails>({
     first_name: "",
     last_name: "",
     email: "",
@@ -33,14 +37,41 @@ const NewAdmin = ({ onClose }: NewAdminProp) => {
     const data = { ...details, [name]: value };
     setDetails(data);
   };
+
+  const activateButton = () => {
+    let activeBtn: any = false;
+    activeBtn =
+      details.first_name &&
+      details.last_name &&
+      details.email &&
+      (details.super_admin || details.admin_settlement || details.support);
+    return activeBtn;
+  };
+
+  const handleCancelForm = () => {
+    setDetails((prev) => {
+      return {
+        ...prev,
+        first_name: "",
+        last_name: "",
+        email: "",
+        super_admin: false,
+        admin_settlement: false,
+        support: false,
+      };
+    });
+    if (onClose) {
+      onClose();
+    }
+  };
+
   return (
     <div className="new-admin-wrap">
       {/* header start */}
       <div className="title-wrap">
         <p className="title">New Admin User</p>
         <div className="cancel-wrap" onClick={onClose}>
-          {/* <figure className="cancel-icon">{CancelIcon}</figure> */}
-          <FaTimes className="cancel-icon" />
+          <LiaTimesSolid className="cancel-icon" />
         </div>
       </div>
       {/* header end */}
@@ -113,7 +144,7 @@ const NewAdmin = ({ onClose }: NewAdminProp) => {
               />
               <label htmlFor="super_admin" className="check-label">
                 <div className="check-circle">
-                  <FaCheck className="icon" />
+                  <BsCheck2 className="icon" />
                 </div>
                 <div className="check-text-wrap">
                   <p className="check-text">Super Admin</p>
@@ -141,7 +172,7 @@ const NewAdmin = ({ onClose }: NewAdminProp) => {
               />
               <label htmlFor="admin_settlement" className="check-label">
                 <div className="check-circle">
-                  <FaCheck className="icon" />
+                  <BsCheck2 className="icon" />
                 </div>
                 <div className="check-text-wrap">
                   <p className="check-text">Admin Settlements</p>
@@ -169,7 +200,7 @@ const NewAdmin = ({ onClose }: NewAdminProp) => {
               />
               <label htmlFor="support" className="check-label">
                 <div className="check-circle">
-                  <FaCheck className="icon" />
+                  <BsCheck2 className="icon" />
                 </div>
                 <div className="check-text-wrap">
                   <p className="check-text">Reporter</p>
@@ -184,8 +215,25 @@ const NewAdmin = ({ onClose }: NewAdminProp) => {
         </div>
         {/* checkbox form wrap end */}
         <div className="btn-wrap">
-          <RevvexButton label="Cancel" btnClassName="cancel-btn" />
-          <RevvexButton label="Send Invite" btnClassName="invite-btn" />
+          {/* <---- let empty the input field */}
+          {/* when triggered onCancel -----> */}
+          <RevvexButton
+            label="Cancel"
+            btnClassName="cancel-btn"
+            btnType="button"
+            onClick={handleCancelForm}
+          />
+          <RevvexButton
+            label="Send Invite"
+            btnClassName="invite-btn"
+            bgColor={!activateButton() ? "var(--disable-color)" : ""}
+            onClick={() => (activateButton() ? onSubmit : null)}
+            btnType="button"
+            style={{
+              cursor: !activateButton() ? "not-allowed" : "",
+              color: !activateButton() ? "var(--disable-mid-color)" : "",
+            }}
+          />
         </div>
       </form>
       {/* body wrap end */}

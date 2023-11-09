@@ -74,9 +74,10 @@
 }
 .new-admin-wrap .form-wrap .check-box-wrap .check-box-group .checkbox-box .check-input:checked ~ .check-label .check-circle {
   background-color: var(--blue-color);
+  border: 0.1rem solid var(--blue-color);
 }
 .new-admin-wrap .form-wrap .check-box-wrap .check-box-group .checkbox-box .check-input:checked ~ .check-label .check-circle .icon {
-  color: var(--white-color);
+  color: var(--white-bg-color);
 }
 .new-admin-wrap .form-wrap .check-box-wrap .check-box-group .checkbox-box:not(:last-child) {
   border-bottom: 0.1rem solid var(--border-color);

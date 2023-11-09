@@ -87,7 +87,7 @@ input {
   border: 0.1rem solid var(--border-color);
   border-radius: 0.6rem;
   font-family: "Mulish", sans-serif;
-  transition: all 0.3s;
+  transition: all 0.1s;
 }
 input:focus {
   border-color: var(--blue-color);

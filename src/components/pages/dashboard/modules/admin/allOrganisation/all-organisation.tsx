@@ -17,8 +17,8 @@ const AllOrganisation = () => {
     "Organization Name",
     "Email",
     "Subscription Plan",
-    "Due_Date",
-    "Signed_up",
+    "Due Date",
+    "Signed Up",
     "Status",
   ];
 
@@ -156,7 +156,11 @@ const AllOrganisation = () => {
 
         {/* search and filter wrap end */}
         {/* table-wrap start */}
-        <TableContainer tableHeadItems={tableHeadList} showPagination>
+        <TableContainer
+          tableHeadItems={tableHeadList}
+          showPagination
+          className="all-org-table-wrap"
+        >
           {allOrganizationItems.map((chi, idx) => {
             const {
               organisation_name,
@@ -168,6 +172,7 @@ const AllOrganisation = () => {
             } = chi;
             return (
               <TableBody
+                showOddEvenBody
                 key={idx}
                 num={idx}
                 one={organisation_name}

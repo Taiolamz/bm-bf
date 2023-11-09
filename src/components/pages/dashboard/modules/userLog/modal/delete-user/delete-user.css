@@ -1,0 +1,27 @@
+.delete-user-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  padding: 3rem;
+}
+.delete-user-wrap .text {
+  color: var(--dark-color);
+}
+.delete-user-wrap .btn-wrap {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.delete-user-wrap .btn-wrap .yes-btn {
+  display: flex;
+  padding: 0 3rem;
+  justify-content: center;
+}
+.delete-user-wrap .btn-wrap .cancel-btn {
+  display: flex;
+  padding: 0 3rem;
+  background-color: var(--white-bg-color);
+  border: 0.1rem solid var(--blue-color);
+  color: var(--blue-color);
+}/*# sourceMappingURL=delete-user.css.map */

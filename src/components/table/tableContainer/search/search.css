@@ -5,6 +5,7 @@
 .search-container .search-wrap .search-input {
   border: 0.1rem solid #e7e7e7;
   padding: 1.5rem;
+  padding-right: 4rem;
   outline: none;
   flex: 1 0 0;
   border-radius: 0.8rem;

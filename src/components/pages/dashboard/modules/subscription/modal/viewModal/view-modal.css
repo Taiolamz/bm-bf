@@ -44,13 +44,13 @@
   flex-direction: column;
   gap: 3rem;
 }
-.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .view-status {
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .view-status-text {
   color: var(--thick-red-color);
 }
-.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .pending-status {
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .pending-status-text {
   color: var(--yellow-color);
 }
-.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .active-status {
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .active-status-text {
   color: var(--green-color);
 }
 .view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .city-wrap {

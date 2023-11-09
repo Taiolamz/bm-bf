@@ -149,7 +149,9 @@ const Login = () => {
               />
             </label>
             <input
-              className={`auth-input ${details.email && "auth-input-active"} ${emailError && "auth-input-error"}`}
+              className={`auth-input ${details.email && "auth-input-active"} ${
+                emailError && "auth-input-error"
+              }`}
               type="text"
               placeholder="Email"
               name="email"
@@ -249,7 +251,7 @@ const Login = () => {
               label={"Login"}
               btnClassName="auth-btn"
               bgColor={
-                activeBtn() ? "var(--light-blue)" : "var(--disable-color)"
+                activeBtn() ? "var(--blue-color)" : "var(--disable-color)"
               }
               style={{
                 color: activeBtn()

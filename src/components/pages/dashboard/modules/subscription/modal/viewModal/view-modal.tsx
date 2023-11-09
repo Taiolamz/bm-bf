@@ -3,6 +3,7 @@ import {
   CountryNigIcon,
   SmallArrowBack,
 } from "../../../../../../../assets/icons/icons";
+import { capitalizeFirstWord } from "../../../../../../helpers/helpers";
 
 interface ViewModalProps {
   onHandleStatus?: () => void;
@@ -53,11 +54,12 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
               <p>{chi}</p>
             ))}
           </div>
-
           {/* left-wrap end */}
-          <hr className="view-hr-line" />
-          {/* right-wrap start */}
 
+          {/*demark....  */}
+          <hr className="view-hr-line" />
+
+          {/* right-wrap start */}
           {viewItemsValue.map((chi) => {
             const {
               organization_name,
@@ -72,7 +74,7 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
             return (
               <div className="right-box">
                 <p>{organization_name}</p>
-                <p>{email_address}</p>
+                <p>{capitalizeFirstWord(email_address)}</p>
                 <p>{phone_number}</p>
 
                 {/* city box start */}
@@ -85,7 +87,17 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
                 <p>{date_added}</p>
                 <p>{subscription_plans}</p>
                 <p>{last_seen}</p>
-                <p className="view-status">{status}</p>
+                <p
+                  className={`view-status-text ${
+                    status.toLowerCase() === "active"
+                      ? "active-status-text"
+                      : status.toLowerCase() === "pending"
+                      ? "pending-status-text"
+                      : ""
+                  }`}
+                >
+                  {status}
+                </p>
               </div>
             );
           })}
@@ -98,7 +110,7 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
         <p className="status-text" onClick={onHandleStatus}>
           {"Cancel Subscription"}
         </p>
-        {/* right-body-wrap start */}
+        {/* right-body-wrap end */}
       </div>
       {/* body-wrap end */}
     </div>

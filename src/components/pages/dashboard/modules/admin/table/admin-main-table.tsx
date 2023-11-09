@@ -31,7 +31,7 @@ const AdminTable: React.FC = () => {
     "Time",
   ];
 
-//  lengthy array to check max-height :)
+  //  lengthy array to check max-height :)
   const tableBodyList: TableBodyList[] = [
     {
       user: {
@@ -194,7 +194,8 @@ const AdminTable: React.FC = () => {
 
   //   handle table scroll
   const handleScroll = (event: any) => {
-    if (event.target.scrollTop > 128) {
+    if (event.target.scrollTop > 1) {
+      // if (event.target.scrollTop > 128) {
       setIsSticky(true);
     } else {
       setIsSticky(false);

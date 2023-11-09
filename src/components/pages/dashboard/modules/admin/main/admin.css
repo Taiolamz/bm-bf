@@ -73,4 +73,38 @@
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+.admin-main-wrap .bottom-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.admin-main-wrap .bottom-wrap .title-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.admin-main-wrap .bottom-wrap .title-wrap .title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--dark-color);
+}
+.admin-main-wrap .bottom-wrap .title-wrap .filter-wrap {
+  display: flex;
+  gap: 1.5rem;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.8rem;
+  padding: 0.3rem 1.2rem;
+  align-items: center;
+}
+.admin-main-wrap .bottom-wrap .title-wrap .filter-wrap p {
+  color: var(--blue-color);
+}
+.admin-main-wrap .bottom-wrap .title-wrap .filter-wrap figure {
+  margin-top: 0.3rem;
+}
+.admin-main-wrap .bottom-wrap .chart-card-wrap {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=admin.css.map */

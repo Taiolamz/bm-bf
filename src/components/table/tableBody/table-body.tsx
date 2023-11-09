@@ -5,9 +5,11 @@ import {
   DeleteIcon,
   EditIcon,
   EyeIcon,
+  //   PenEditIcon,
   ReminderIcon,
 } from "../../../assets/icons/icons";
 import { FaCheck } from "react-icons/fa";
+import Switch from "react-switch";
 
 interface TableBodyProps {
   one?: string;
@@ -39,7 +41,15 @@ interface TableBodyProps {
   onDelete?: () => void;
   showOddEvenBody?: boolean;
   statusNoBg?: boolean;
-  deactivateUserText?: boolean;
+  activateUserText?: string;
+  userCheck?: any;
+  handleUserCheck?: (userCheck?: any) => void;
+  activateUserIcon?: any;
+  handleUserClick?: () => void;
+  customIcon?: any;
+  onAction?: () => void;
+  editIcon?: any;
+  deactiveIcon?: any;
 }
 
 const TableBody = ({
@@ -72,7 +82,15 @@ const TableBody = ({
   onDelete,
   showOddEvenBody,
   statusNoBg,
-  deactivateUserText,
+  activateUserText,
+  userCheck,
+  handleUserCheck,
+  activateUserIcon,
+  handleUserClick,
+  customIcon,
+  onAction,
+  editIcon,
+  deactiveIcon,
 }: TableBodyProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -129,28 +147,38 @@ const TableBody = ({
             className={`status ${
               status.toLowerCase() === "pending"
                 ? "pending-status"
-                : status.toLowerCase() === "canceled"
+                : status.toLowerCase() === "canceled" ||
+                  status.toLowerCase() === "inactive"
                 ? "cancel-status"
                 : status.toLowerCase() === "free trials"
                 ? "free-trial-status"
-                : null
+                : ""
             }`}
           >
             {status}
           </td>
         )}
         {action && (
-          <td
-            onClick={() => {
-              if (setIndexNo) {
-                setIndexNo();
-              }
-              indexNo === num
-                ? setShowDropdown(!showDropdown)
-                : setShowDropdown(true);
-            }}
-          >
-            {ActionIcon}
+          <td>
+            <figure
+              onClick={() => {
+                if (action) {
+                  if (setIndexNo) {
+                    setIndexNo();
+                  }
+                  indexNo === num
+                    ? setShowDropdown(!showDropdown)
+                    : setShowDropdown(true);
+                } else if (customIcon) {
+                  if (onAction) {
+                    onAction();
+                  }
+                }
+              }}
+              className="action-icon"
+            >
+              {customIcon || ActionIcon}
+            </figure>
           </td>
         )}
         {editDeleteAction && (
@@ -174,21 +202,53 @@ const TableBody = ({
             )}
             {reminderText && (
               <p className="view-box" onClick={onReminder}>
-                <figure>{ReminderIcon}</figure>
+                <figure>{editIcon || ReminderIcon}</figure>
                 {reminderText}
               </p>
             )}
             {cancelSubText && (
               <p className="view-box" onClick={onCancelSub}>
-                <figure>{CancelIcon}</figure>
+                <figure>{deactiveIcon || CancelIcon}</figure>
                 {cancelSubText}
               </p>
             )}
-            {deactivateUserText && (
-              <p>
-                <figure></figure>
-                {deactivateUserText}
-              </p>
+
+            {activateUserText && (
+              <div className="user-activate-wrap">
+                <div className="user-text-wrap" onClick={handleUserClick}>
+                  <figure>{activateUserIcon}</figure>
+                  <label
+                    htmlFor="user_activate"
+                    style={{
+                      color:
+                        activateUserText === "Delete User" ? "#CC0905" : "",
+                    }}
+                  >
+                    {activateUserText}
+                  </label>
+                </div>
+                {activateUserText !== "Delete User" ? (
+                  <Switch
+                    onChange={() => {
+                      if (handleUserCheck) {
+                        handleUserCheck();
+                      }
+                    }}
+                    checked={userCheck}
+                    id="user_activate"
+                    className="user-switch"
+                    offColor="#E5E9EB"
+                    onColor="#004BFF"
+                    handleDiameter={11}
+                    uncheckedIcon={false}
+                    checkedIcon={false}
+                    height={20}
+                    width={40}
+                    boxShadow={"none"}
+                    activeBoxShadow={"none"}
+                  />
+                ) : null}
+              </div>
             )}
           </div>
         )}

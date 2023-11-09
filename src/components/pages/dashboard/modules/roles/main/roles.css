@@ -1,0 +1,34 @@
+.roles-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.roles-wrap .title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.roles-wrap .title-wrap .title {
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  font-weight: 700;
+}
+.roles-wrap .title-wrap .add-btn {
+  padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 17rem;
+}
+.roles-wrap .roles-table-wrap .table-box .table-head th {
+  padding: 2rem 0 2rem 1rem;
+}
+.roles-wrap .roles-table-wrap .table-box tbody tr td {
+  padding: 2rem 0 2rem 1rem;
+}
+.roles-wrap .roles-table-wrap .table-box tbody tr .drop-down-box {
+  top: 4rem;
+  right: 11rem;
+}
+.roles-wrap .roles-table-wrap .table-box .edit-delete-wrap {
+  padding: 2rem 0 2rem 1rem;
+}/*# sourceMappingURL=roles.css.map */

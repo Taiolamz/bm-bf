@@ -638,6 +638,7 @@ const AllActivity = () => {
           />
         </div>
         {/* table wrap start */}
+
         <DashboardHomeReuseTable
           tableHeadItem={tableHeadList}
           tableBodyItems={tableBodyList}

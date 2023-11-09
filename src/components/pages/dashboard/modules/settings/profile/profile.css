@@ -1,0 +1,82 @@
+.profile-wrap {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+.profile-wrap .form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.profile-wrap .form-wrap .profile-text {
+  display: flex;
+  font-weight: 500;
+  color: var(--dark-color);
+  margin-left: 2.5rem;
+}
+.profile-wrap .form-wrap .profile-photo-wrap {
+  position: relative;
+}
+.profile-wrap .form-wrap .profile-photo-wrap .img {
+  background-color: var(--white-bg-color);
+  border-radius: 100%;
+  justify-content: center;
+  width: 12rem;
+  height: 12rem;
+}
+.profile-wrap .form-wrap .profile-photo-wrap .profile_picture_input {
+  display: none;
+}
+.profile-wrap .form-wrap .profile-photo-wrap .label-wrap {
+  position: absolute;
+  bottom: 2rem;
+  left: 8rem;
+  cursor: pointer;
+}
+.profile-wrap .form-wrap .note-text {
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+.profile-wrap .form-wrap .field-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.profile-wrap .form-wrap .field-wrap .field-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profile-wrap .form-wrap .field-wrap .field-box .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profile-wrap .form-wrap .field-wrap .field-box .input {
+  padding: 1.5rem;
+}
+.profile-wrap .form-wrap .field-wrap .field-box .text-area {
+  resize: unset;
+  width: 100;
+  font-weight: 300;
+  width: 205%;
+  font-family: "Mulish", sans-serif;
+  outline: none;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.6rem;
+}
+.profile-wrap .form-wrap .field-wrap .field-box .text-area:focus {
+  border: 0.1rem solid var(--blue-color);
+  transition: all 0.1s;
+}
+.profile-wrap .form-wrap .field-wrap .field-box .input-active {
+  border: 0.1rem solid var(--blue-color);
+}
+.profile-wrap .btn {
+  margin-top: 3rem;
+  width: 20rem;
+}/*# sourceMappingURL=profile.css.map */

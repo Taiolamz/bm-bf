@@ -39,4 +39,25 @@
 }
 .all-organization-wrap .search-filter-wrap .select-wrap .select::placeholder {
   font-size: 1rem;
+}
+.all-organization-wrap .all-org-table-wrap .table-box .table-head th {
+  padding: 1.5rem 0 1.5rem 1rem;
+}
+.all-organization-wrap .all-org-table-wrap .table-box .table-head th:first-child {
+  border-top-left-radius: 0.6rem;
+}
+.all-organization-wrap .all-org-table-wrap .table-box .table-head th:last-child {
+  border-top-right-radius: 0.6rem;
+}
+.all-organization-wrap .all-org-table-wrap .table-box tbody tr td {
+  padding: 1.5rem 0 1.5rem 1rem;
+}
+.all-organization-wrap .all-org-table-wrap .table-box tbody tr .drop-down-box {
+  top: 4rem;
+  right: 11rem;
+}
+.all-organization-wrap .all-org-table-wrap .status {
+  margin-bottom: 2rem;
+  text-align: center;
+  padding: 0.3rem !important;
 }/*# sourceMappingURL=all-organisation.css.map */

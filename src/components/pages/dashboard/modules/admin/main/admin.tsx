@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "../../../layout/dashboardLayout/dashboard-layout";
-import ProgressChart from "../progressChart/main/progress-chart";
+import ProgressChart from "../revenueSection/main/progress-chart";
 import "./admin.css";
 import AdminTable from "../table/admin-main-table";
+import { FilterIcon } from "../../../../../../assets/icons/icons";
+import TrendsCard from "../trendsSection/main/trends";
+import { AreaChart } from "../trendsSection/chart/area-chart";
+import { DoughnutChart } from "../trendsSection/chart/doghnut-chart";
 
 const Admin = () => {
   const topCardItems = [
@@ -31,7 +35,7 @@ const Admin = () => {
       status_two: "Spam",
       status_one_num: "140",
       status_two_num: "60",
-      link: "/dashboard-home-all-complaints",
+      link: "/dashboard-support",
     },
   ];
 
@@ -87,6 +91,33 @@ const Admin = () => {
           <AdminTable />
         </div>
         {/* mid-layer-wrap end */}
+        <div className="bottom-wrap">
+          <div className="title-wrap">
+            <p className="title">Trends(Running Balance)</p>
+            <div className="filter-wrap">
+              <p>Today</p>
+              <figure>{FilterIcon}</figure>
+            </div>
+          </div>
+
+          {/* chartwrap card wrap start */}
+          <div className="chart-card-wrap">
+            {/* area/line chart start */}
+            <TrendsCard label={"Profit"} amount={"N955,000,000"}>
+              <AreaChart />
+            </TrendsCard>
+            {/* area/line chart end */}
+
+            {/* area/line chart start */}
+            <TrendsCard label={"Plan Distribution"} amount={"N5,000,000"}>
+              <DoughnutChart />
+            </TrendsCard>
+            {/* area/line chart end */}
+          </div>
+          {/* chartwrap  card wrap end */}
+        </div>
+        {/* bottom-layer  start*/}
+        {/* bottom-layer  end*/}
       </div>
     </DashboardLayout>
   );

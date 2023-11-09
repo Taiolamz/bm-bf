@@ -1,0 +1,27 @@
+.account-setup-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 70%;
+  margin-top: 3rem;
+}
+.account-setup-wrap .account-detail-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white-bg-color);
+  padding: 2rem;
+  border-radius: 0.6rem;
+}
+.account-setup-wrap .account-detail-wrap .account-detail-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.account-setup-wrap .account-detail-wrap .account-detail-box p:nth-child(1) {
+  color: var(--dark-color);
+  font-weight: 500;
+}
+.account-setup-wrap .account-detail-wrap .account-detail-box p:nth-child(2) {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=account-setup.css.map */

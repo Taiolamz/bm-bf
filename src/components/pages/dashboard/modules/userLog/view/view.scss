@@ -1,0 +1,31 @@
+.view-user-log-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  .view-user-log-wrap {
+    background-color: var(--white-bg-color);
+    border-radius: 0.6rem;
+    width: 100%;
+
+    .title {
+      font-size: 1.8rem;
+    }
+  }
+  .bottom-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid var(--border-color);
+
+    .title {
+      color: var(--blue-color);
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    .search-input {
+      width: 30.3rem;
+    }
+  }
+}

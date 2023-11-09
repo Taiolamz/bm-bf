@@ -1,0 +1,8 @@
+.settings-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.settings-wrap .settings-active-tab .tab-box .left-box .tab-items {
+  width: 14rem;
+}/*# sourceMappingURL=settings.css.map */

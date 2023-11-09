@@ -1,0 +1,9 @@
+.settings-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  .settings-active-tab .tab-box .left-box .tab-items {
+    width: 14rem;
+  }
+}

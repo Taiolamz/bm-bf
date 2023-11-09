@@ -1,0 +1,24 @@
+.trends-body-wrap {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-bg-color);
+  border-radius: 1rem;
+
+  width: 48%;
+  box-shadow: var(--dark-box-shadow);
+
+  .label {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    // padding: 3rem 0 0 3rem;
+  }
+  .amount {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    // padding: 3rem 0 0 3rem;
+  }
+}

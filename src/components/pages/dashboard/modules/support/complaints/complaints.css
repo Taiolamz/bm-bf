@@ -1,0 +1,18 @@
+.complaints-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+.complaints-wrap .text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.complaints-wrap .text-wrap .title {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.complaints-wrap .text-wrap .sub-text {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=complaints.css.map */
