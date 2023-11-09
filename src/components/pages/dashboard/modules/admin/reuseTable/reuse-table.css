@@ -11,12 +11,9 @@
   color: var(--dark-color);
   width: 100%;
   border-collapse: collapse;
-<<<<<<< HEAD
   display: table-row;
-  position: -webkit-sticky;
-=======
+  /* position: -webkit-sticky; */
   display: flex;
->>>>>>> 05c79f2 (updated)
   position: sticky;
   top: 0;
   background-color: var(--light-blue-bg-color);
