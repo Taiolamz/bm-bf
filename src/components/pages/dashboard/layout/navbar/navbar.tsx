@@ -7,6 +7,8 @@ import {
 import { IoIosArrowDown } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import RootState from "../../../../../redux/types";
+import { useSelector } from "react-redux";
 
 interface NavbarProps {
   pageTitle?: string;
@@ -24,6 +26,7 @@ const Navbar = ({ pageTitle, goBack }: NavbarProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [time, setTime] = useState(new Date());
   const [currency, setCurrency] = useState("");
+  const { user } = useSelector((state: RootState) => state.auth);
   const currencyOption: CurrencyOption[] = [
     { label: "NGN", value: "NGN" },
     { label: "EUR", value: "EUR" },
@@ -69,7 +72,7 @@ const Navbar = ({ pageTitle, goBack }: NavbarProps) => {
             location.pathname === "/dashboard-home" && "name-title"
           } `}
         >
-          {pageTitle}
+          {pageTitle || `Hi ${user.first_name}`}
         </p>
       </div>
       {/* left-wrap end */}
@@ -117,7 +120,12 @@ const Navbar = ({ pageTitle, goBack }: NavbarProps) => {
         {/* notification-icon end */}
 
         {/* settings wrap start */}
-        <figure className="settings-icon">{NavSettingsIcon}</figure>
+        <figure
+          className="settings-icon"
+          onClick={() => navigate("/dashboard-settings")}
+        >
+          {NavSettingsIcon}
+        </figure>
         {/* settings wrap end */}
 
         {/* timing settings start */}

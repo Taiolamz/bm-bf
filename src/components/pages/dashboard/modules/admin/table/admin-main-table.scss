@@ -2,34 +2,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  max-height: 50.6rem;
-  overflow: scroll;
-
-  &::-webkit-scrollbar:horizontal {
-    display: none;
-  }
-
-  /* width */
-  &::-webkit-scrollbar {
-    width: 0.6rem;
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    // -webkit-box-shadow: none !important;
-    background-color: transparent !important;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: var(--light-blue);
-    border-radius: 30rem;
-  }
-
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--light-blue);
-  }
+  // max-height: 52.6rem;
 
   .admin-main-table-top-box {
     display: flex;

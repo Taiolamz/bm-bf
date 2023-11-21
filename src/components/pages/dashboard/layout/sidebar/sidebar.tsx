@@ -17,6 +17,11 @@ import React, { ReactNode, useContext } from "react";
 import { capitalizeFirstWord } from "../../../../helpers/helpers";
 import ActionContext from "../../../../context/actionContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../../../../redux/userAuth";
+import RootState from "../../../../../redux/types";
+import { useSelector } from "react-redux";
+import { Dna } from "react-loader-spinner";
 
 interface SidebarList {
   icon: ReactNode;
@@ -28,6 +33,8 @@ const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const actionCtx = useContext(ActionContext);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.auth);
 
   const path = [
     "/dashboard-home",
@@ -40,7 +47,6 @@ const Sidebar = () => {
     "/dashboard-support",
     "/dashboard-settings",
   ];
-
   const sidebarItems: SidebarList[] = [
     {
       icon: (
@@ -155,6 +161,11 @@ const Sidebar = () => {
     },
   ];
 
+  //   const handleLogOut = () => {
+  //     const data = dispatch(logoutUser());
+  //     console.log(data);
+  //   };
+
   return (
     <div className="sidebar-wrap">
       {/* sidebar wrap start */}
@@ -225,7 +236,6 @@ const Sidebar = () => {
           </div>
           {/* more-items-wrap end */}
         </div>
-
         {/* user profile wrap start----> */}
         <div className="user-profile-wrap">
           <img
@@ -243,10 +253,16 @@ const Sidebar = () => {
             </div>
             {/* user-details box end */}
 
-            <div className="exit-wrap">
-              <figure>
-                <ExitIcon className="exit-icon" />
-              </figure>
+            <div className="exit-wrap" onClick={() => dispatch(logoutUser())}>
+              {loading ? (
+                <div style={{ alignSelf: "center" }}>
+                  <Dna height="30" width="30" />
+                </div>
+              ) : (
+                <figure>
+                  <ExitIcon className="exit-icon" />
+                </figure>
+              )}
             </div>
           </div>
           {/* user profile box end */}

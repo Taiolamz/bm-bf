@@ -34,9 +34,6 @@
 .all-organization-wrap .search-filter-wrap .select-wrap .select::-moz-placeholder {
   font-size: 1rem;
 }
-.all-organization-wrap .search-filter-wrap .select-wrap .select:-ms-input-placeholder {
-  font-size: 1rem;
-}
 .all-organization-wrap .search-filter-wrap .select-wrap .select::placeholder {
   font-size: 1rem;
 }

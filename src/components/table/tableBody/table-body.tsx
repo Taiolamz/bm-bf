@@ -10,6 +10,8 @@ import {
 } from "../../../assets/icons/icons";
 import { FaCheck } from "react-icons/fa";
 import Switch from "react-switch";
+import Skeleton from "react-loading-skeleton";
+import { Dna } from "react-loader-spinner";
 
 interface TableBodyProps {
   one?: string;
@@ -17,8 +19,8 @@ interface TableBodyProps {
   three?: string;
   four?: string;
   five?: string;
-  six?: string;
-  status?: string;
+  six?: string | any;
+  status?: string | any;
   num?: any;
   action?: boolean;
   viewText?: string;
@@ -27,7 +29,7 @@ interface TableBodyProps {
   indexNo?: string;
   setIndexNo?: () => void;
   onView?: () => void;
-  onReminder?: () => void;
+  onSendReminder?: () => void;
   onCancelSub?: () => void;
   paymentIcon?: string;
   payment?: string | null;
@@ -50,6 +52,10 @@ interface TableBodyProps {
   onAction?: () => void;
   editIcon?: any;
   deactiveIcon?: any;
+  loading?: boolean;
+  loadingStatus?: boolean;
+  loadingView?: boolean;
+  onOverview?: () => void;
 }
 
 const TableBody = ({
@@ -68,7 +74,7 @@ const TableBody = ({
   setIndexNo,
   indexNo,
   onView,
-  onReminder,
+  onSendReminder,
   onCancelSub,
   paymentIcon,
   payment,
@@ -91,13 +97,17 @@ const TableBody = ({
   onAction,
   editIcon,
   deactiveIcon,
+  loading,
+  loadingStatus,
+  loadingView,
+  onOverview,
 }: TableBodyProps) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <tbody className={showOddEvenBody ? "table-odd-even-body" : ""}>
       {/* table body box start */}
-      <tr>
+      <tr onClick={onOverview}>
         {checkBox && (
           <td>
             <input
@@ -117,46 +127,101 @@ const TableBody = ({
               className="table-check-label-input-row"
               htmlFor={`table-check-${checkId}`}
             >
-              <FaCheck className="icon" />
+              {loading ? (
+                <Skeleton   />
+              ) : (
+                <FaCheck className="icon" />
+              )}
             </label>
           </td>
         )}
 
-        {!dontShowserialNo && <td>{num + 1 < 10 ? `0${num + 1}` : num + 1}</td>}
-        {one && <td>{one}</td>}
-        {two && <td>{two}</td>}
+        {!dontShowserialNo && (
+          <td>
+            {loading ? (
+              <Skeleton width={30}   />
+            ) : num + 1 < 10 ? (
+              `0${num + 1}`
+            ) : (
+              num + 1
+            )}
+          </td>
+        )}
+        {one && (
+          <td className={`${one?.includes("@") && "remove-capitalize"}`}>
+            {loading ? <Skeleton   /> : one}
+          </td>
+        )}
+        {two && (
+          <td className={`${two?.includes("@") && "remove-capitalize"}`}>
+            {loading ? <Skeleton   /> : two}
+          </td>
+        )}
         {/* icon show */}
         {/* ---->>>if the table has icons */}
         {/* ---->>use this "row-icon-wrap" props */}
         {payment && (
-          <td className="row-icon-wrap">
-            <img src={paymentIcon} alt="table-icon" />
-            <td>{payment}</td>
-          </td>
+          <>
+            {loading ? (
+              <div style={{ marginTop: "1.5rem" }}>
+                <Skeleton   />
+              </div>
+            ) : (
+              <td className="row-icon-wrap">
+                <img src={paymentIcon} alt="table-icon" />
+                <td>{payment}</td>
+              </td>
+            )}
+          </>
         )}
         {/* icon show */}
-        {three && <td>{three}</td>}
-        {four && <td>{four}</td>}
-        {five && <td>{five}</td>}
-        {six && <td>{six}</td>}
+        {three && (
+          <td className={`${three?.includes("@") && "remove-capitalize"}`}>
+            {loading ? <Skeleton   /> : three}
+          </td>
+        )}
+        {four && (
+          <td className={`${four?.includes("@") && "remove-capitalize"}`}>
+            {loading ? <Skeleton   /> : four}
+          </td>
+        )}
+        {five && (
+          <td className={`${five?.includes("@") && "remove-capitalize"}`}>
+            {loading ? <Skeleton   /> : five}
+          </td>
+        )}
+        {six && (
+          <td className={`${six?.includes("@") && "remove-capitalize"}`}>
+            {loading ? <Skeleton   /> : six}
+          </td>
+        )}
         {/* ----->> change status value if it doesnt 
         co-relate endpoint  : )*/}
         {status && (
-          <td
-            style={{ backgroundColor: statusNoBg ? "transparent" : "" }}
-            className={`status ${
-              status.toLowerCase() === "pending"
-                ? "pending-status"
-                : status.toLowerCase() === "canceled" ||
-                  status.toLowerCase() === "inactive"
-                ? "cancel-status"
-                : status.toLowerCase() === "free trials"
-                ? "free-trial-status"
-                : ""
-            }`}
-          >
-            {status}
-          </td>
+          <>
+            {loading ? (
+              <div style={{ marginTop: "1rem" }}>
+                <Skeleton   />
+              </div>
+            ) : (
+              <td
+                style={{ backgroundColor: statusNoBg ? "transparent" : "" }}
+                className={`status ${
+                  status === "pending"
+                    ? "pending-status"
+                    : status === "cancelled" ||
+                      status === "inactive" ||
+                      status === "expired"
+                    ? "cancel-status"
+                    : status === "free trials"
+                    ? "free-trial-status"
+                    : ""
+                }`}
+              >
+                {status}
+              </td>
+            )}
+          </>
         )}
         {action && (
           <td>
@@ -177,7 +242,11 @@ const TableBody = ({
               }}
               className="action-icon"
             >
-              {customIcon || ActionIcon}
+              {loading ? (
+                <Skeleton width={34}   />
+              ) : (
+                customIcon || ActionIcon
+              )}
             </figure>
           </td>
         )}
@@ -197,19 +266,38 @@ const TableBody = ({
             {viewText && (
               <p className="view-box" onClick={onView}>
                 <figure>{EyeIcon}</figure>
-                {viewText || "View"}
+                {loadingView ? (
+                  <div style={{ marginTop: "-.7rem", marginLeft: ".5rem" }}>
+                    <Dna width={40} height={35} />
+                  </div>
+                ) : (
+                  viewText || "View"
+                )}
               </p>
             )}
+
             {reminderText && (
-              <p className="view-box" onClick={onReminder}>
+              <p className="view-box" onClick={onSendReminder}>
                 <figure>{editIcon || ReminderIcon}</figure>
-                {reminderText}
+                {loadingStatus ? (
+                  <div style={{ marginTop: "-.7rem", marginLeft: ".5rem" }}>
+                    <Dna width={40} height={35} />
+                  </div>
+                ) : (
+                  reminderText
+                )}
               </p>
             )}
             {cancelSubText && (
               <p className="view-box" onClick={onCancelSub}>
                 <figure>{deactiveIcon || CancelIcon}</figure>
-                {cancelSubText}
+                {loadingStatus ? (
+                  <div style={{ marginTop: "-.7rem" }}>
+                    <Dna width={40} height={35} />
+                  </div>
+                ) : (
+                  cancelSubText
+                )}
               </p>
             )}
 
@@ -228,25 +316,31 @@ const TableBody = ({
                   </label>
                 </div>
                 {activateUserText !== "Delete User" ? (
-                  <Switch
-                    onChange={() => {
-                      if (handleUserCheck) {
-                        handleUserCheck();
-                      }
-                    }}
-                    checked={userCheck}
-                    id="user_activate"
-                    className="user-switch"
-                    offColor="#E5E9EB"
-                    onColor="#004BFF"
-                    handleDiameter={11}
-                    uncheckedIcon={false}
-                    checkedIcon={false}
-                    height={20}
-                    width={40}
-                    boxShadow={"none"}
-                    activeBoxShadow={"none"}
-                  />
+                  <>
+                    {loadingStatus ? (
+                      <Dna width={35} height={35} />
+                    ) : (
+                      <Switch
+                        onChange={() => {
+                          if (handleUserCheck) {
+                            handleUserCheck();
+                          }
+                        }}
+                        checked={userCheck}
+                        id="user_activate"
+                        className="user-switch"
+                        offColor="#E5E9EB"
+                        onColor="#004BFF"
+                        handleDiameter={11}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        height={20}
+                        width={40}
+                        boxShadow={"none"}
+                        activeBoxShadow={"none"}
+                      />
+                    )}
+                  </>
                 ) : null}
               </div>
             )}

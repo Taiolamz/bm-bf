@@ -4,9 +4,15 @@ import TableBody from "../../../../../table/tableBody/table-body";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
 import DashboardLayout from "../../../layout/dashboardLayout/dashboard-layout";
 import "./offers.css";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../../../redux/types";
+import { getOffers } from "../../../../../../redux/Offers";
+import { useEffect } from "react";
 
 const Offers = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const { loading, offers } = useSelector((state: RootState) => state.offers);
   const tableHeadList = [
     "Plans",
     "Pricing",
@@ -16,6 +22,15 @@ const Offers = () => {
     "Users",
     "Action",
   ];
+
+  // const handleGetOffers = async () => {
+  //   const obj: any = {};
+  //   await dispatch(getOffers(obj) as any);
+  // };
+
+  // useEffect(() => {
+  //   handleGetOffers();
+  // }, []);
 
   const tableBodyList = [
     {
@@ -84,7 +99,9 @@ const Offers = () => {
         {/* top-wrap start */}
         <div className="offer-top-wrap">
           <div className="title-wrap">
-            <p className="title">Available Plans</p>
+            <p className="title" >
+              Available Plans
+            </p>
             <p className="info">
               Click one of the available plans below and edit to create a
               discount offer

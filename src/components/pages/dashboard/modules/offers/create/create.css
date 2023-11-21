@@ -1,6 +1,7 @@
 .create-offer-wrap {
   display: grid;
   grid-gap: 4rem;
+  width: 80%;
 }
 .create-offer-wrap .form-wrap {
   display: flex;
@@ -8,15 +9,15 @@
   gap: 2rem;
 }
 .create-offer-wrap .form-wrap .title {
-  color: var(--grey-color);
+  color: var(--dark-color);
   font-weight: 700;
   font-size: 1.7rem;
 }
 .create-offer-wrap .form-wrap .form-group {
   display: grid;
-  grid-template-columns: repeat(2, 38.9rem);
-  grid-gap: 3rem;
-  grid-row-gap: 2rem;
+  grid-template-columns: repeat(2, 45%);
+  justify-content: space-between;
+  grid-row-gap: 4rem;
 }
 .create-offer-wrap .form-wrap .form-group .form-box {
   display: flex;
@@ -25,6 +26,7 @@
 }
 .create-offer-wrap .form-wrap .form-group .form-input {
   border-radius: 0.6rem;
+  width: 100%;
   border: 0.1rem solid var(--border-color);
   padding: 1.2rem 2rem;
   outline: none;
@@ -42,10 +44,10 @@
   border-radius: 0.6rem;
 }
 .create-offer-wrap .form-wrap .form-group .discount-select-input {
-  width: 18.5rem;
+  width: 100%;
 }
 .create-offer-wrap .form-wrap .form-group .privilege-select-input {
-  width: 64.6rem;
+  width: 100%;
 }
 .create-offer-wrap .form-wrap .form-group .active-select-input {
   border: 0.1rem solid var(--blue-color);
@@ -58,8 +60,8 @@
 .create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box {
   display: flex;
   align-items: center;
-  gap: 7rem;
-  width: 35rem;
+  width: 38rem;
+  gap: 5rem;
 }
 .create-offer-wrap .form-wrap .feature-form-wrap .feature-form-box .form-checkbox {
   display: none;

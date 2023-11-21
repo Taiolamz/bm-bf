@@ -1,4 +1,6 @@
+import moment from "moment";
 import "./reuse-table.css";
+import Skeleton from "react-loading-skeleton";
 
 interface TableBodyItemProps {
   user: {
@@ -20,6 +22,7 @@ interface DashboardReuseTableProps {
   tableHeadItem: string[];
   isStickyNav?: boolean;
   tableBodyItems: TableBodyItemProps[];
+  loading?: Boolean;
 }
 
 const DashboardHomeReuseTable = ({
@@ -27,6 +30,7 @@ const DashboardHomeReuseTable = ({
   tableHeadItem,
   tableBodyItems,
   isStickyNav,
+  loading,
 }: DashboardReuseTableProps) => {
   return (
     <div className={`main-table-wrap-start ${className}`}>
@@ -41,15 +45,28 @@ const DashboardHomeReuseTable = ({
           </p>
         ))}
       </div>
-      {tableBodyItems.map((chi, idx) => {
-        const { user, organization, action, date, status, time } = chi;
+      {tableBodyItems?.map((chi: any, idx: any) => {
+        const { user, organization, action, description, date, status, time } =
+          chi;
         return (
           <div key={idx} className="main-table-body-box">
             {/* user-wrap start */}
             <div className="main-table-cell">
               <div className="user-wrap ">
-                <p>{user.user_name}</p>
-                <p className="user-company">{user.user_company}</p>
+                <p>
+                  {loading ? (
+                    <Skeleton   />
+                  ) : (
+                    user?.name || "__ __"
+                  )}
+                </p>
+                <p className="user-company">
+                  {loading ? (
+                    <Skeleton width={50}   />
+                  ) : (
+                    organization?.name || "__ __"
+                  )}
+                </p>
               </div>
             </div>
             {/* user-wrap end */}
@@ -57,25 +74,54 @@ const DashboardHomeReuseTable = ({
             {/* organization wrap start */}
             <div className="main-table-cell">
               <div className="org-wrap">
-                <img
-                  src={organization.icon}
-                  alt="organization"
-                  className="icon"
-                />
-                <p className="org-name">{organization.name}</p>
+                {loading ? (
+                  <Skeleton width={20}   />
+                ) : (
+                  <img
+                    src={organization?.icon}
+                    alt="organization"
+                    className="icon"
+                  />
+                )}
+                <p className="org-name">
+                  {loading ? (
+                    <Skeleton width={100}   />
+                  ) : (
+                    organization?.name || "__ __"
+                  )}
+                </p>
               </div>
             </div>
             {/* organization end */}
-            <p className="main-table-cell">{action}</p>
-            <p
-              className={`main-table-cell status ${
-                status.toLowerCase() === "failed" ? "failed-status" : ""
-              }`}
-            >
-              {status}
+            <p className="main-table-cell">
+              {loading ? <Skeleton   /> : description}
             </p>
-            <p className="main-table-cell">{date}</p>
-            <p className="main-table-cell">{time}</p>
+
+            {loading ? (
+              <div style={{ marginTop: "1rem" }}>
+                <Skeleton   />
+              </div>
+            ) : (
+              <p
+                className={`main-table-cell status ${
+                  status.toLowerCase() === "failed" ? "failed-status" : ""
+                }`}
+              >
+                {status}
+              </p>
+            )}
+            <p className="main-table-cell">
+              {loading ? (
+                <Skeleton   />
+              ) : date ? (
+                moment(date).format("YYYY - MM -DD")
+              ) : (
+                "__ __"
+              )}
+            </p>
+            <p className="main-table-cell">
+              {loading ? <Skeleton   /> : time}
+            </p>
           </div>
         );
       })}

@@ -35,6 +35,8 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  color: var(--dark-color);
+  font-weight: 600;
 }
 .view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .view-hr-line {
   border: 0.1rem solid var(--light-grey-color);
@@ -44,7 +46,11 @@
   flex-direction: column;
   gap: 3rem;
 }
+.view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .email {
+  text-transform: lowercase;
+}
 .view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .view-status-text {
+  text-transform: capitalize;
   color: var(--thick-red-color);
 }
 .view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .right-box .pending-status-text {
@@ -55,6 +61,7 @@
 }
 .view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .city-wrap {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 .view-modal-wrap .view-modal-body-wrap .left-modal-body-wrap .city-wrap .logo-icon {
@@ -77,4 +84,7 @@
 .view-modal-wrap .view-modal-body-wrap .pending-status {
   color: var(--yellow-color);
   border: 0.1rem solid var(--yellow-color);
+}
+.view-modal-wrap .view-modal-body-wrap .no-status {
+  display: none;
 }/*# sourceMappingURL=view-modal.css.map */

@@ -16,6 +16,7 @@
 .offers-wrap .offer-top-wrap .title {
   font-weight: 600;
   font-size: 3rem;
+  color: var(--dark-color);
 }
 .offers-wrap .offer-top-wrap .offers-create-btn {
   padding: 1rem;

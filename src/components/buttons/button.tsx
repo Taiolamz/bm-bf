@@ -1,7 +1,8 @@
 import "./button.css";
 import { PlusIcon } from "../../assets/icons/icons";
+import { ReactNode } from "react";
 interface BtnProps {
-  label: string;
+  label: string | any;
   onClick?: (param?: any) => void;
   btnClassName?: string;
   bgColor?: string;
@@ -11,6 +12,7 @@ interface BtnProps {
   plusIcon?: boolean;
   icon?: any;
   plusIconColor?: any;
+  children?: ReactNode;
 }
 
 export function RevvexButton({
@@ -24,6 +26,7 @@ export function RevvexButton({
   plusIcon,
   icon,
   plusIconColor,
+  children,
 }: BtnProps) {
   return (
     <button
@@ -34,6 +37,7 @@ export function RevvexButton({
       onClick={onClick}
     >
       {label}
+      {children}
       {(icon || plusIcon) && (
         <figure className={icon && "icon"}>
           {icon || <PlusIcon plusIconColor={plusIconColor} />}

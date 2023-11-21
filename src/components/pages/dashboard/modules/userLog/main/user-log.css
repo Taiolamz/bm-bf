@@ -111,6 +111,14 @@
   color: var(--white-bg-color);
 }
 
+.view-user-log-modal-wrap {
+  width: 70rem;
+}
+.view-user-log-modal-wrap .view-modal-body-wrap {
+  justify-content: center;
+  margin-top: 5rem;
+}
+
 @keyframes slideDown {
   0% {
     opacity: 0.7;

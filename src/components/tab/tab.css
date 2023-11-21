@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
+  width: 100%;
 }
 .tab-wrap .tab-box {
   display: flex;
@@ -11,15 +12,17 @@
   display: flex;
   color: var(--dark-color);
   font-weight: 500;
+  gap: 2rem;
   justify-content: left;
   position: relative;
 }
 .tab-wrap .tab-box .left-box .tab-items {
-  padding-bottom: 2.5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   cursor: pointer;
   text-align: center;
   text-transform: capitalize;
-  width: 20rem;
+  padding-bottom: 2rem;
 }
 .tab-wrap .tab-box .left-box .active-tab {
   font-weight: 600;
@@ -39,6 +42,7 @@
 .tab-wrap .tab-box .right-box {
   display: flex;
   gap: 2rem;
+  margin-top: -1rem;
 }
 .tab-wrap .horizontal-line {
   border-top: 0.1rem solid var(--border-color);

@@ -1,10 +1,14 @@
-import { ChangeEventHandler, ReactNode, useState } from "react";
+import { ChangeEventHandler, ReactNode, useEffect, useState } from "react";
 import DashboardLayout from "../../../layout/dashboardLayout/dashboard-layout";
 import { EventChange } from "../../../../../types/types";
 import "./create.css";
 import Select from "react-select";
 import { RevvexButton } from "../../../../../buttons/button";
 import { CheckIcon } from "../../../../../../assets/icons/icons";
+import { NumericFormat } from "react-number-format";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../../../redux/types";
+import { getPrivileges } from "../../../../../../redux/Offers";
 
 interface CreateOffersType {
   title: string;
@@ -31,6 +35,10 @@ interface SelectOption {
 }
 
 const CreateOffers = () => {
+  const dispatch = useDispatch();
+  const { loading, privileges } = useSelector(
+    (state: RootState) => state.offers
+  );
   const [details, setDetails] = useState<CreateOffersType>({
     title: "",
     trial_duration: "",
@@ -44,11 +52,15 @@ const CreateOffers = () => {
     users: "",
   });
 
-  const handleChange = (e: EventChange) => {
+  const handleChange = (e: any) => {
     const { name, value } = e.target;
     const data = { ...details, [name]: value };
     setDetails(data);
   };
+
+  useEffect(() => {
+    dispatch(getPrivileges({}) as any);
+  }, []);
 
   const featureOptions: SelectOption[] = [
     {
@@ -97,32 +109,40 @@ const CreateOffers = () => {
       <div className="create-offer-wrap">
         {/* form-wrap start */}
         <div className="form-wrap">
-          <p className="title">Plan Information</p>
+          <p className="title" onClick={() => console.log(privileges, "chai")}>
+            Plan Information
+          </p>
           <div className="form-group">
             {/*  form input box start*/}
             <div className="form-box">
               <label>Title</label>
               <input
+                type="text"
+                name="title"
+                id="title"
+                value={details.title}
                 className={`form-input ${
                   details.title ? "active-form-input" : ""
                 }`}
                 placeholder="Add a descriptive title"
                 onChange={handleChange}
-                value={details.title}
               />
             </div>
             {/*  form input box end*/}
 
             {/*  form input box start*/}
             <div className="form-box">
-              <label>Trial duration</label>
+              <label>Trial duration (days)</label>
               <input
+                type="number"
+                id="trial_duration"
+                name="trial_duration"
+                value={details.trial_duration}
                 className={`form-input ${
                   details.trial_duration ? "active-form-input" : ""
                 }`}
-                placeholder="e.g 7 days"
+                placeholder="e.g 7"
                 onChange={handleChange}
-                value={details.trial_duration}
               />
             </div>
             {/*  form input box end*/}
@@ -137,13 +157,20 @@ const CreateOffers = () => {
             {/*  form input box start*/}
             <div className="form-box">
               <label>Yearly Price</label>
-              <input
+              <NumericFormat
+                type="text"
+                name="yearly_price"
+                id="yearly_price"
                 className={`form-input ${
                   details.yearly_price ? "active-form-input" : ""
                 }`}
                 placeholder="Enter yearly price"
                 onChange={handleChange}
                 value={details.yearly_price}
+                decimalScale={3}
+                decimalSeparator="."
+                allowNegative
+                thousandSeparator={","}
               />
             </div>
             {/*  form input box end */}
@@ -151,13 +178,20 @@ const CreateOffers = () => {
             {/*  form input box start */}
             <div className="form-box">
               <label>Monthly Price</label>
-              <input
+              <NumericFormat
+                type="text"
                 className={`form-input ${
                   details.monthly_price ? "active-form-input" : ""
                 }`}
-                placeholder="e.g 7 days"
                 onChange={handleChange}
                 value={details.monthly_price}
+                name="monthly_price"
+                id="monthly_price"
+                placeholder="Enter monthly price"
+                decimalScale={3}
+                decimalSeparator="."
+                allowNegative
+                thousandSeparator={","}
               />
             </div>
             {/*  form input box end */}
@@ -169,7 +203,7 @@ const CreateOffers = () => {
                 className={`discount-select-input ${
                   details.discount ? "select-input-active" : ""
                 }`}
-                placeholder="e.g 7 days"
+                placeholder="10%"
                 // onChange={handleChange}
                 value={details.discount}
                 options={[]}
@@ -192,8 +226,13 @@ const CreateOffers = () => {
                 }`}
                 isMulti
                 placeholder="Enter Privileges"
-                // onChange={handleChange}
-                value={details.yearly_price}
+                value={details.privileges}
+                options={privileges}
+                onChange={(e: any) =>
+                  setDetails((prev) => {
+                    return { ...prev, privileges: e };
+                  })
+                }
               />
             </div>
             {/*  form input box end*/}

@@ -7,6 +7,11 @@
 }
 .report-generate-modal-wrap .top-wrap {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.report-generate-modal-wrap .top-wrap .title-wrap {
+  display: flex;
   flex-direction: column;
   gap: 1rem;
 }
@@ -14,6 +19,18 @@
   font-weight: 700;
   font-size: 1.8rem;
   color: var(--dark-color);
+}
+.report-generate-modal-wrap .top-wrap .cancel-wrap {
+  background-color: #ffefeb;
+  padding: 0.7rem;
+  border-radius: 100%;
+  cursor: pointer;
+  margin-top: -4rem;
+}
+.report-generate-modal-wrap .top-wrap .cancel-wrap .cancel-icon {
+  display: flex;
+  justify-content: center;
+  color: #f76659;
 }
 .report-generate-modal-wrap .form-group {
   display: flex;
@@ -23,7 +40,6 @@
 }
 .report-generate-modal-wrap .form-group .date-input {
   border: 0.1rem solid var(--border-color);
-  background-color: var(--light-grey-color);
   border-radius: 0.8rem;
   padding: 1.5rem;
 }
@@ -54,7 +70,7 @@
   display: none;
 }
 .report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-input:checked ~ .check-label .check-circle {
-  background-color: #4d4d4d;
+  background-color: var(--blue-color);
 }
 .report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-input:checked ~ .check-label .check-circle .icon {
   color: var(--white-color);
@@ -70,7 +86,7 @@
 .report-generate-modal-wrap .select-file-wrap .check-box-wrap .check-box-group .check-label .check-circle {
   width: 2.5rem;
   height: 2.5rem;
-  border: 0.2rem solid #4d4d4d;
+  border: 0.2rem solid var(--blue-color);
   border-radius: 50%;
   margin-right: 0.5rem;
   display: grid;

@@ -10,7 +10,7 @@
   }
 
   .form-wrap {
-    width: 100rem;
+    width: 80%;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -19,20 +19,20 @@
     .form-input-wrap {
       display: flex;
       justify-content: space-between;
-
       gap: 3rem;
 
       .form-input-box {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
- 
+        width: 100%;
+
         .form-input {
-          width: 45rem;
+          width: 100%;
           padding: 1rem;
         }
         .select-input {
-          width: 45rem;
+          width: 100%;
         }
       }
     }
@@ -84,6 +84,7 @@
             justify-content: space-between;
             width: 34rem;
             cursor: pointer;
+            text-transform: capitalize;
 
             .check-square {
               background-color: var(--white-bg-color);
@@ -104,7 +105,6 @@
 
     .btn {
       width: 10rem;
-
     }
   }
 }

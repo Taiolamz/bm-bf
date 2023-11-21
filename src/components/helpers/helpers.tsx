@@ -91,7 +91,7 @@ export function HandlepaginationHelper(c: any, m: any) {
   return rangeWithDots;
 }
 
-export function numberFormatChart({ num, digits }: any) {
+export function numberFormatChart(num?: any, digits?: any) {
   const lookup = [
     { value: 1, symbol: "" },
     { value: 1e3, symbol: "k" },
@@ -112,7 +112,6 @@ export function numberFormatChart({ num, digits }: any) {
     ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol
     : "0";
 }
-
 
 export const decryptTokenFunc = (tok: any) => {
   if (tok) {
@@ -145,6 +144,30 @@ export function GetInitials(text: string) {
   const initialToString = initials.join("");
   return initialToString;
 }
+
+export function formatNumberWithComma(numb: any) {
+  var regex = /[,\sNG]/g;
+  var result: any = String(numb).replace(regex, "");
+  var num: any = Math.abs(result);
+  num = num.toFixed(2);
+  const numSplit = num.split(".");
+  var int = numSplit[0];
+  // const dec = numSplit[1];
+  if (int.length > 3) {
+    int = int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  return int;
+}
+
+export const addLabelValueFunc = (list: any) => {
+  // console.log(list);
+  const newList = list.map((chi: any) => {
+    return { ...chi, label: chi?.name || chi?.title, value: chi?.id };
+  });
+  // console.log(newList);
+  return newList;
+};
 
 export const customErrorId = "jgsvbjbx";
 export const customSuccessId = "jgsvbjiuysbx";

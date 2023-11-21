@@ -5,26 +5,25 @@
 }
 .progress-chart-wrap .progress-chart-box {
   background-color: var(--white-bg-color);
-  height: 50.6rem;
-  width: 30rem;
+  height: 52.6rem;
   padding: 2rem;
   border-radius: 1.1rem;
 }
 .progress-chart-wrap .progress-chart-box .revenue-title {
   color: var(--green-color);
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 .progress-chart-wrap .progress-chart-box .revenue-amount {
   color: var(--gray-scale-color);
   font-weight: 600;
-  font-size: 2.4rem;
+  font-size: 3rem;
   border-bottom: 0.2rem solid var(--gray-scale-color);
   padding-bottom: 0.4rem;
 }
 .progress-chart-wrap .progress-chart-box .small-text {
   color: #84919a;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 0.6rem;
 }
 .progress-chart-wrap .progress-bar-wrap {

@@ -70,9 +70,9 @@ export const getBillingsPagination = createAsyncThunk(
   "web/get-billings",
   async (payload: billingPayload, thunkAPI) => {
     try {
-      const data = await axios.get(`${payload?.url}&per_page=${
-        payload?.per_page || 10
-      }` || "");
+      const data = await axios.get(
+        `${payload?.url}&per_page=${payload?.per_page || 10}` || ""
+      );
       //   console.log(data);
 
       if (data?.data?.status === "fail") {
@@ -113,9 +113,10 @@ export const getBillingsPagination = createAsyncThunk(
 
 const initialState: BillingState = {
   loading: false,
-  billing: {
-    billing: {},
-  },
+  // billing: {
+  //   billing: {},
+  // },
+  billing: {},
   // initialize other state properties
 };
 

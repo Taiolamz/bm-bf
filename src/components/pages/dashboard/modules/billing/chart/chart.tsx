@@ -11,6 +11,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { numberFormatChart } from "../../../../../helpers/helpers";
+import NoChartContent from "../../../../../helpers/no-chart-content";
 
 ChartJS.register(
   CategoryScale,
@@ -37,8 +38,18 @@ interface DataSets {
   borderColor?: string;
 }
 
-export function BillingChart() {
-  const labels: string[] = [
+interface BillingDataProps {
+  billingData?: number[] | any;
+  billingLabel?: any;
+  loading?: boolean;
+}
+
+export function BillingChart({
+  billingData,
+  billingLabel,
+  loading,
+}: BillingDataProps) {
+  const labels: string[] = billingLabel || [
     "Jan",
     "Feb",
     "Mar",
@@ -56,7 +67,7 @@ export function BillingChart() {
   const dataSets: DataSets[] = [
     {
       label: "Inflow",
-      data: [10, 20, 30, 40, 50, 69, 22, 44, 55, 56, 23, 54],
+      data: billingData || [10, 20, 30, 40, 50, 69, 22, 44, 55, 56, 23, 54],
       backgroundColor: "#119c2b",
       barThickness: 30,
       borderColor: "rgba(0,0,0,0)",
@@ -122,6 +133,7 @@ export function BillingChart() {
         grid: {
           display: true,
         },
+
         border: {
           dash: [5, 5],
           display: false,
@@ -138,6 +150,11 @@ export function BillingChart() {
       },
     },
   };
+
+//   if (loading) {
+//     // return <NoChartContent />;
+//     return <p>Loading....</p>;
+//   }
 
   return (
     <>

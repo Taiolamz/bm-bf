@@ -21,6 +21,7 @@
     background-color: var(--white-bg-color);
     padding: 3rem 5rem;
     border-radius: 1.2rem;
+    position: relative;
 
     .top-chart-wrap {
       display: flex;
@@ -35,6 +36,22 @@
       }
     }
   }
+  .bottom-chart-box {
+    display: flex;
+    // position: relative;
+
+    p {
+      position: absolute;
+      transform: rotate(-90deg);
+      left: -1rem;
+      //   padding-bottom: 3rem;
+      top: 45%;
+      font-size: 1.2rem;
+      color: var(--disable-mid-color);
+      font-weight: 300;
+    }
+  }
+
   .bottom-chart-label {
     display: flex;
     justify-content: center;

@@ -4,6 +4,10 @@ import "./create.css";
 import { BsCheck2 } from "react-icons/bs";
 import { LiaTimesSolid } from "react-icons/lia";
 import { RevvexButton } from "../../../../../../buttons/button";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../../../../redux/types";
+import { createAdmin } from "../../../../../../../redux/usersLog";
+import { Dna } from "react-loader-spinner";
 
 interface UserDetails {
   first_name: string;
@@ -17,12 +21,9 @@ interface UserDetails {
 interface NewAdminProp {
   onClose?: () => void;
   onCancel?: () => void;
-  onSubmit?: () => void;
 }
 
-
-
-const NewAdmin = ({ onClose, onCancel, onSubmit }: NewAdminProp) => {
+const NewAdmin = ({ onClose, onCancel }: NewAdminProp) => {
   const [details, setDetails] = useState<UserDetails>({
     first_name: "",
     last_name: "",
@@ -31,13 +32,14 @@ const NewAdmin = ({ onClose, onCancel, onSubmit }: NewAdminProp) => {
     admin_settlement: false,
     support: false,
   });
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.userslog);
 
   const handleChange = (e: EventChange) => {
     const { name, value } = e.target;
     const data = { ...details, [name]: value };
     setDetails(data);
   };
-
   const activateButton = () => {
     let activeBtn: any = false;
     activeBtn =
@@ -62,6 +64,26 @@ const NewAdmin = ({ onClose, onCancel, onSubmit }: NewAdminProp) => {
     });
     if (onClose) {
       onClose();
+    }
+  };
+
+  const roleDetailsToNum = (value: boolean) => {
+    return value ? 1 : 0;
+  };
+
+  const handleSubmit = async () => {
+    const obj: any = {
+      ...details,
+      roles: [
+        // roleDetailsToNum(details.super_admin),
+        // roleDetailsToNum(details.admin_settlement),
+        // roleDetailsToNum(details.support),
+        1, 2,
+      ],
+    };
+    const data = await dispatch(createAdmin(obj) as any);
+    if (data?.payload?.data?.success) {
+      handleCancelForm();
     }
   };
 
@@ -223,17 +245,23 @@ const NewAdmin = ({ onClose, onCancel, onSubmit }: NewAdminProp) => {
             btnType="button"
             onClick={handleCancelForm}
           />
-          <RevvexButton
-            label="Send Invite"
-            btnClassName="invite-btn"
-            bgColor={!activateButton() ? "var(--disable-color)" : ""}
-            onClick={() => (activateButton() ? onSubmit : null)}
-            btnType="button"
-            style={{
-              cursor: !activateButton() ? "not-allowed" : "",
-              color: !activateButton() ? "var(--disable-mid-color)" : "",
-            }}
-          />
+          {loading ? (
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Dna width={50} height={40} />
+            </div>
+          ) : (
+            <RevvexButton
+              label="Send Invite"
+              btnClassName="invite-btn"
+              bgColor={!activateButton() ? "var(--disable-color)" : ""}
+              onClick={() => (activateButton() ? handleSubmit() : null)}
+              btnType="button"
+              style={{
+                cursor: !activateButton() ? "not-allowed" : "",
+                color: !activateButton() ? "var(--disable-mid-color)" : "",
+              }}
+            />
+          )}
         </div>
       </form>
       {/* body wrap end */}

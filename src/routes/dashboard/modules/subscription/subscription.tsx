@@ -3,7 +3,6 @@ import Subscription from "../../../../components/pages/dashboard/modules/subscri
 export const Subscription_route_group = [
   {
     path: "/dashboard-subscription",
-    element: Subscription ,
-
+    element: Subscription,
   },
 ];

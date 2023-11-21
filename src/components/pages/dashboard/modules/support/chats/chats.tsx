@@ -152,7 +152,7 @@ const Chats = () => {
                 <Skeleton
                   width={"32rem"}
                   height={"10rem"}
-                  baseColor="#D9D9D9"
+                   
                 />
                 {/* <span className="message-box"></span> */}
                 <p className="time">11:25</p>
@@ -166,7 +166,7 @@ const Chats = () => {
               {/* message box (receiver) and time start */}
               <div className="message-box-group">
                 {/* <span className="message-box"></span> */}
-                <Skeleton width={"32rem"} height={"7rem"} baseColor="#D9D9D9" />
+                <Skeleton width={"32rem"} height={"7rem"}   />
                 <p className="time">11:25</p>
               </div>
               {/* message box (receiver) and time end */}
@@ -180,7 +180,7 @@ const Chats = () => {
                 <Skeleton
                   width={"32rem"}
                   height={"10rem"}
-                  baseColor="#D9D9D9"
+                   
                 />
                 {/* <span className="message-box"></span> */}
                 <p className="time">11:25</p>
@@ -194,7 +194,7 @@ const Chats = () => {
               {/* message box (receiver) and time start */}
               <div className="message-box-group">
                 {/* <span className="message-box"></span> */}
-                <Skeleton width={"32rem"} height={"7rem"} baseColor="#D9D9D9" />
+                <Skeleton width={"32rem"} height={"7rem"}   />
                 <p className="time">11:25</p>
               </div>
               {/* message box (receiver) and time end */}
@@ -208,7 +208,7 @@ const Chats = () => {
                 <Skeleton
                   width={"32rem"}
                   height={"10rem"}
-                  baseColor="#D9D9D9"
+                   
                 />
                 {/* <span className="message-box"></span> */}
                 <p className="time">11:25</p>
@@ -222,7 +222,7 @@ const Chats = () => {
               {/* message box (receiver) and time start */}
               <div className="message-box-group">
                 {/* <span className="message-box"></span> */}
-                <Skeleton width={"32rem"} height={"7rem"} baseColor="#D9D9D9" />
+                <Skeleton width={"32rem"} height={"7rem"}   />
                 <p className="time">11:25</p>
               </div>
               {/* message box (receiver) and time end */}
@@ -236,7 +236,7 @@ const Chats = () => {
                 <Skeleton
                   width={"32rem"}
                   height={"10rem"}
-                  baseColor="#D9D9D9"
+                   
                 />
                 {/* <span className="message-box"></span> */}
                 <p className="time">11:25</p>
@@ -250,7 +250,7 @@ const Chats = () => {
               {/* message box (receiver) and time start */}
               <div className="message-box-group">
                 {/* <span className="message-box"></span> */}
-                <Skeleton width={"32rem"} height={"7rem"} baseColor="#D9D9D9" />
+                <Skeleton width={"32rem"} height={"7rem"}   />
                 <p className="time">11:25</p>
               </div>
               {/* message box (receiver) and time end */}
@@ -268,7 +268,7 @@ const Chats = () => {
               className="new-message-input"
               value={newMessage}
               onChange={(e: any) => setNewMessage(e.target.value)}
-              
+
             />
             <label htmlFor="new_message" className="label-wrap">
               <figure>{PinIcon}</figure>

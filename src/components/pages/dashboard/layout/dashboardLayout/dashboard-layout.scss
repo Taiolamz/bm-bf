@@ -4,21 +4,40 @@
   height: 100vh;
   position: relative;
   z-index: 0;
-  //   transition: width 1s;
 
-  .right-admin-main-side-bar {
-    position: fixed;
-    background-color: var(--right-sidebar-color);
-    height: 100vh;
-    width: 30.2rem;
-    right: 0;
-    display: inline-block;
-    z-index: 5;
-    border-top-left-radius: 2.4rem;
-    overflow-x: hidden;
-    // animation: slideLeftBar 1s ease;
-    // transition: width 1s;
-  }
+//   .right-admin-main-side-bar {
+//     height: 100vh;
+//     background-color: transparent !important;
+//     width: 100vw;
+//     position: fixed;
+//     z-index: 5000;
+//     transition: 1s;
+   
+
+//     .blur-bg {
+//       height: 100vh;
+//       width: calc(100vw);
+//       // background-color: transparent !important;
+//       position: absolute;
+//       left: 0;
+//       top: 0;
+//       backdrop-filter: blur(3px);
+//       background-color: rgba(0, 0, 0, 0.3);
+//       z-index: 2;
+//     }
+//     .main-bg {
+//       position: absolute;
+//       background-color: var(--right-sidebar-color);
+//       height: 100vh;
+//       width: 35rem;
+//       right: 0;
+//       display: inline-block;
+//       z-index: 5;
+//       border-top-left-radius: 2.4rem;
+//       overflow-x: hidden;
+//       animation: slideLeftBar .5s ease-in-out;
+//     }
+//   }
 
   .sidebar-wrap {
     position: fixed;
@@ -49,7 +68,7 @@
     height: calc(100vh - 8rem);
     overflow-y: scroll;
     z-index: 1;
-    padding: 3rem 5rem;
+    padding: 2rem 2rem;
 
     &::-webkit-scrollbar:horizontal {
       display: none;
@@ -78,20 +97,20 @@
     }
   }
 
-  .navbar-dashboard-home-main-layout-wrap {
-    left: 21.3rem;
-    width: calc(100% - 50.2rem);
-    // transition: width 1s;
+//   .navbar-dashboard-home-main-layout-wrap {
+//     left: 21.3rem;
+//     width: calc(100% - 50.2rem);
+//     // transition: width 1s;
 
-    animation: slideLeft 1s ease;
-  }
+//     animation: slideLeft 1s ease;
+//   }
 }
 
-.dashboard-home-main-layout-wrap {
-  width: calc(100% - 30.2rem);
-  //   transition: width 1s;
-  //   animation: slideLeftBody 1s ease;
-}
+// .dashboard-home-main-layout-wrap {
+//   width: calc(100% - 30.2rem);
+//   transition: width 1s;
+//   animation: slideLeftBody 1s ease;
+// }
 
 // @keyframes slideLeft {
 //   from {
@@ -111,11 +130,11 @@
 //   }
 // }
 
-// @keyframes slideLeftBar {
-//   0% {
-//     transform: translateX(100%);
-//   }
-//   100% {
-//     transform: translateX(0);
-//   }
-// }
+@keyframes slideLeftBar {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

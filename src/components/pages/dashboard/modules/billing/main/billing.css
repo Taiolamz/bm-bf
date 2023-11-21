@@ -19,6 +19,7 @@
   background-color: var(--white-bg-color);
   padding: 3rem 5rem;
   border-radius: 1.2rem;
+  position: relative;
 }
 .billing-wrap .chart-bar-wrap .top-chart-wrap {
   display: flex;
@@ -30,6 +31,18 @@
   font-size: 1.6rem;
   font-weight: 700;
   color: #596080;
+}
+.billing-wrap .bottom-chart-box {
+  display: flex;
+}
+.billing-wrap .bottom-chart-box p {
+  position: absolute;
+  transform: rotate(-90deg);
+  left: -1rem;
+  top: 45%;
+  font-size: 1.2rem;
+  color: var(--disable-mid-color);
+  font-weight: 300;
 }
 .billing-wrap .bottom-chart-label {
   display: flex;

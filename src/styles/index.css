@@ -49,8 +49,7 @@ body {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  overscroll-behavior: none;
   color: var(--grey-color);
   overflow-x: hidden;
 }
@@ -65,12 +64,6 @@ input:-webkit-autofill:active {
 }
 
 input::-moz-placeholder {
-  color: #7e7e96;
-  font-family: "Mulish", sans-serif;
-  font-weight: 300;
-}
-
-input:-ms-input-placeholder {
   color: #7e7e96;
   font-family: "Mulish", sans-serif;
   font-weight: 300;

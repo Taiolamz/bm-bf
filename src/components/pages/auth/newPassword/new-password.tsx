@@ -23,9 +23,10 @@ const NewPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [newConfirmPassword, setNewConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [showPasswordSuccess, setShowPasswordSuccess] = useState(false);
   const { loading } = useSelector((state: RootState) => state.auth);
-//  const navigate = useNavigate()
+  //  const navigate = useNavigate()
   const dispatch = useDispatch();
 
   const handleChange = (e: EventChange) => {
@@ -41,7 +42,7 @@ const NewPassword = () => {
     return btnActive;
   };
 
-  const handleSubmit = async(e?: any) => {
+  const handleSubmit = async (e?: any) => {
     // e.preventDefault();
     //  validations start ----------------
 
@@ -99,18 +100,18 @@ const NewPassword = () => {
 
     if (activeBtn()) {
       // setShowPasswordSuccess(true);
-      const emailTouse = localStorage.getItem("bayuoa") ? decryptTokenFunc(localStorage.getItem("bayuoa")) : "";
+      const emailTouse = localStorage.getItem("bayuoa")
+        ? decryptTokenFunc(localStorage.getItem("bayuoa"))
+        : "";
       const obj = {
         email: emailTouse,
         password: newPassword,
         confirm_password: newConfirmPassword,
       };
       const data = await dispatch(changePassword(obj) as any);
-      if(data?.payload?.data?.success){
-        
-        setShowPasswordSuccess(true)
+      if (data?.payload?.data?.success) {
+        setShowPasswordSuccess(true);
       }
-      
     }
   };
 
@@ -175,7 +176,7 @@ const NewPassword = () => {
               className={`auth-input ${
                 newConfirmPassword && "auth-input-active"
               }`}
-              type={showPassword ? "text" : "password"}
+              type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
               name="password"
               id="password"
@@ -186,8 +187,8 @@ const NewPassword = () => {
             />
 
             {/* password show/hide icon start */}
-            <div onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? (
+            <div onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+              {showConfirmPassword ? (
                 <FaEye className="auth-right-icon" />
               ) : (
                 <FaEyeSlash className="auth-right-icon" />
@@ -197,43 +198,51 @@ const NewPassword = () => {
 
             <label
               htmlFor="password"
-              className={`auth-label ${newConfirmPassword && "auth-label-active"}`}
+              className={`auth-label ${
+                newConfirmPassword && "auth-label-active"
+              }`}
             >
               Confirm Password
             </label>
           </div>
 
           {/* revvex button wrap start */}
-        {loading ? (
-        <div style={{ alignSelf: "center" }}>
-          <Dna
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="dna-loading"
-            // wrapperStyle={{color: "red", backgroundColor : "red"}}
-            wrapperClass="dna-wrapper"
-          />
-        </div>
-      ) :  <RevvexButton
-            label={"Confirm"}
-            btnClassName="auth-btn"
-            bgColor={newPassword && newConfirmPassword ? "var(--blue-color)" : "var(--disable-color)"}
-            style={{
-              color: activeBtn()
-                ? "var(--white-color)"
-                : "var(--disable-mid-color)",
-              cursor: activeBtn() ? "pointer" : "not-allowed",
-            }}
-            btnType="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              if(newPassword && newConfirmPassword){
-                handleSubmit(e)
+          {loading ? (
+            <div style={{ alignSelf: "center" }}>
+              <Dna
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="dna-loading"
+                // wrapperStyle={{color: "red", backgroundColor : "red"}}
+                wrapperClass="dna-wrapper"
+              />
+            </div>
+          ) : (
+            <RevvexButton
+              label={"Confirm"}
+              btnClassName="auth-btn"
+              bgColor={
+                newPassword && newConfirmPassword
+                  ? "var(--blue-color)"
+                  : "var(--disable-color)"
               }
-            }}
-            // btnDisable={!activeBtn()}
-          />}
+              style={{
+                color: activeBtn()
+                  ? "var(--white-color)"
+                  : "var(--disable-mid-color)",
+                cursor: activeBtn() ? "pointer" : "not-allowed",
+              }}
+              btnType="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                if (newPassword && newConfirmPassword) {
+                  handleSubmit(e);
+                }
+              }}
+              // btnDisable={!activeBtn()}
+            />
+          )}
           {/* revvex button wrap stop */}
           {/* form group end */}
         </AuthLayout>

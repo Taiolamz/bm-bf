@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RevvexButton } from "../../../../../buttons/button";
 import TableBody from "../../../../../table/tableBody/table-body";
 import TableContainer from "../../../../../table/tableContainer/main/table-container";
@@ -7,10 +7,17 @@ import "./roles.css";
 import { PenEditIcon } from "../../../../../../assets/icons/icons";
 import { FaCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import RootState from "../../../../../../redux/types";
+import { deleteUserFromRole, getRoles } from "../../../../../../redux/roles";
 
 const Roles = () => {
   const [indexNo, setIndexNo] = useState<any>("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading, roles, deleteLoading } = useSelector(
+    (state: RootState) => state.roles
+  );
 
   const tableHeadList = [
     "Date Created",
@@ -20,61 +27,30 @@ const Roles = () => {
     "Action",
   ];
 
-  const tableBodyList = [
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Admin",
-      description: "Limited functions are permitted",
-      users: "02",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Manager",
-      description: "Approve, invite users & attend to support",
-      users: "05",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Reporter",
-      description: "All functions are permitted",
-      users: "05",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Super Admin",
-      description: "Limited functions are permitted",
-      users: "05",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Reporter",
-      description: "All functions are permitted",
-      users: "05",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Super Admin",
-      description: "Limited functions are permitted",
-      users: "05",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Reporter",
-      description: "All functions are permitted",
-      users: "05",
-    },
-    {
-      date_created: "Sep 8: 9:40AM",
-      role_name: "Super Admin",
-      description: "Limited functions are permitted",
-      users: "05",
-    },
-  ];
+  const handleGetRoles = async () => {
+    const obj: any = {};
+    await dispatch(getRoles(obj) as any);
+  };
+
+  const handleDeleteRole = async (param: any) => {
+    const data = await dispatch(deleteUserFromRole(param?.id) as any);
+    if (data?.payload?.status === 200) {
+      setIndexNo(false);
+      handleGetRoles();
+    }
+  };
+
+  useEffect(() => {
+    handleGetRoles();
+  }, []);
+
   return (
     <DashboardLayout pageTitle="Roles & Permissions" goBack>
       <div className="roles-wrap">
         <div className="title-wrap">
-          <p className="title">Roles</p>
+          <p className="title" onClick={() => console.log(roles)}>
+            Roles
+          </p>
           <RevvexButton
             label="Add New Role"
             plusIcon
@@ -91,22 +67,30 @@ const Roles = () => {
           dontShowserialNo
           className="roles-table-wrap"
         >
-          {tableBodyList.map((chi, idx) => {
-            const { date_created, role_name, description, users } = chi;
+          {roles?.data?.map((chi: any, idx: any) => {
+            const { attributes } = chi;
             return (
               <TableBody
                 dontShowserialNo
                 showOddEvenBody
                 key={idx}
                 num={idx}
-                one={date_created}
-                two={role_name}
-                three={description}
-                four={users}
+                one={"_ _"}
+                two={attributes?.name}
+                three={attributes?.description}
+                four={String(attributes?.users)}
                 action
                 indexNo={indexNo}
                 setIndexNo={() => setIndexNo(idx)}
                 viewText={"Remove User"}
+                // onView listener here works for both to view
+                // on other components and to remove the user
+                // on this component
+                loadingView={deleteLoading}
+                onView={() => {
+                  handleDeleteRole(chi);
+                }}
+                loading={loading}
                 // check the component to confirm assigned props
                 reminderText={"Edit Role"}
                 editIcon={PenEditIcon}

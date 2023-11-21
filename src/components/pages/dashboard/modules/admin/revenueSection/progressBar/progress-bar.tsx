@@ -1,5 +1,3 @@
-import React from "react";
-// import "./chart.css";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,6 +8,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import NoChartContent from "../../../../../../helpers/no-chart-content";
 
 ChartJS.register(
   CategoryScale,
@@ -34,14 +33,31 @@ interface DataSets {
   categoryPercentage?: number;
   borderColor?: string;
   borderRadius?: number;
+  labels?: string[];
 }
 
-export function ProgressChart() {
-  const labels: string[] = ["Enterprise", "Large", "Medium", "SME"];
+interface ProgressChartProps {
+  revenueLabel?: string[];
+  revenueData?: number[];
+  revData?: [] | any;
+  loading?: boolean;
+}
+
+export function ProgressChart({
+  revenueLabel,
+  revenueData,
+  loading,
+}: ProgressChartProps) {
+  const labels: string[] = revenueLabel || [
+    "Enterprise",
+    "Large",
+    "Medium",
+    "SME",
+  ];
 
   const dataSets: DataSets[] = [
     {
-      data: [50, 40, 20, 30],
+      data: revenueData || [50, 40, 20, 30],
       backgroundColor: ["#F012DACC", "#004BFFCC", "#0F8028CC", "#FA159FCC"],
       barThickness: 40,
       borderColor: "rgba(0,0,0,0)",
@@ -57,6 +73,7 @@ export function ProgressChart() {
 
   const options: any = {
     responsive: true,
+    // maintainAspectRatio: false,
     gap: 1,
     plugins: {
       legend: {
@@ -110,14 +127,20 @@ export function ProgressChart() {
       },
     },
   };
+  if (loading) {
+    return (
+      <div style={{ marginTop: "4rem" }}>
+        <NoChartContent />
+      </div>
+    );
+  }
 
   return (
     <>
       <Bar
         redraw={false}
-        width={105}
-        // height={250}
-        // className="chart-wrap"
+        height={370}
+        width={240}
         options={options}
         data={data}
       />

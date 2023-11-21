@@ -4,7 +4,6 @@
   padding: 3rem 4rem;
   gap: 2rem;
 
-
   .top-wrap {
     display: flex;
     justify-content: space-between;
@@ -28,5 +27,9 @@
       font-weight: 700;
       cursor: pointer;
     }
+  }
+
+  .search-input {
+    width: 30.3rem;
   }
 }

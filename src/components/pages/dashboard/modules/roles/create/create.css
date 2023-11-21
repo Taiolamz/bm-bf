@@ -9,7 +9,7 @@
   font-weight: 700;
 }
 .create-roles-wrap .form-wrap {
-  width: 100rem;
+  width: 80%;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -24,13 +24,14 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
 }
 .create-roles-wrap .form-wrap .form-input-wrap .form-input-box .form-input {
-  width: 45rem;
+  width: 100%;
   padding: 1rem;
 }
 .create-roles-wrap .form-wrap .form-input-wrap .form-input-box .select-input {
-  width: 45rem;
+  width: 100%;
 }
 .create-roles-wrap .form-wrap .form-check-wrap {
   display: flex;
@@ -73,6 +74,7 @@
   justify-content: space-between;
   width: 34rem;
   cursor: pointer;
+  text-transform: capitalize;
 }
 .create-roles-wrap .form-wrap .form-check-wrap .form-checkbox-group .form-checkbox-box .check-label .check-square {
   background-color: var(--white-bg-color);

@@ -94,17 +94,17 @@
 
         .auth-input-active {
           @extend .auth-input;
-          border: 0.1rem solid var(--light-blue);
+          border: 0.1rem solid var(--blue-color);
           transition: 0.2s;
         }
 
-        .auth-input-error{
-          border: .1rem solid red !important;
+        .auth-input-error {
+          border: 0.1rem solid red !important;
         }
       }
 
       .password-forget-text {
-        color: var(--light-blue);
+        color: var(--blue-color);
         margin-top: 1rem;
         font-size: 1.2rem;
         font-weight: 400;
@@ -128,3 +128,4 @@
     opacity: 100;
   }
 }
+

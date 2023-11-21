@@ -16,21 +16,26 @@ const DashboardLayout = ({
   pageTitle,
   goBack,
 }: DashboardLayoutProps) => {
-  const location = useLocation();
+  //   const location = useLocation();
   const actionCtx = useContext(ActionContext);
 
   return (
     <div
-      className={`dashboard-layout-wrap ${
-        location.pathname === "/dashboard-home" &&
-        "dashboard-home-main-layout-wrap"
-      }`}
+      className={`dashboard-layout-wrap`}
+      //   className={`dashboard-layout-wrap ${
+      //     location.pathname === "/dashboard-home" &&
+      //     "dashboard-home-main-layout-wrap"
+      //   }`}
     >
-      {location.pathname === "/dashboard-home" && (
+      {/* {actionCtx.moreSubscribers && (
         <div className="right-admin-main-side-bar">
-          <DashboardRightSubscriptionBar />
+          <div className="blur-bg"></div>
+          <div className="main-bg">
+            <DashboardRightSubscriptionBar />
+          </div>
         </div>
-      )}
+      )} */}
+
       {/*  sidemenu wrap starts*/}
       <div className="sidebar-wrap">
         <Sidebar />
@@ -39,10 +44,11 @@ const DashboardLayout = ({
 
       {/* navbar menu wrap start */}
       <div
-        className={`navbar ${
-          location.pathname === "/dashboard-home" &&
-          "navbar-dashboard-home-main-layout-wrap"
-        }`}
+        className={`navbar `}
+        // className={`navbar ${
+        //   location.pathname === "/dashboard-home" &&
+        //   "navbar-dashboard-home-main-layout-wrap"
+        // }`}
       >
         <Navbar pageTitle={pageTitle} goBack={goBack} />
       </div>

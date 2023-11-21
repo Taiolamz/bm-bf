@@ -1,9 +1,13 @@
 // import { MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
 // import { SmallArrowBack } from "../../../../../../assets/icons/icons";
+import { LiaTimesSolid } from "react-icons/lia";
 import SubscriberImg from "../../../../../../assets/subscribed-profile-picture.svg";
 import "./right-subscription-bar.css";
+import { useContext, useState } from "react";
+import ActionContext from "../../../../../context/actionContext";
 
 const DashboardRightSubscriptionBar = () => {
+  const actionCtx = useContext(ActionContext);
   const subscribedUsers = [
     {
       name: "John Doe",
@@ -83,9 +87,17 @@ const DashboardRightSubscriptionBar = () => {
       profile_picture: SubscriberImg,
     },
   ];
+
   return (
     <div className="right-bar-subscription-wrap">
       <p className="right-bar-subscribe-title">Recent Subscriptions</p>
+
+      {/* <div
+          className="cancel-wrap"
+          onClick={() => actionCtx.setMoreSubscribers(false)}
+          >
+          <LiaTimesSolid className="cancel-icon" />
+        </div> */}
 
       <div className="right-bar-subscription-box">
         <div className="right-bar-subscribed-users-wrap">

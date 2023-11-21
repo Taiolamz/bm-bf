@@ -1,34 +1,56 @@
-import { MouseEvent, useEffect, useRef, useState } from "react";
 import "./report-generate-modal.css";
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/themes/airbnb.css";
-import moment from "moment";
 import { CalenderIcon } from "../../../../../../../assets/icons/icons";
 import { RevvexButton } from "../../../../../../buttons/button";
 import { FaCheck } from "react-icons/fa";
-import useClickOutside from "../../../../../../helpers/click-event";
+import { LiaTimesSolid } from "react-icons/lia";
+import { Dna } from "react-loader-spinner";
 
-interface DateType {
-  start_date: string;
-  end_date: string;
-  check_pdf: boolean;
-  check_csv: boolean;
+interface ReportModalProps {
+  startDate?: string;
+  endDate?: string;
+  checkPdf?: boolean;
+  checkCsv?: boolean;
+  onClose?: () => void;
+  onGenerateReport?: () => void;
+  onStartDateChange?: (date: any) => void;
+  onEndDateChange?: (date: any) => void;
+  onPdfChange?: (e: any) => void;
+  onCsvChange?: (e: any) => void;
+  loading?: boolean;
 }
 
-const ReportGenerateModal = () => {
-  const [details, setDetails] = useState<DateType>({
-    start_date: "",
-    end_date: "",
-    check_pdf: false,
-    check_csv: false,
-  });
+const ReportGenerateModal = ({
+  startDate,
+  endDate,
+  checkPdf,
+  checkCsv,
+  onClose,
+  onStartDateChange,
+  onEndDateChange,
+  onGenerateReport,
+  onCsvChange,
+  onPdfChange,
+  loading,
+}: ReportModalProps) => {
+  const activateButton = () => {
+    let activeBtn: any = false;
+    activeBtn = startDate && endDate && (checkPdf || checkCsv);
+    return activeBtn;
+  };
 
   return (
     <div className="report-generate-modal-wrap">
       {/* top-wrap start */}
       <div className="top-wrap">
-        <p className="title">Generate Report</p>
-        <p>Select the start date and end date for your report</p>
+        <div className="title-wrap">
+          <p className="title">Generate Report</p>
+          <p>Select the start date and end date for your report</p>
+        </div>
+        <div className="cancel-wrap" onClick={onClose}>
+          <LiaTimesSolid className="cancel-icon" />
+        </div>
       </div>
       {/* top-wrap end */}
 
@@ -39,17 +61,10 @@ const ReportGenerateModal = () => {
         <Flatpickr
           id="start_date"
           name="start_date"
-          className={`date-input ${details.start_date && "date-input-active"}`}
+          className={`date-input ${startDate && "date-input-active"}`}
           autoComplete="off"
-          value={details.start_date}
-          onChange={(date) =>
-            setDetails((prev: any) => {
-              return {
-                ...prev,
-                start_date: moment(date[0]).format("YYYY-MM-DD"),
-              };
-            })
-          }
+          value={startDate}
+          onChange={onStartDateChange}
           placeholder="Select Date"
         />
         <label className="icon">{CalenderIcon}</label>
@@ -62,17 +77,10 @@ const ReportGenerateModal = () => {
         <Flatpickr
           id="end_date"
           name="end_date"
-          className={`date-input ${details.end_date && "date-input-active"}`}
+          className={`date-input ${endDate && "date-input-active"}`}
           autoComplete="off"
-          value={details.end_date}
-          onChange={(date) =>
-            setDetails((prev: any) => {
-              return {
-                ...prev,
-                end_date: moment(date[0]).format("YYYY-MM-DD"),
-              };
-            })
-          }
+          value={endDate}
+          onChange={onEndDateChange}
           placeholder="Select Date"
         />
         <label className="icon">{CalenderIcon}</label>
@@ -90,12 +98,8 @@ const ReportGenerateModal = () => {
               className="check-input"
               id="check-pdf"
               name="check-pdf"
-              checked={details.check_pdf}
-              onChange={(e) =>
-                setDetails((prev) => {
-                  return { ...prev, check_pdf: e.target.checked };
-                })
-              }
+              checked={checkPdf}
+              onChange={onPdfChange}
             />
             <label htmlFor="check-pdf" className="check-label">
               <div className="check-circle">
@@ -112,12 +116,8 @@ const ReportGenerateModal = () => {
               className="check-input"
               id="check-csv"
               name="check-csv"
-              checked={details.check_csv}
-              onChange={(e) =>
-                setDetails((prev) => {
-                  return { ...prev, check_csv: e.target.checked };
-                })
-              }
+              checked={checkCsv}
+              onChange={onCsvChange}
             />
             <label htmlFor="check-csv" className="check-label">
               <div className="check-circle">
@@ -131,11 +131,27 @@ const ReportGenerateModal = () => {
         {/* check box wrap end */}
 
         {/* button-wrap start */}
-        <RevvexButton
-          label="Generate Report"
-          btnType="button"
-          btnClassName="btn"
-        />
+        {loading ? (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Dna width={70} height={70} />
+          </div>
+        ) : (
+          <RevvexButton
+            label="Generate Report"
+            btnType="button"
+            btnClassName="btn"
+            bgColor={!activateButton() ? "var(--disable-color)" : ""}
+            onClick={() => {
+              if (activateButton() && onGenerateReport) {
+                onGenerateReport();
+              }
+            }}
+            style={{
+              cursor: !activateButton() ? "not-allowed" : "",
+              color: !activateButton() ? "var(--disable-mid-color)" : "",
+            }}
+          />
+        )}
         {/* button-wrap end */}
         {/* form wrap end */}
       </div>

@@ -5,17 +5,6 @@
   position: relative;
   z-index: 0;
 }
-.dashboard-layout-wrap .right-admin-main-side-bar {
-  position: fixed;
-  background-color: var(--right-sidebar-color);
-  height: 100vh;
-  width: 30.2rem;
-  right: 0;
-  display: inline-block;
-  z-index: 5;
-  border-top-left-radius: 2.4rem;
-  overflow-x: hidden;
-}
 .dashboard-layout-wrap .sidebar-wrap {
   position: fixed;
   z-index: 3;
@@ -43,7 +32,7 @@
   height: calc(100vh - 8rem);
   overflow-y: scroll;
   z-index: 1;
-  padding: 3rem 5rem;
+  padding: 2rem 2rem;
   /* width */
   /* Track */
   /* Handle */
@@ -65,13 +54,12 @@
 .dashboard-layout-wrap .body-wrap::-webkit-scrollbar-thumb:hover {
   background: var(--light-blue);
 }
-.dashboard-layout-wrap .navbar-dashboard-home-main-layout-wrap {
-  left: 21.3rem;
-  width: calc(100% - 50.2rem);
-  -webkit-animation: slideLeft 1s ease;
-          animation: slideLeft 1s ease;
-}
 
-.dashboard-home-main-layout-wrap {
-  width: calc(100% - 30.2rem);
+@keyframes slideLeftBar {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }/*# sourceMappingURL=dashboard-layout.css.map */

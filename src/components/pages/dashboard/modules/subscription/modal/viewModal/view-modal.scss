@@ -38,6 +38,8 @@
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        color: var(--dark-color);
+        font-weight: 600;
       }
 
       .view-hr-line {
@@ -49,8 +51,13 @@
         flex-direction: column;
         gap: 3rem;
 
+        .email {
+          text-transform: lowercase;
+        }
+
         // status color set to red at default
         .view-status-text {
+          text-transform: capitalize;
           color: var(--thick-red-color);
         }
         .pending-status-text {
@@ -63,6 +70,7 @@
 
       .city-wrap {
         display: flex;
+        align-items: center;
         gap: 1rem;
 
         .logo-icon {
@@ -89,6 +97,9 @@
     .pending-status {
       color: var(--yellow-color);
       border: 0.1rem solid var(--yellow-color);
+    }
+    .no-status {
+      display: none;
     }
   }
 }

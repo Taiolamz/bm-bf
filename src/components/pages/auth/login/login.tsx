@@ -127,13 +127,18 @@ const Login = () => {
           setEmailError(true);
         }
       }
-      if(data?.payload?.data?.success){
-        const token = data?.payload?.data?.data?.token
-        localStorage.setItem("token", encryptTokenFunc(token))
-        navigate("/dashboard-home")
+      if (data?.payload?.data?.success) {
+        const token = data?.payload?.data?.data?.token;
+        localStorage.setItem("token", encryptTokenFunc(token));
+
+        // localStorage.set;
+        window.location.replace("/dashboard-home");
       }
     }
   };
+
+  const [moveRight, setMoveRight] = useState(false);
+  const [moveLeft, setMoveLeft] = useState(false);
 
   return (
     <>

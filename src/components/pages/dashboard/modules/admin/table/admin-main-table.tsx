@@ -5,6 +5,7 @@ import { Pagination } from "../../../../../table/tableContainer/pagination/pagin
 import { useState } from "react";
 import Search from "../../../../../table/tableContainer/search/search";
 import DashboardHomeReuseTable from "../reuseTable/reuse-table";
+import { useNavigate } from "react-router-dom";
 
 interface TableBodyList {
   user: {
@@ -21,7 +22,13 @@ interface TableBodyList {
   time: string;
 }
 
-const AdminTable: React.FC = () => {
+interface AdminTableProps {
+  tableBodyItems: string[] | any;
+  loading: boolean;
+}
+
+const AdminTable = ({ tableBodyItems, loading }: AdminTableProps) => {
+  const navigate = useNavigate();
   const tableHeadList = [
     "User",
     "Organization",
@@ -29,164 +36,6 @@ const AdminTable: React.FC = () => {
     "Status",
     "Date",
     "Time",
-  ];
-
-  //  lengthy array to check max-height :)
-  const tableBodyList: TableBodyList[] = [
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New revenue projection",
-      status: "successful",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: LargeOrgIcon,
-        name: "Large Corporation",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: LargeOrgIcon,
-        name: "Large Corporation",
-      },
-      action: "New revenue projection",
-      status: "succesfull",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
-    {
-      user: {
-        user_name: "Hassan Lamidi",
-        user_company: "Microsoft",
-      },
-      organization: {
-        icon: StartUpIcon,
-        name: "Start-up",
-      },
-      action: "New Expenditure projection",
-      status: "failed",
-      date: "11/02/23",
-      time: "15:25",
-    },
   ];
 
   const [search, setSearch] = useState("");
@@ -202,6 +51,11 @@ const AdminTable: React.FC = () => {
     }
   };
 
+  const handleAdminTable = (table: any) => {
+    const newData = table?.slice(0, 6);
+    return newData;
+  };
+
   return (
     <div className="admin-main-table-wrap" onScroll={handleScroll}>
       {/* <div className="admin-main-table-box"> */}
@@ -209,7 +63,12 @@ const AdminTable: React.FC = () => {
       <div className="admin-main-table-top-box">
         <div className="title-box">
           <p className="title">Admin Activity</p>
-          <p className="activity-text">See All Activity</p>
+          <p
+            className="activity-text"
+            onClick={() => navigate("/dashboard-home-all-activity")}
+          >
+            See All Activity
+          </p>
         </div>
         {/* pagination start */}
 
@@ -231,8 +90,9 @@ const AdminTable: React.FC = () => {
         {/* table-wrap start */}
         <DashboardHomeReuseTable
           tableHeadItem={tableHeadList}
-          tableBodyItems={tableBodyList}
+          tableBodyItems={handleAdminTable(tableBodyItems)}
           isStickyNav={isSticky}
+          loading={loading}
         />
 
         {/* table-wrap end */}

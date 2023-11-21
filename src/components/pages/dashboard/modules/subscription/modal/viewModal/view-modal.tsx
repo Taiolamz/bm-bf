@@ -3,14 +3,29 @@ import {
   CountryNigIcon,
   SmallArrowBack,
 } from "../../../../../../../assets/icons/icons";
-import { capitalizeFirstWord } from "../../../../../../helpers/helpers";
+// import { capitalizeFirstWord } from "../../../../../../helpers/helpers";
+import moment from "moment";
+import { Dna } from "react-loader-spinner";
 
 interface ViewModalProps {
   onHandleStatus?: () => void;
   onClose?: () => void;
+  detail?: any;
+  showCancelSub?: boolean;
+  className?: string;
+  showOrgDetailsText?: boolean;
+  loading?: boolean;
 }
 
-const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
+const ViewModal = ({
+  onHandleStatus,
+  onClose,
+  detail,
+  showCancelSub,
+  className,
+  showOrgDetailsText,
+  loading,
+}: ViewModalProps) => {
   const viewItemsLabel = [
     "Organisation Name",
     "Email Address",
@@ -21,30 +36,16 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
     "Last Seen",
     "Status",
   ];
-  const viewItemsValue = [
-    {
-      organization_name: "Microsoft",
-      email_address: "hlamidi@zojatech.com",
-      phone_number: "09087365217",
-      location: {
-        // delete logo icon on integration if its coming from BE. :)
-        city: "Lagos, Nigeria",
-        logo: CountryNigIcon,
-      },
-      date_added: "June 8, 2022",
-      subscription_plans: "SME",
-      last_seen: "June 8, 2:30pm",
-      status: "Canceled",
-    },
-  ];
   return (
-    <div className="view-modal-wrap">
-      <div className="title-wrap">
-        <figure className="arrow-icon" onClick={onClose}>
-          {SmallArrowBack}
-        </figure>
-        <p>Organisation Details</p>
-      </div>
+    <div className={`view-modal-wrap ${className}`}>
+      {showOrgDetailsText && (
+        <div className="title-wrap">
+          <figure className="arrow-icon" onClick={onClose}>
+            {SmallArrowBack}
+          </figure>
+          <p onClick={() => console.log(detail)}>Organisation Details</p>
+        </div>
+      )}
       {/* body-wrap start */}
       <div className="view-modal-body-wrap">
         <div className="left-modal-body-wrap">
@@ -60,43 +61,51 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
           <hr className="view-hr-line" />
 
           {/* right-wrap start */}
-          {viewItemsValue.map((chi) => {
-            const {
-              organization_name,
-              email_address,
-              phone_number,
-              location,
-              date_added,
-              subscription_plans,
-              last_seen,
-              status,
-            } = chi;
+          {detail && Array(detail)?.map((chi) => {
+            const { plan_details } = chi;
             return (
               <div className="right-box">
-                <p>{organization_name}</p>
-                <p>{capitalizeFirstWord(email_address)}</p>
-                <p>{phone_number}</p>
+                <p>{plan_details?.organization.name || "_ _"}</p>
+                <p className="email">{plan_details?.user.email}</p>
+                <p>{plan_details?.user.phone_number || "_ _"}</p>
+                {/* <p>{phone_number}</p> */}
 
                 {/* city box start */}
                 <div className="city-wrap">
-                  <p>{location.city}</p>
-                  <figure className="logo-icon">{location.logo}</figure>
+                  <p>{plan_details?.organization.country || "_ _"}</p>
+                  {/* <p>{location.city}</p> */}
+                  <figure className="logo-icon">{"_ _"}</figure>
+                  {/* <figure className="logo-icon">{location.logo}</figure> */}
                 </div>
                 {/* city box end */}
 
-                <p>{date_added}</p>
-                <p>{subscription_plans}</p>
-                <p>{last_seen}</p>
+                <p>
+                  {plan_details?.organization.date_added
+                    ? moment(plan_details?.organization.date_addedd).format(
+                        "YYYY - MM - DD"
+                      )
+                    : "_ _"}
+                </p>
+                <p>{plan_details?.subscription_plan_details.title || "_ _"}</p>
+                {/* ^^ last seen ^^ */}
+                <p>
+                  {plan_details?.updated_at
+                    ? moment(plan_details?.updated_at).format("YYYY - MM - DD")
+                    : "_ _"}
+                </p>
+                {/* <p>{last_seen}</p> */}
                 <p
                   className={`view-status-text ${
-                    status.toLowerCase() === "active"
+                    plan_details?.status === "active" ||
+                    plan_details?.status === "trial"
                       ? "active-status-text"
-                      : status.toLowerCase() === "pending"
-                      ? "pending-status-text"
-                      : ""
+                      : ""//   : plan_details.status.toLowerCase() === "cancelled" ||
+                    //   plan_details.status === "pending"
+                    //   ? "pending-status-text"
+                    //   : ""
                   }`}
                 >
-                  {status}
+                  {plan_details?.status}
                 </p>
               </div>
             );
@@ -106,10 +115,37 @@ const ViewModal = ({ onHandleStatus, onClose }: ViewModalProps) => {
 
         {/* right-body-wrap start */}
         {/* ------->>> each of the status color have been defined in the styling  */}
-        {/* ------->>> condition using their classname instead of inline styling :)  */}
-        <p className="status-text" onClick={onHandleStatus}>
-          {"Cancel Subscription"}
-        </p>
+        {/* ------->>> conition using their classname instead of inline styling :)  */}
+        {showCancelSub && (
+          <>
+            {loading ? (
+              <div
+                className="status-text"
+                style={{ border: "none", marginTop: "-3rem" }}
+              >
+                <Dna width={60} height={100} />
+              </div>
+            ) : (
+              <p
+                className={`status-text ${
+                  detail?.plan_details?.status === "cancelled"
+                    ? "active-status"
+                    : detail?.plan_details?.status === "pending"
+                    ? "no-status"
+                    : ""
+                }`}
+                onClick={onHandleStatus}
+              >
+                {detail?.plan_details?.status === "active" ||
+                detail?.plan_details?.status === "trial"
+                  ? "Cancel Subscription"
+                  : detail?.plan_details?.status === "cancelled"
+                  ? "Activate Subscription"
+                  : ""}
+              </p>
+            )}
+          </>
+        )}
         {/* right-body-wrap end */}
       </div>
       {/* body-wrap end */}

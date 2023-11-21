@@ -14,7 +14,7 @@ export const Admin_route_group = [
   },
 
   {
-    path: "/dashboard-home-active-subscribers",
+    path: "/dashboard-home-all-activity",
     element: AllActivity ,
   },
 ];

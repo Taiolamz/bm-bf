@@ -23,12 +23,21 @@ interface DataSets {
   hoverBorderColor?: string[];
 }
 
-export function DoughnutChart() {
-  const labels: string[] = ["Enterprise", "Large", "Medium", "SME"];
+interface DoughnutChartProps {
+  planLabels?: string[];
+  planData?: string[];
+}
+export function DoughnutChart({ planLabels, planData }: DoughnutChartProps) {
+  const labels: string[] = planLabels || [
+    "Enterprise",
+    "Large",
+    "Medium",
+    "SME",
+  ];
 
   const dataSets: DataSets[] = [
     {
-      data: [80, 90, 75, 100],
+      data: planData || [80, 90, 75, 100],
       fill: true,
       backgroundColor: [
         "rgba(255, 144, 144, 1)",
@@ -46,7 +55,7 @@ export function DoughnutChart() {
         "rgba(205, 142, 142, 1)",
         "rgba(250, 21, 159, 0.8)",
       ],
-      hoverBorderWidth: 10,
+      hoverBorderWidth: 5,
     },
   ];
 
@@ -92,6 +101,7 @@ export function DoughnutChart() {
       },
     },
   };
+  
 
   return (
     <div

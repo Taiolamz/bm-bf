@@ -5,15 +5,20 @@ const ActionContext = createContext<{
   moreSideItemsFunc: (param: any) => void;
   isModalOut: boolean;
   setIsModalOut: (param: any) => void;
+  moreSubscribers: boolean;
+  setMoreSubscribers: (param: any) => void;
 }>({
   moreSideItems: true,
   moreSideItemsFunc: (param) => {},
   isModalOut: false,
   setIsModalOut: (param) => {},
+  moreSubscribers: false,
+  setMoreSubscribers: (param) => {},
 });
 
 export function ActionContextProvider(props: any) {
   const [showMoreSideItems, setShowMoreSideItems] = useState(false);
+  const [showMoreSubscribers, setShowMoreSubscribers] = useState(false);
   const [showIsModalOut, setShowModalOut] = useState(false);
 
   function handleMoreSidebarItemsFunction(param: boolean) {
@@ -24,11 +29,17 @@ export function ActionContextProvider(props: any) {
     setShowModalOut(param);
   }
 
+  function handleShowMoreSubscribers(param: boolean) {
+    setShowMoreSubscribers(param);
+  }
+
   const context = {
     moreSideItems: showMoreSideItems,
     moreSideItemsFunc: handleMoreSidebarItemsFunction,
     isModalOut: showIsModalOut,
     setIsModalOut: handleModalChange,
+    moreSubscribers: showMoreSubscribers,
+    setMoreSubscribers: handleShowMoreSubscribers,
   };
 
   return (

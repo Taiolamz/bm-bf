@@ -36,7 +36,7 @@
 
         &:hover {
           transform: scale(1.03) translateX(0.1rem);
-          background-color: var(--light-blue);
+          background-color: var(--blue-color);
         }
 
         & > *:first-child {
@@ -57,10 +57,10 @@
       }
 
       .current-chi {
-        background-color: var(--light-blue);
+        background-color: var(--blue-color);
 
         &:hover {
-          background-color: var(--light-blue);
+          background-color: var(--blue-color);
         }
       }
     }

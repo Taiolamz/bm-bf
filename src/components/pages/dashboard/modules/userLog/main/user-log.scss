@@ -42,8 +42,6 @@
       }
     }
 
-    
-
     // mid-children-wrap-style
   }
   .search-input {
@@ -52,7 +50,6 @@
 
   .sort-by-wrap {
     position: relative;
-    
 
     .sort-text-wrap {
       display: flex;
@@ -102,6 +99,7 @@
           justify-content: space-between;
           cursor: pointer;
           align-items: center;
+        
 
           .check-square {
             background-color: var(--white-bg-color);
@@ -129,6 +127,14 @@
         }
       }
     }
+  }
+}
+.view-user-log-modal-wrap {
+  width: 70rem;
+  
+  .view-modal-body-wrap {
+    justify-content: center;
+    margin-top: 5rem;
   }
 }
 

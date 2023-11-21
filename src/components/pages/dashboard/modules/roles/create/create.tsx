@@ -4,10 +4,15 @@ import Select from "react-select";
 import { FaCheck } from "react-icons/fa";
 import "./create.css";
 import { RevvexButton } from "../../../../../buttons/button";
+import RootState from "../../../../../../redux/types";
+import { useSelector, useDispatch } from "react-redux";
+import { createRole } from "../../../../../../redux/roles";
+import { Dna } from "react-loader-spinner";
 
 interface DetailsType {
-  role_name: string;
+  name: string;
   user: any;
+  permissions: any;
 }
 
 interface UserOptions {
@@ -16,9 +21,118 @@ interface UserOptions {
 }
 
 const CreateRoles = () => {
+  const { loading } = useSelector((state: RootState) => state.roles);
+  const dispatch = useDispatch();
   const [details, setDetails] = useState<DetailsType>({
-    role_name: "",
+    name: "",
     user: "",
+    permissions: [
+      {
+        title: "Reports",
+        checkboxes: [
+          {
+            label: "view reports",
+            is_checked: false,
+          },
+          {
+            label: "archive report",
+            is_checked: false,
+          },
+          {
+            label: "share report",
+            is_checked: false,
+          },
+          {
+            label: "delete report",
+            is_checked: false,
+          },
+        ],
+      },
+      {
+        title: "Supports",
+        checkboxes: [
+          {
+            label: "view chats",
+            is_checked: false,
+          },
+          {
+            label: "reply chats",
+            is_checked: false,
+          },
+          {
+            label: "create tickets",
+            is_checked: false,
+          },
+          {
+            label: "modify ticket",
+            is_checked: false,
+          },
+          {
+            label: "view blacklist",
+            is_checked: false,
+          },
+          {
+            label: "reactivate customer",
+            is_checked: false,
+          },
+        ],
+      },
+      {
+        title: "Users",
+        checkboxes: [
+          {
+            label: "create users",
+            is_checked: false,
+          },
+          {
+            label: "view users",
+            is_checked: false,
+          },
+          {
+            label: "edit users",
+            is_checked: false,
+          },
+          {
+            label: "delete users",
+            is_checked: false,
+          },
+        ],
+      },
+      {
+        title: "Roles",
+        checkboxes: [
+          {
+            label: "create roles",
+            is_checked: false,
+          },
+          {
+            label: "view roles",
+            is_checked: false,
+          },
+          {
+            label: "edit roles",
+            is_checked: false,
+          },
+          {
+            label: "delete roles",
+            is_checked: false,
+          },
+        ],
+      },
+      {
+        title: "Settings",
+        checkboxes: [
+          {
+            label: "account",
+            is_checked: false,
+          },
+          {
+            label: "notification",
+            is_checked: false,
+          },
+        ],
+      },
+    ],
   });
 
   const handleChange = (e: any) => {
@@ -30,160 +144,76 @@ const CreateRoles = () => {
   const userOptions: UserOptions[] = [
     {
       label: "Hassan Lamidi",
-      value: "hassan",
+      value: "01",
     },
     {
       label: "Ayeni Kehinde",
-      value: "kehinde",
+      value: "02",
     },
     {
       label: "Hassan Ayeni",
-      value: "akhot  :)",
+      value: "03",
     },
   ];
 
-  const [detailsChecked, setDetailsCheck] = useState([
-    {
-      title: "Reports",
-      checkboxes: [
-        {
-          label: "View Reports",
-          is_checked: false,
-        },
-        {
-          label: "Archive Report",
-          is_checked: false,
-        },
-        {
-          label: "Share Report",
-          is_checked: false,
-        },
-        {
-          label: "Delete Report",
-          is_checked: false,
-        },
-      ],
-    },
-    {
-      title: "Supports",
-      checkboxes: [
-        {
-          label: "View Chats",
-          is_checked: false,
-        },
-        {
-          label: "Reply Chats",
-          is_checked: false,
-        },
-        {
-          label: "Create Tickets",
-          is_checked: false,
-        },
-        {
-          label: "Modify Ticket",
-          is_checked: false,
-        },
-        {
-          label: "View Blacklist",
-          is_checked: false,
-        },
-        {
-          label: "Reactivate Customer",
-          is_checked: false,
-        },
-      ],
-    },
-    {
-      title: "Users",
-      checkboxes: [
-        {
-          label: "Create Users",
-          is_checked: false,
-        },
-        {
-          label: "View Users",
-          is_checked: false,
-        },
-        {
-          label: "Edit Users",
-          is_checked: false,
-        },
-        {
-          label: "Delete Users",
-          is_checked: false,
-        },
-      ],
-    },
-    {
-      title: "Roles",
-      checkboxes: [
-        {
-          label: "Create Roles",
-          is_checked: false,
-        },
-        {
-          label: "View Roles",
-          is_checked: false,
-        },
-        {
-          label: "Edit Roles",
-          is_checked: false,
-        },
-        {
-          label: "Delete Roles",
-          is_checked: false,
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      checkboxes: [
-        {
-          label: "Account",
-          is_checked: false,
-        },
-        {
-          label: "Notification",
-          is_checked: false,
-        },
-      ],
-    },
-  ]);
-
   const handleCheckboxChange = (e: any, label: any) => {
-    const data = detailsChecked.map((chi) => {
+    const data = details.permissions.map((chi: any) => {
       return {
         ...chi,
-        checkboxes: chi.checkboxes.map((child) =>
+        checkboxes: chi.checkboxes.map((child: any) =>
           child.label === label
             ? { ...child, is_checked: e.target.checked }
             : child
         ),
       };
     });
-    setDetailsCheck(data);
+    setDetails((prev) => {
+      return { ...prev, permissions: data };
+    });
 
     // grab each checkbox and their label
+    // OR
+    // update on the handleSubmit
   };
 
-//   const ActiveBtn = () => {
-//     const checked = detailsChecked.map((chi, idx) =>
-//       chi.checkboxes.map((child) => child.is_checked === true)
-//     );
-//     // console.log(checked, "show");
-//     const setChecked = checked.map((chi, idx) => chi);
-//     console.log(setChecked, "show-case");
-//     let btn: any = false;
-//     // btn = checked.includes(true);
-//     return btn;
-//   };
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    const { name, user, permissions } = details;
+    const newPermissions = permissions.reduce((a: any, b: any) => {
+      return a.concat(
+        b.checkboxes
+          .filter((chi: any) => chi.is_checked)
+          .map((child: any) => child.label)
+      );
+    }, []);
+    const obj: any = {
+      name,
+      user: user?.value,
+      permissions: newPermissions,
+    };
+    console.log(obj);
+    const data = await dispatch(createRole(obj) as any);
+    if(data?.payload?.status === 200) {
 
-//   ActiveBtn();
+        console.log(data);
+    }
+  };
+
+  const activateButton = () => {
+    let activeBtn: any = false;
+    const activeCheckbox = details.permissions.some((chi: any) =>
+      chi.checkboxes.some((check: any) => check.is_checked)
+    );
+    activeBtn = details.name && details.user && activeCheckbox;
+    return activeBtn;
+  };
 
   return (
     <DashboardLayout pageTitle="Roles & Permission" goBack>
       <div className="create-roles-wrap">
-        <p className="title">Roles Overview</p>
+        <p className="title" onClick={activateButton}>
+          Roles Overview
+        </p>
 
         {/* form wrap start */}
         <form className="form-wrap">
@@ -194,11 +224,11 @@ const CreateRoles = () => {
               <label>Role Name</label>
               <input
                 type="text"
-                id="role_name"
-                name="role_name"
+                id="name"
+                name="name"
                 placeholder="Hassan Lamidi"
                 className="form-input"
-                value={details.role_name}
+                value={details.name}
                 onChange={handleChange}
               />
             </div>
@@ -227,13 +257,13 @@ const CreateRoles = () => {
 
           {/* form-check-wrap start */}
           <div className="form-check-wrap">
-            {detailsChecked.map((chi, idx) => {
+            {details.permissions.map((chi: any, idx: any) => {
               const { title, checkboxes } = chi;
               return (
                 <div key={idx} className="form-checkbox-group">
                   <p className="check-title">{title}</p>
                   <div className="form-checkbox-box">
-                    {checkboxes.map((child, indx) => {
+                    {checkboxes.map((child: any, indx: any) => {
                       const { label, is_checked } = child;
                       return (
                         <div key={indx}>
@@ -265,13 +295,23 @@ const CreateRoles = () => {
             })}
           </div>
 
-          <RevvexButton
-            label="Create Role"
-            btnClassName="btn"
-            onClick={() => {
-              "you go run this one";
-            }}
-          />
+          {loading ? (
+            // <div >
+            <Dna width={60} height={60} />
+          ) : (
+            // </div>
+            <RevvexButton
+              label="Create Role"
+              btnClassName="btn"
+              bgColor={!activateButton() ? "var(--disable-color)" : ""}
+              onClick={(e: any) => (activateButton() ? handleSubmit(e) : null)}
+              btnType="button"
+              style={{
+                cursor: !activateButton() ? "not-allowed" : "",
+                color: !activateButton() ? "var(--disable-mid-color)" : "",
+              }}
+            />
+          )}
 
           {/* form-check-wrap end */}
         </form>
